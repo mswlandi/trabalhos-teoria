@@ -105,13 +105,13 @@ operation snd(A,B,C,D){
 
 /// FUNÇÕES CRIADAS
 
-// Testa se A maior que B usando C e D
-test maior(A,B,C,D){
-1: do load(C,A) goto 2
-2: do load(D,B) goto 3
+// Testa se A maior que B usando C, D e E
+test maior(A,B,C,D,E){
+1: do load(C,A,E) goto 2
+2: do load(D,B,E) goto 3
 3: if zero C then goto 4 else goto 5
 4: do clear(D) goto false
-5: if zero D then goto 5 else goto 7
+5: if zero D then goto 6 else goto 7
 6: do clear(C) goto true
 7: do dec C goto 8
 8: do dec D goto 3
@@ -128,26 +128,30 @@ operation subt(A,B,C){
   7: do inc B goto 5
 }
 
-// A:=A%B usando C (operação módulo não-destrutiva)
-operation mod(A,B,C){
-1: do load(C,A) goto 2
-2: do load(A,C) goto 3
-3: do subt(C,B) goto 4
-4: if zero C then goto 0 else goto 2
+// A:=A%B usando C e D (operação módulo não-destrutiva)
+operation mod(A,B,C,D){
+1: do load(C,A,D) goto 2
+2: do load(A,C,D) goto 3
+3: do subt(C,B,D) goto 4
+4: if zero C then goto 5 else goto 2
+5: do load(C,B,D) goto 6
+6: do subt(C,A,D) goto 7
+7: if zero C then goto 8 else goto 0
+8: do clear(A) goto 0
 }
 
 main{
-1: do fst(First, X, Lixo1, Lixo2) goto 2
-2: do snd(Second, X, Lixo1, Lixo2) goto 3
-3: if zero First then goto 4 else goto 5
-4: if zero Second then goto 6 else goto 7
-5: if zero Second then goto 8 else goto 9
+1: do fst(X1, X, Lixo1, Lixo2) goto 2
+2: do snd(X2, X, Lixo1, Lixo2) goto 3
+3: if zero X1 then goto 4 else goto 5
+4: if zero X2 then goto 6 else goto 7
+5: if zero X2 then goto 8 else goto 9
 6: do clear(Y) goto 0
-7: do load(Y, Second) goto 0
-8: do load(Y, First) goto 0
-9: if maior(First, Second, Lixo1, Lixo2) then goto 10 else goto 12
-10: do mod(First, Second, Lixo1) goto 11
-11: if zero First then goto 7 else goto 12
-10: do mod(Second, First, Lixo1) goto 13
-11: if zero Second then goto 8 else goto 10
+7: do load(Y, X2) goto 0
+8: do load(Y, X1) goto 0
+9: if maior(X1, X2, Lixo1, Lixo2, Lixo3) then goto 10 else goto 12
+10: do mod(X1, X2, Lixo1, Lixo2) goto 11
+11: if zero X1 then goto 7 else goto 12
+12: do mod(X2, X1, Lixo1, Lixo2) goto 13
+13: if zero X2 then goto 8 else goto 10
 }
