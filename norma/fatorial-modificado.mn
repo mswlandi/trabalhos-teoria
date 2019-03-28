@@ -1,0 +1,103 @@
+/// Analisando no papel, a função f(n) é igual a: a! - (a-1)! + (a-2)! - ... +- 1.
+/// Portanto, o método utilizado para calcula-la foi calculando fatorial de X, adicionando em Y,
+/// depois o fatorial de X-1, subtraindo de Y, e assim sucessivamente.
+
+/// Estes foram os registradores utilizados neste programa, com suas respectivas funções:
+/// C - Começa sendo igual a X, e é usado como contador (C--)
+/// A - Utilizado para calcular e guardar C!
+/// B - Sinal do C! atual calculado para ser somado em Y
+/// D - Usado para calcular C! (começa sendo igual a C, e é usado como contador (D--))
+/// LIXO1, LIXO2, LIXO3 - registradores usados como variáveis temporáveis (multiplicação, soma...)
+
+/// FUNÇÕES FORNECIDAS
+
+// limpa variável
+operation clear(A){
+ 1: if zero A then goto 0 else goto 2
+ 2: do dec A goto 1
+}
+
+// A:=A+B (soma não-destrutiva)
+operation soma(A,B,LIXO){
+  1: if zero B then goto 5 else goto 2
+  2: do dec B goto 3
+  3: do inc A goto 4
+  4: do inc LIXO goto 1
+  5: if zero LIXO then goto 0 else goto 6
+  6: do dec LIXO goto 7
+  7: do inc B goto 5
+}
+
+// A:=A-B (subtração não-destrutiva)
+operation subtrac(A,B,LIXO){
+  1: if zero B then goto 5 else goto 2
+  2: do dec B goto 3
+  3: do dec A goto 4
+  4: do inc LIXO goto 1
+  5: if zero LIXO then goto 0 else goto 6
+  6: do dec LIXO goto 7
+  7: do inc B goto 5
+}
+
+// A:=B usando LIXO (atribuição não-destrutiva)
+operation load(A,B,LIXO){
+  1: do clear(A) goto 2
+  2: do soma(A,B,LIXO) goto 0
+}
+
+/// FUNÇÕES CRIADAS
+
+operation mult(A,B,LIXO1,LIXO2,LIXO3) {
+  4: do clear(LIXO1) goto 5
+  5: do clear(LIXO2) goto 6
+  6: do clear(LIXO3) goto 10
+
+  10: do load(LIXO1,A,LIXO3) goto 20
+  20: do load(LIXO2,B,LIXO3) goto 30
+  30: do clear(A) goto 40
+
+  40: do soma(A,LIXO1,LIXO3) goto 50
+  50: do dec LIXO2 goto 60
+
+  60: if zero LIXO2 then goto 0 else goto 40
+}
+
+main {
+  // B = 0
+  // C = X
+  5: do clear(B) goto 7
+  7: do load(C,X,LIXO1) goto 10
+
+  // loop:
+  //   A=1
+  //   D = C
+  10: do clear(A) goto 15
+  15: do inc A goto 30
+  30: do load(D,C,LIXO1) goto 40
+
+  //   loop_fatorial:
+  //     A *= D
+  //     D--
+  //     se D != 0, jmp loop_fatorial
+  40: do mult(A,D,LIXO1,LIXO2,LIXO3) goto 50
+  50: do dec D goto 60
+  60: if zero D then goto 70 else goto 40
+
+  //   se B = 0:
+  //     Y += A
+  //     B = 1
+  70: if zero B then goto 80 else goto 100
+  80: do soma(Y,A,LIXO1) goto 90
+  90: do inc B goto 120
+
+  //   senão:
+  //     Y -= A
+  //     B = 0
+  100: do subtrac(Y,A,LIXO1) goto 110
+  110: do clear(B) goto 120
+
+  //   C--
+  //   se C != 0, jmp loop
+  120: do dec C goto 130
+  130: if zero C then goto 0 else goto 10
+}
