@@ -6,20 +6,35 @@ operation clear(A){
  2: do dec A goto 1
 }
 
+// A:=A+B (soma destrutiva)
+operation soma(A,B){
+  1: if zero B then goto 0 else goto 2
+  2: do dec B goto 3
+  3: do inc A goto 1
+}
+
 // A:=B (atribuição destrutiva)
 operation load(A,B){
   1: do clear(A) goto 2
   2: do soma(A,B) goto 0
 }
 
-// A:=A+B usando C (soma de inteiros)
+// A:=A+B (soma não-destrutiva)
 operation soma(A,B,C){
-  1: do load(C, B) goto 2
-  2: if zero C then goto 0 else goto 3
+  1: if zero B then goto 5 else goto 2
+  2: do dec B goto 3
   3: do inc A goto 4
-  4: do dec C goto 2
+  4: do inc C goto 1
+  5: if zero C then goto 0 else goto 6
+  6: do dec C goto 7
+  7: do inc B goto 5
 }
 
+// A:=B usando C (atribuição não-destrutiva)
+operation load(A,B,C){
+  1: do clear(A) goto 2
+  2: do soma(A,B,C) goto 0
+}
 
 /// FUNÇÕES CRIADAS
 
@@ -27,49 +42,50 @@ operation soma(A,B,C){
 operation mult(A,B,C,D,E){
   1: if zero A then goto 8 else goto 2
   2: if zero B then goto 8 else goto 3
-  3: do load(C,A) goto 4
-  4: do load(D,B) goto 5
+  3: do load(C,A,E) goto 4
+  4: do load(D,B,E) goto 5
   5: if cmp D 1 then goto 0 else goto 6
   6: do soma(A,C,E) goto 7
   7: do dec D goto 5
   // Se B ou A for 0, zera A.
-  8: do clear A goto 0
+  8: do clear(A) goto 0
 }
 
-// A:=A div 10 usando B e C (divisão inteira por 10)
-operation div10(A,B,C){
-  1: do load(C,A) goto 2
-  2: do clear(B) goto 3
-  3: if zero C then goto 0 else goto 4
-  4: do dec C goto 5
-  5: do inc B goto 6
-  6: if zero C then goto 0 else goto 7
-  7: do dec C goto 8
-  8: do inc B goto 9
-  9: if zero C then goto 0 else goto 10
-  10: do dec C goto 11
-  11: do inc B goto 12
-  12: if zero C then goto 0 else goto 13
-  13: do dec C goto 14
-  14: do inc B goto 15
-  15: if zero C then goto 0 else goto 16
-  16: do dec C goto 17
-  17: do inc B goto 18
-  18: if zero C then goto 0 else goto 19
-  19: do dec C goto 20
-  20: do inc B goto 21
-  21: if zero C then goto 0 else goto 22
-  22: do dec C goto 23
-  23: do inc B goto 24
-  24: if zero C then goto 0 else goto 25
-  25: do dec C goto 26
-  26: do inc B goto 27
-  27: if zero C then goto 0 else goto 28
-  28: do dec C goto 29
-  29: do inc B goto 30
-  30: if zero C then goto 0 else goto 31
-  31: do dec C goto 32
-  32: do inc A goto 2
+// A:=A div 10 usando B, C e D(divisão inteira por 10)
+operation div10(A,B,C,D){
+  1: do load(C,A,D) goto 2
+  2: do clear(A) goto 3
+  3: do clear(B) goto 4
+  4: if zero C then goto 0 else goto 5
+  5: do dec C goto 6
+  6: do inc B goto 7
+  7: if zero C then goto 0 else goto 8
+  8: do dec C goto 9
+  9: do inc B goto 10
+  10: if zero C then goto 0 else goto 11
+  11: do dec C goto 12
+  12: do inc B goto 13
+  13: if zero C then goto 0 else goto 14
+  14: do dec C goto 15
+  15: do inc B goto 16
+  16: if zero C then goto 0 else goto 17
+  17: do dec C goto 18
+  18: do inc B goto 19
+  19: if zero C then goto 0 else goto 20
+  20: do dec C goto 21
+  21: do inc B goto 22
+  22: if zero C then goto 0 else goto 23
+  23: do dec C goto 24
+  24: do inc B goto 25
+  25: if zero C then goto 0 else goto 26
+  26: do dec C goto 27
+  27: do inc B goto 28
+  28: if zero C then goto 0 else goto 29
+  29: do dec C goto 30
+  30: do inc B goto 31
+  31: if zero C then goto 0 else goto 32
+  32: do dec C goto 33
+  33: do inc A goto 3
 }
 
 main{
@@ -77,6 +93,6 @@ main{
   2: if zero X then goto 0 else goto 3
   3: do inc Y goto 4
   4: if zero X then goto 0 else goto 5
-  5: do div10(X, R, C) goto 6
-  6: do mult(Y, R, C, D) goto 4
+  5: do div10(X, R, C, D) goto 6
+  6: do mult(Y, R, E, F, G) goto 4
 }
