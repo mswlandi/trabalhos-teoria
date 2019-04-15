@@ -1,19 +1,19 @@
-/// Estes s„o os registradores que foram utilizados, junto com suas respectivas funÁıes:
-/// XL - usado como X (para n„o fazer alteraÁıes no registrador de entrada)
+/// Estes s√£o os registradores que foram utilizados, junto com suas respectivas fun√ß√µes:
+/// XL - usado como X (para n√£o fazer altera√ß√µes no registrador de entrada)
 /// X_1 - usado para guardar o valor de f(x-1)
 /// X_2 - usado para guardar o valor de f(x-2)
 /// X_3 - usado para guardar o valor de f(x-3)
-/// C - usado como vari·vel tempor·ria, para as funÁıes destrutivas
+/// C - usado como vari√°vel tempor√°ria, para as fun√ß√µes destrutivas
 
-/// FUN«’ES FORNECIDAS:
+/// FUN√á√ïES FORNECIDAS:
 
-// limpa vari·vel
+// limpa vari√°vel
 operation clear(A){
  1: if zero A then goto 0 else goto 2
  2: do dec A goto 1
 }
 
-// A:=A+B (soma n„o-destrutiva)
+// A:=A+B (soma n√£o-destrutiva)
 operation soma(A,B,C){
   1: if zero B then goto 5 else goto 2
   2: do dec B goto 3
@@ -24,21 +24,20 @@ operation soma(A,B,C){
   7: do inc B goto 5
 }
 
-// A:=B usando C (atribuiÁ„o n„o-destrutiva)
+// A:=B usando C (atribui√ß√£o n√£o-destrutiva)
 operation load(A,B,C){
   1: do clear(A) goto 2
   2: do soma(A,B,C) goto 0
 }
 
-/// FUN«√O CRIADA:
+/// FUN√á√ÉO CRIADA:
 
 main{
 
-5: do load(XL,X,C) goto 10
+5: do load(XL,X,C) goto 20
 
-// if X < 2 return 0
-// X -= 2 (pra fazer o loop de somas direitinho)
-10: do dec XL goto 20
+// if X == 0 return 0
+// X -= 1 (pra fazer o loop de somas direitinho)
 20: if zero XL then goto 0 else goto 30
 30: do dec XL goto 50
 
