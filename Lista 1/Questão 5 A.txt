@@ -1,0 +1,17 @@
+QUESTÃO 5-A
+
+Considerando F = (λx.λy. x y x) (λy.λx. y (x y x))
+
+Uma sequência de reduções beta partindo de F S é:
+(λx.λy. x y x) (λy.λx. y (x y x)) S →β
+(λy. (λy.λx. y (x y x)) y (λy.λx. y (x y x))) S →β
+(λy.λx. y (x y x)) S (λy.λx. y (x y x)) →β (1)
+(λx. S (x S x)) (λy.λx. y (x y x)) →β
+S ((λy.λx. y (x y x)) S (λy.λx. y (x y x))).
+
+Uma sequência de reduções beta partindo de S (F S) é:
+S ((λx.λy. x y x) (λy.λx. y (x y x))) S →β
+S ((λy. (λy.λx. y (x y x)) y (λy.λx. y (x y x)))) S →β
+S ((λy.λx. y (x y x)) S (λy.λx. y (x y x))).
+
+Como F S e S (F S) reduziram para um mesmo termo, F S =β S (F S), logo F é um combinador de ponto fixo.

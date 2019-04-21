@@ -1,0 +1,12 @@
+QUESTÃO 4
+
+Supondo que cada um dos k conjuntos possuem um número contável de termos, podemos enumerar os termos de cada conjunto utilizando os números naturais: 1 para o primeiro elemento do conjunto, 2 para o segundo, e assim por diante...
+Após isso, enumeramos todos os elementos em um contexto global, utilizando o seguinte sistema: m*k+n, sendo m o número do elemento dentro do conjunto (especificado no parágrafo acima), k o número total de conjuntos, e n o número do conjunto menos um (exemplo, o primeiro conjunto é representado por n=0, o segundo por n=1, e assim por diante).
+A enumeração de elementos em contexto geral dita acima, define um valor x para cada elemento. Provarei que cada elemento é enumerado para um número natural distinto, condição suficiente para que o número de elementos seja contável, e portanto a união de todos elementos em um só conjunto também seja. 
+Para a demonstração acima, basta provar duas coisas: (1) que dois elementos de um mesmo conjunto são enumerados para dois naturais distintos, e (2) que a intersecção de valores x para elementos de dois conjuntos distintos é vazia.
+(1) a != b -> a*k+n != b*k+n. Prova por contradição:
+a*k+n == b*k+n -> a*k == b*k ->(pois k >= 2) a == b. Contradição.
+(2) para todo a, para todo b, c != d -> a*k+c != b*k+d. Prova por contradição:
+(existe a, existe b, c != d -> a*k+c == b*k+d) ->
+(existe a, existe b, c != d -> mod(a*k+c, k) == mod(b*k+d, k)) ->
+(existe a, existe b, c != d -> c == d). Contradição
