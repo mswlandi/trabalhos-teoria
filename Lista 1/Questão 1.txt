@@ -1,0 +1,10 @@
+# Foi utilizada sintaxe da linguagem python para a resolução desta questão.
+# (estrutura iterativa)
+
+while(head(1)):
+    insert(0)
+
+insert(1)
+
+while(head(0)):
+    insert(0)
