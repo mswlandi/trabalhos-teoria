@@ -1,0 +1,36 @@
+# Foi utilizada uma sintaxe python análoga à utilizada nos slides (definição de funções,
+# composição sequencial, composição condicional e a expressão vazia)
+
+# Porque funciona:
+#   A função inicial é R1. o que ela faz é zerar o X e executar R2 X vezes.
+#   R2 aumenta X em 1 e executa R3.
+#   R3 zera X aumentando Y em X (Y = Y + X), e restaura o estado anterior de X.
+#
+#   Uma forma de calcular n(n+1)/2 é somando todos os números até n, por exemplo:
+#   1 + 2 + 3 + 4 == 4*(4+1)/2.
+#   É isso que este programa faz. Começa executando R1, que por sua vez executa R2 n vezes.
+#   R2 aumenta X em 1, e chama o R3, que por sua vez adiciona o valor de X em Y. O resultado
+#   final é um somatório de 1 até n, que é o cálculo de n(n+1)/2
+
+P é R1 onde
+
+def R1():
+    if(zero(X)):
+        NOP()
+    else:
+        dec(X)
+        R1()
+        R2()
+
+def R2():
+    inc(X)
+    R3()
+
+def R3():
+    if(zero(X)):
+        NOP()
+    else:
+        dec(X)
+        R3()
+        inc(X)
+        inc(Y)
