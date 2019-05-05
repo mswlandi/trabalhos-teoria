@@ -464,31 +464,6 @@ raizcubica = \n. tryraizcubica 0 n;
 
 -- Questão 5:
 
--- fatia: list int int -> list
-
--- Objetivo: dada uma lista de dois números naturais M e N, devolve uma sub-lista da lista dada em que:
-
---	- M > N: ela é vazia.
-
---	- M <= N: o primeiro elemento dela tem índice M e o último índice N.
-
--- Exemplos: (fatia [1 10 5 0] 1 3) -> [10 5 0]
-
---	(fatia [1 10 5 0] 0 0) -> [1]
-
---	(fatia [1 10 5 0] 7 3) -> empty
-
---	(fatia [1 10 5 0] 1 4) -> [10 5 0]
-
-fatia = \l.\p.\q.
-
-	ifthenelse (geq q (listLength l))
-
-		(fatiaAux l p (pred (listLength l)))
-
-		(fatiaAux l p q);
-
-
 -- fatiaAux: list int int -> list
 
 -- Objetivo: dada uma lista de dois números naturais M e N, devolve uma sub-lista da lista dada em que:
@@ -530,6 +505,31 @@ fatiaAuxX = \X.\l.\p.\q.
 				(X (tail l) (pred p) (pred q))));
 
 fatiaAux = Y fatiaAuxX;
+
+-- fatia: list int int -> list
+
+-- Objetivo: dada uma lista de dois números naturais M e N, devolve uma sub-lista da lista dada em que:
+
+--	- M > N: ela é vazia.
+
+--	- M <= N: o primeiro elemento dela tem índice M e o último índice N.
+
+-- Exemplos: (fatia [1 10 5 0] 1 3) -> [10 5 0]
+
+--	(fatia [1 10 5 0] 0 0) -> [1]
+
+--	(fatia [1 10 5 0] 7 3) -> empty
+
+--	(fatia [1 10 5 0] 1 4) -> [10 5 0]
+
+fatia = \l.\p.\q.
+
+	ifthenelse (geq q (listLength l))
+
+		(fatiaAux l p (pred (listLength l)))
+
+		(fatiaAux l p q);
+
 
 
 
