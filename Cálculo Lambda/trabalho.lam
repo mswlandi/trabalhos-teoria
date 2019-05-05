@@ -221,16 +221,28 @@ ordena = Y ordenaX;
 
 -- Questão 3:
 
--- assinatura: int -> int
--- Objetivo: dado um número, retorna a soma dos seus dígitos (em base 10)
--- Exemplo: (assinatura 1) -> 1
---	    (assinatura 43) -> 7
---	    (assinatura 123) -> 6
-assinaturaX = \X.\m.
+-- somaDigitos: int -> int
+-- Objetivo: dado um número, retorna a da soma dos seus dígitos (em base 10).
+-- Exemplo: (somaDigitos 1) -> 1
+--	(somaDigitos 43) -> 7
+--	(somaDigitos 123) -> 6
+somaDigitosX = \X.\m.
 	ifthenelse (geq m 10)
 		(plus (mod m 10) (X (divide m 10)))
 		m;
+somaDigitos = Y somaDigitosX;
+
+-- assinatura: int -> int
+-- Objetivo: dado um número, retorna a assinatura da soma dos seus dígitos (em base 10), se esse número for maior que 9. Senão, retorna ele mesmo
+-- Exemplo: (assinatura 9) -> 9
+--	(assinatura 55) -> (assinatura 10) -> (assinatura 1) -> 1
+--	(assinatura 228) -> (assinatura 12) -> 3
+assinaturaX = \X.\m.
+	ifthenelse (geq m 10)
+		(X (somaDigitos m))
+		m;
 assinatura = Y assinaturaX;
+
 
 -- Questão 4:
 
@@ -292,5 +304,3 @@ fatia = \l.\p.\q.
 -- Execução:
 
 in
-
-ordena (cons 8 (cons 3 (cons 19 (cons 0 empty))))
