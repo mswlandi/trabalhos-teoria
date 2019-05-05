@@ -54,21 +54,21 @@ leq = \p.\q. (isZero (minus p q));
 -- Exemplos: (ge 10 5) -> true
 -- 	(ge 5 10) -> false
 -- 	(ge 5 5) -> false
-ge = \m. \n. isZero (minus (succ n) m);
+ge = \p.\q. not (leq p q);
 
 -- le: int int -> boolean
 -- Objetivo: dado dois números naturais M e N, retorna true se M < N. Senão, retorna false.
 -- Exemplos: (le 10 5) -> false
 -- 	(le 5 10) -> true
 -- 	(le 5 5) -> false
-le = \m. \n. isZero (minus (succ m) n);
+le = \p.\q. not (geq p q);
 
 -- eq: int int -> boolean
 -- Objetivo: dado dois números naturais M e N, retorna true se M = N. Senão, retorna false.
 -- Exemplos: (eq 10 5) -> false
 --	(eq 5 10) -> false
 --	(eq 5 5) -> true
-eq = \p.\q. and (isZero (minus p q)) (isZero (minus q p));
+eq = \p.\q. and (geq p q)) (leq q p));
 
 -- neq: int int -> boolean
 -- Objetivo: dado dois números naturais M e N, retorna false se M = N. Senão, retorna true.
@@ -82,7 +82,10 @@ neq = \p.\q. not (eq p q);
 -- Exemplo: (divide 10 1) -> 10
 -- 	(divide 11 3) -> 3
 --	(divide 10 0) -> indefinido
-divideX = \X.\p.\q. (ifthenelse (le p q) 0 (succ (X (minus p q) q)));
+divideX = \X.\p.\q.
+	ifthenelse (le p q)
+		0
+		(succ (X (minus p q) q));
 divide = Y divideX;
 
 -- mod: int int -> int
@@ -90,8 +93,11 @@ divide = Y divideX;
 -- Exemplo: (mod 10 1) -> 0
 --	(mod 11 3) -> 2
 --	(mod 10 0) -> indefinido
-modX = \X.\p.\q. (ifthenelse (le p q) p (X (minus p q) q));
-mod = Y modF;
+modX = \X.\p.\q.
+	ifthenelse (le p q)
+		p
+		(X (minus p q) q);
+mod = Y modX;
 
 -- Questão 1:
 
@@ -101,10 +107,13 @@ mod = Y modF;
 -- Exemplo: (listDigit 0) -> empty
 --	(listDigit 1) -> (cons 1 empty)
 --	(listDigit 10) -> (cons 0 (cons 1 empty))
-listDigitX = \X.\p. ifthenelse isZero p
+listDigitX = \X.\p.
+	ifthenelse isZero p
 		empty
-		(cons (mod p 10) (X (divide p 10)));
-listDigit = Y listDigitF;
+		(cons
+			(mod p 10)
+			(X (divide p 10)));
+listDigit = Y listDigitX;
 
 -- listLast: list -> void*
 -- Objetivo: dada uma lista, devolve o último elemento da lista.
@@ -112,9 +121,10 @@ listDigit = Y listDigitF;
 -- Exemplo: (listLast empty) -> indeterminado.
 --	(listLast (cons 1 empty)) -> 1
 --	(listLast (cons 2 (cons 3 empty))) -> 3
-listLastX = \X.\l. ifthenelse (isEmpty (tail l))
-			      (head l)
-			      (X (tail l));
+listLastX = \X.\l.
+	ifthenelse (isEmpty (tail l))
+		(head l)
+		(X (tail l));
 listLast = Y listLastX;
 
 -- deleteLast: list -> list
@@ -122,9 +132,12 @@ listLast = Y listLastX;
 -- Exemplo: (deleteLast empty) -> empty
 --	(deleteLast (cons 1 empty)) -> empty
 --	(deleteLast (cons 1 (cons 2 empty))) -> (cons 1 empty)
-deleteLastX = \X.\l. ifthenelse (or (isEmpty l) (isEmpty (tail l)))
-			    	empty
-			 	(cons (head l) (X (tail l)));
+deleteLastX = \X.\l.
+	ifthenelse (or (isEmpty l) (isEmpty (tail l)))
+		empty
+		(cons
+			(head l)
+			(X (tail l)));
 deleteLast =  Y deleteLastX;
 
 -- listReverse: list -> list
@@ -132,9 +145,12 @@ deleteLast =  Y deleteLastX;
 -- Exemplos: (listReverse empty) -> empty
 --	(listReverse (cons 1 empty)) -> (cons 1 empty)
 --	(listReverse (cons 1 (cons 2 empty))) -> (cons 2 (cons 1 empty))
-listReverseX = \X.\l. ifthenelse (isEmpty l)
-				 empty
-				 (cons (listLast l) (X (deleteLast l)));
+listReverseX = \X.\l.
+	ifthenelse (isEmpty l)
+		empty
+		(cons
+			(listLast l)
+			(X (deleteLast l)));
 listReverse = Y listReverseX;
 
 -- listEq: list list -> boolean
@@ -143,18 +159,23 @@ listReverse = Y listReverseX;
 --	(listEq empty (cons 1 empty)) -> false
 --	(listEq (cons 2 empty) (cons 1 empty)) -> false
 --	(listEq (cons 1 empty) (cons 1 empty)) -> true
-listEqX = \X.\l.\m. (or	(and (isEmpty l) (isEmpty m))
-			(ifthenelse (eq (head l) (head m))
-				    (X (tail l) (tail m))
-				    false));
+listEqX = \X.\l.\m.
+	or
+		(and
+			(isEmpty l)
+			(isEmpty m))
+		(ifthenelse (eq (head l) (head m))
+			(X (tail l) (tail m))
+			false);
 listEq = Y listEqX;
 
 -- palin: int -> boolean
 -- Objetivo: dado um número natural, devolve true se ele é um palíndromo (ele é igual ao ele com os dígitos com posições invertidas). Senão, devolve false.
 -- Exemplo:
-palin = \p. ifthenelse  (le p 10)
-			true
-			(listEq	 (listDigit p) (listReverse (listDigit p)));
+palin = \p.
+	ifthenelse  (geq p 10)
+		(listEq	 (listDigit p) (listReverse (listDigit p)))
+		true;
 
 -- Questão 2:
 
@@ -163,13 +184,13 @@ posicionaX = \X.\h.\t.
 		(cons
 			h
 			empty)
-		(ifthenelse (le h (head t))
-			(cons
-				h
-				t)
+		(ifthenelse (geq h (head t))
 			(cons
 				(head t)
-				(X h (tail t))));
+				(X h (tail t))))
+			(cons
+				h
+				t);
 posiciona = Y posicionaF;
 ordenaX = \X.\l.
 	ifthenelse (isEmpty l)
@@ -184,17 +205,17 @@ ordena = Y ordenaX;
 -- Questão 3:
 
 assinaturaX = \X.\m.
-	ifthenelse (le m 10)
-		m
-		(plus (mod m 10) (X (divide m 10)));
+	ifthenelse (geq m 10)
+		(plus (mod m 10) (X (divide m 10)))
+		m;
 assinatura = Y assinaturaX;
 
 -- Questão 4:
 
 tryraizcubicaX = \X.\m.\n.
-	ifthenelse (le n (power (succ m) 3))
-		m
-		(X (succ m) n);
+	ifthenelse (geq n (power (succ m) 3))
+		(X (succ m) n)
+		m;
 tryraizcubica = Y tryraizcubicaX;
 raizcubica = \n. tryraizcubica 0 n;
 
