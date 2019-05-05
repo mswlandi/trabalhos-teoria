@@ -1,7 +1,5 @@
 let
 
-
-
 true = \x.\y. x;
 
 false = \x.\y. y;
@@ -500,7 +498,7 @@ fatiaAuxX = \X.\l.\p.\q.
 
 					(head l)
 
-					(F (tail l) (pred p) (pred q)))
+					(X (tail l) (pred p) (pred q)))
 
 				(X (tail l) (pred p) (pred q))));
 
@@ -534,8 +532,6 @@ fatia = \l.\p.\q.
 
 
 -- Execução:
-
-
 
 in
 
