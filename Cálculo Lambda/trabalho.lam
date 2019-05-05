@@ -225,6 +225,11 @@ ordena = Y ordenaX;
 
 -- Questão 3:
 
+-- assinatura: int -> int
+-- Objetivo: dado um número, retorna a soma dos seus dígitos (em base 10)
+-- Exemplo: (assinatura 1) -> 1
+--	    (assinatura 43) -> 7
+--	    (assinatura 123) -> 6
 assinaturaX = \X.\m.
 	ifthenelse (geq m 10)
 		(plus (mod m 10) (X (divide m 10)))
