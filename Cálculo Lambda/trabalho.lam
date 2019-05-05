@@ -199,14 +199,14 @@ posicionaX = \X.\h.\t.
 		(cons
 			h
 			empty)
-		(ifthenelse (geq h (head t))
-			(cons
-				(head t)
-				(X h (tail t))))
+		(ifthenelse (leq h (head t))
 			(cons
 				h
-				t);
-posiciona = Y posicionaF;
+				t)
+			(cons
+				(head t)
+				(X h (tail t))));
+posiciona = Y posicionaX;
 
 -- ordena: list -> list
 -- Objetivo: dada uma lista de tamanho N, devolve uma lista de tamanho N ordenada em ordem crescente, cujos elementos são os elementos da lista de entrada.
@@ -216,11 +216,7 @@ posiciona = Y posicionaF;
 ordenaX = \X.\l.
 	ifthenelse (isEmpty l)
 		empty
-		(ifthenelse (isEmpty (tail l))
-			(cons
-				(head l)
-				empty)
-			(posiciona (head l) (X (tail l))));
+		(posiciona (head l) (X (tail l)));
 ordena = Y ordenaX;
 
 -- Questão 3:
@@ -297,4 +293,4 @@ fatia = \l.\p.\q.
 
 in
 
-assinatura 12
+ordena (cons 8 (cons 3 (cons 19 (cons 0 empty))))
