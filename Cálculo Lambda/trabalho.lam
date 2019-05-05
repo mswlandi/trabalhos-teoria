@@ -180,6 +180,11 @@ palin = \p.
 
 -- Questão 2:
 
+-- posiciona: int list -> list
+-- Objetivo: dado um número natural e uma lista de tamanho N ordenada em ordem crescente, devolve uma lista de tamanho N+1 ordenada em ordem crescente, cujos elementos são os elementos da lista de entrada e o número natural de entrada.
+-- Exemplos: (posiciona 1 empty) -> (cons 1 empty)
+--	(posiciona 2 (cons 1 empty)) -> (cons 1 (cons 2 empty))
+--	(posiciona 2 (cons 1 (cons 2 (cons 3 empty)))) -> (cons 1 (cons 2 (cons 2 (cons 3 empty))))
 posicionaX = \X.\h.\t.
 	ifthenelse (isEmpty t)
 		(cons
@@ -193,6 +198,12 @@ posicionaX = \X.\h.\t.
 				h
 				t);
 posiciona = Y posicionaF;
+
+-- ordena: list -> list
+-- Objetivo: dada uma lista de tamanho N, devolve uma lista de tamanho N ordenada em ordem crescente, cujos elementos são os elementos da lista de entrada.
+-- Exemplos: (ordena empty) -> empty
+--	(ordena (cons 2 (cons 1 empty))) -> (cons 1 (cons 2 empty))
+--	(ordena (cons 2 (cons 1 (cons 2 (cons 3 empty))))) -> (cons 1 (cons 2 (cons 2 (cons 3 empty))))
 ordenaX = \X.\l.
 	ifthenelse (isEmpty l)
 		empty
@@ -213,11 +224,22 @@ assinatura = Y assinaturaX;
 
 -- Questão 4:
 
+-- tryraizcubica: int int -> int
+-- Objetivo: dado dois números naturais M e N, devolve M se (M+1)^3 for maior que N, senão, incrementa o M, por recursão, até que o teste anterior se torne verdadeiro, devolvendo o último valor de M.
+-- Exemplos: (tryraizcubica 0 0) -> 0
+--	(tryraizcubica 0 1) -> 1
+--	(tryraizcubica 1 26) -> 2
 tryraizcubicaX = \X.\m.\n.
 	ifthenelse (geq n (power (succ m) 3))
 		(X (succ m) n)
 		m;
 tryraizcubica = Y tryraizcubicaX;
+
+-- raizcubica: int -> int
+-- Objetivo: dado um número natural M, devolve o maior natural N, tal que N^3 seja menor ou igual a M.
+-- Exemplos: (raizcubica 0) -> 0
+--	(raizcubica 1) -> 1
+--	(raizcubica 26) -> 2
 raizcubica = \n. tryraizcubica 0 n;
 
 -- Questão 5:
