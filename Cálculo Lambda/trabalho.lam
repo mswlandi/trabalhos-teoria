@@ -1,536 +1,293 @@
 let
 
 true = \x.\y. x;
-
 false = \x.\y. y;
-
 ifthenelse = \a.\b.\c. a b c;
-
 not = \a. a false true;
-
 and = \a.\b. a b false;
-
 or = \a.\b. a true b;
-
 implies = \a.\b. a b true;
-
 ifandonlyif = \a.\b. a b (not b);
-
 succ = \n.\p.\q. p (n p q);
-
 plus = \m.\n.\p.\q. m p (n p q);
-
 times = \m.\n.\p.\q. m (n p) q;
-
 power = \m.\n. n m;
-
 isZero = \n. n (\x. false) true;
-
 pair = \m.\n.\b. b m n;
-
 fst = \p. p true;
-
 snd = \p. p false;
-
 shiftInc = \p. pair (snd p) (succ (snd p));
-
 pred = \n. fst (n shiftInc (pair 0 0));
-
 empty = \x. true;
-
 cons = \h.\t. pair h t;
-
 isEmpty = \l. l (\x.\y. false);
-
 head = fst;
-
 tail = snd;
-
 Y = \f. (\x. f (x x)) (\x. f (x x));
 
-
-
--- Funções Genéricas Criadas
-
-
-
--- Questão 1
-
-
+-- Funções Genéricas Criadas:
 
 -- minus: int int -> int
-
 -- Objetitvo: dado dois numeros naturais M e N, retorna a subtração M-N saturando em 0.
-
 -- Exemplos: (minus 10 5) -> 5
-
 -- 	(minus 5 10) -> 0
-
 minus = \p.\q. q pred p;
 
-
-
 -- geq: int int -> boolean
-
 -- Objetivo: dado dois números naturais M e N, retorna true se M >= N. Senão, retorna false.
-
 -- Exemplos: (geq 10 5) -> true
-
 -- 	(geq 5 10) -> false
-
 -- 	(geq 5 5) -> true
-
 geq = \p.\q. (isZero (minus q p));
 
-
-
 -- leq: int int -> boolean
-
 -- Objetivo: dado dois números naturais M e N, retorna true se M <= N. Senão, retorna false.
-
 -- Exemplos: (leq 10 5) -> false
-
 -- 	(leq 5 10) -> true
-
 -- 	(leq 5 5) -> true
-
 leq = \p.\q. (isZero (minus p q));
 
-
-
 -- ge: int int -> boolean
-
 -- Objetivo: dado dois números naturais M e N, retorna true se M > N. Senão, retorna false.
-
 -- Exemplos: (ge 10 5) -> true
-
 -- 	(ge 5 10) -> false
-
 -- 	(ge 5 5) -> false
-
 ge = \p.\q. not (leq p q);
 
-
-
 -- le: int int -> boolean
-
 -- Objetivo: dado dois números naturais M e N, retorna true se M < N. Senão, retorna false.
-
 -- Exemplos: (le 10 5) -> false
-
 -- 	(le 5 10) -> true
-
 -- 	(le 5 5) -> false
-
 le = \p.\q. not (geq p q);
 
-
-
 -- eq: int int -> boolean
-
 -- Objetivo: dado dois números naturais M e N, retorna true se M = N. Senão, retorna false.
-
 -- Exemplos: (eq 10 5) -> false
-
 --	(eq 5 10) -> false
-
 --	(eq 5 5) -> true
-
 eq = \p.\q. and (geq p q) (leq p q);
 
-
-
 -- neq: int int -> boolean
-
 -- Objetivo: dado dois números naturais M e N, retorna false se M = N. Senão, retorna true.
-
 -- Exemplos: (neq 10 5) -> true
-
 --	(neq 5 10) -> true
-
 --	(neq 5 5) -> false
-
 neq = \p.\q. not (eq p q);
 
-
-
 -- divide: int int -> int
-
 -- Objetivo: dado dos números naturais M e N, retorna o quociente da divisão M/N.
-
 -- Exemplo: (divide 10 1) -> 10
-
 -- 	(divide 11 3) -> 3
-
 --	(divide 10 0) -> indefinido
-
 divideX = \X.\p.\q.
-
 	ifthenelse (le p q)
-
 		0
-
 		(succ (X (minus p q) q));
-
 divide = Y divideX;
 
-
-
 -- mod: int int -> int
-
 -- Objetivo: dado dois números naturais M e N, retorna o resto da divisão M/N.
-
 -- Exemplo: (mod 10 1) -> 0
-
 --	(mod 11 3) -> 2
-
 --	(mod 10 0) -> indefinido
-
 modX = \X.\p.\q.
-
 	ifthenelse (le p q)
-
 		p
-
 		(X (minus p q) q);
-
 mod = Y modX;
 
-
 -- listLength: list -> int
-
 -- Objetivo: dada uma lista, devolve o tamanho da lista.
-
 -- Exemplos: (listLength empty) -> 0
-
 --	(listLength (cons 1 empty)) -> 1
-
 --	(listLength (cons 1 (cons 2 empty))) -> 2
-
 listLengthX = \X.\l.
 		ifthenelse (isEmpty l)
 			0
 			(succ (X (tail l)));
-
 listLength = Y listLengthX;
-			
-			 
-
-
 
 -- Questão 1:
 
-
-
 -- listDigit: int -> list
-
 -- Objetivo: dado um número natural M, devolve uma lista em que cada dígito deste número (na base 10) possui uma posição nessa lista. Contudo, a ordem é invertida em relação ao número.
-
 -- Observação: se o número for 0, devolve uma lista vazia.
-
 -- Exemplo: (listDigit 0) -> empty
-
 --	(listDigit 1) -> (cons 1 empty)
-
 --	(listDigit 10) -> (cons 0 (cons 1 empty))
-
 listDigitX = \X.\p.
-
 	ifthenelse isZero p
-
 		empty
-
 		(cons
-
 			(mod p 10)
-
 			(X (divide p 10)));
-
 listDigit = Y listDigitX;
 
-
-
 -- listLast: list -> void*
-
 -- Objetivo: dada uma lista, devolve o último elemento da lista.
-
 -- Observação: supõe-se que a lista nunca será vazia.
-
 -- Exemplo: (listLast empty) -> indeterminado.
-
 --	(listLast (cons 1 empty)) -> 1
-
 --	(listLast (cons 2 (cons 3 empty))) -> 3
-
 listLastX = \X.\l.
-
 	ifthenelse (isEmpty (tail l))
-
 		(head l)
-
 		(X (tail l));
-
 listLast = Y listLastX;
 
-
-
 -- deleteLast: list -> list
-
 -- Objetivo: dada uma lista, devolve essa lista sem o último elemento.
-
 -- Exemplo: (deleteLast empty) -> empty
-
 --	(deleteLast (cons 1 empty)) -> empty
-
 --	(deleteLast (cons 1 (cons 2 empty))) -> (cons 1 empty)
-
 deleteLastX = \X.\l.
-
 	ifthenelse (or (isEmpty l) (isEmpty (tail l)))
-
 		empty
-
 		(cons
-
 			(head l)
-
 			(X (tail l)));
-
 deleteLast =  Y deleteLastX;
 
-
-
 -- listReverse: list -> list
-
 -- Objetivo: dada uma lista, devolve essa lista com cada elemento em uma posição i numa nova posição l.length() - i - 1.
-
 -- Exemplos: (listReverse empty) -> empty
-
 --	(listReverse (cons 1 empty)) -> (cons 1 empty)
-
 --	(listReverse (cons 1 (cons 2 empty))) -> (cons 2 (cons 1 empty))
-
 listReverseX = \X.\l.
-
 	ifthenelse (isEmpty l)
-
 		empty
-
 		(cons
-
 			(listLast l)
-
 			(X (deleteLast l)));
-
 listReverse = Y listReverseX;
 
-
-
 -- listEq: list list -> boolean
-
 -- Objetivo: dadas duas listas, devolve true se cada elemento em uma posição i (com i variando entre 0 e l.length()-1) em uma das listas é igual a cada elemento na mesma posição i da outra lista.
-
 -- Observação: as listas devem possuir o mesmo tamanho.
-
 -- Exemplo: (listEq empty empty) -> true
-
 --	(listEq (cons 1 empty) empty) -> indefinido
-
 --	(listEq (cons 2 empty) (cons 1 empty)) -> false
-
 --	(listEq (cons 1 empty) (cons 1 empty)) -> true
-
 listEqX = \X.\l.\m.
-
 	or
-
 		(and
-
 			(isEmpty l)
-
 			(isEmpty m))
-
 		(ifthenelse (eq (head l) (head m))
-
 			(X (tail l) (tail m))
-
 			false);
-
 listEq = Y listEqX;
 
-
-
--- palin: int -> boolean
-
+-- palind: int -> boolean
 -- Objetivo: dado um número natural, devolve true se ele é um palíndromo (ele é igual ao ele com os dígitos com posições invertidas). Senão, devolve false.
-
 -- Exemplo:
-
-palin = \p.
-
+palind = \p.
 	ifthenelse  (geq p 10)
-
 		(listEq	 (listDigit p) (listReverse (listDigit p)))
-
 		true;
-
-
 
 -- Questão 2:
 
-
-
+-- posiciona: int list -> list
+-- Objetivo: dado um número natural e uma lista de tamanho N ordenada em ordem crescente, devolve uma lista de tamanho N+1 ordenada em ordem crescente, cujos elementos são os elementos da lista de entrada e o número natural de entrada.
+-- Exemplos: (posiciona 1 empty) -> (cons 1 empty)
+--	(posiciona 2 (cons 1 empty)) -> (cons 1 (cons 2 empty))
+--	(posiciona 2 (cons 1 (cons 2 (cons 3 empty)))) -> (cons 1 (cons 2 (cons 2 (cons 3 empty))))
 posicionaX = \X.\h.\t.
-
 	ifthenelse (isEmpty t)
-
 		(cons
-
 			h
-
 			empty)
-
 		(ifthenelse (geq h (head t))
-
 			(cons
-
 				(head t)
-
 				(X h (tail t))))
-
 			(cons
-
 				h
-
 				t);
-
 posiciona = Y posicionaF;
 
+-- ordena: list -> list
+-- Objetivo: dada uma lista de tamanho N, devolve uma lista de tamanho N ordenada em ordem crescente, cujos elementos são os elementos da lista de entrada.
+-- Exemplos: (ordena empty) -> empty
+--	(ordena (cons 2 (cons 1 empty))) -> (cons 1 (cons 2 empty))
+--	(ordena (cons 2 (cons 1 (cons 2 (cons 3 empty))))) -> (cons 1 (cons 2 (cons 2 (cons 3 empty))))
 ordenaX = \X.\l.
-
 	ifthenelse (isEmpty l)
-
 		empty
-
 		(ifthenelse (isEmpty (tail l))
-
 			(cons
-
 				(head l)
-
 				empty)
-
 			(posiciona (head l) (X (tail l))));
-
 ordena = Y ordenaX;
-
-
 
 -- Questão 3:
 
-
-
 assinaturaX = \X.\m.
-
 	ifthenelse (geq m 10)
-
 		(plus (mod m 10) (X (divide m 10)))
-
 		m;
-
 assinatura = Y assinaturaX;
-
-
 
 -- Questão 4:
 
-
-
+-- tryraizcubica: int int -> int
+-- Objetivo: dado dois números naturais M e N, devolve M se (M+1)^3 for maior que N, senão, incrementa o M, por recursão, até que o teste anterior se torne verdadeiro, devolvendo o último valor de M.
+-- Exemplos: (tryraizcubica 0 0) -> 0
+--	(tryraizcubica 0 1) -> 1
+--	(tryraizcubica 1 26) -> 2
 tryraizcubicaX = \X.\m.\n.
-
 	ifthenelse (geq n (power (succ m) 3))
-
 		(X (succ m) n)
-
 		m;
-
 tryraizcubica = Y tryraizcubicaX;
 
+-- raizcubica: int -> int
+-- Objetivo: dado um número natural M, devolve o maior natural N, tal que N^3 seja menor ou igual a M.
+-- Exemplos: (raizcubica 0) -> 0
+--	(raizcubica 1) -> 1
+--	(raizcubica 26) -> 2
 raizcubica = \n. tryraizcubica 0 n;
-
-
 
 -- Questão 5:
 
 -- fatiaAux: list int int -> list
-
 -- Objetivo: dada uma lista de dois números naturais M e N, devolve uma sub-lista da lista dada em que:
-
 --	- M > N: ela é vazia.
-
 --	- M <= N: o primeiro elemento dela tem índice M e o último índice N.
-
 -- Observação: supõe que q nunca é maior ou igual ao tamanho da lista.
-
 -- Exemplos: (fatiaAux [1 10 5 0] 1 3) -> [10 5 0]
-
 --	(fatiaAux [1 10 5 0] 0 0) -> [1]
-
 --	(fatiaAux [1 10 5 0] 7 3) -> empty
-
 fatiaAuxX = \X.\l.\p.\q.
-
 	ifthenelse (or (isEmpty l) (ge p q))
-
 		empty
-
 		(ifthenelse (isZero q)
-
 			(cons
-
 				(head l)
-
 				empty)
-
 			(ifthenelse (isZero p)
-
 				(cons
-
 					(head l)
-
 					(X (tail l) (pred p) (pred q)))
-
 				(X (tail l) (pred p) (pred q))));
-
 fatiaAux = Y fatiaAuxX;
 
 -- fatia: list int int -> list
-
 -- Objetivo: dada uma lista de dois números naturais M e N, devolve uma sub-lista da lista dada em que:
-
 --	- M > N: ela é vazia.
-
 --	- M <= N: o primeiro elemento dela tem índice M e o último índice N.
-
 -- Exemplos: (fatia [1 10 5 0] 1 3) -> [10 5 0]
-
 --	(fatia [1 10 5 0] 0 0) -> [1]
-
 --	(fatia [1 10 5 0] 7 3) -> empty
-
 --	(fatia [1 10 5 0] 1 4) -> [10 5 0]
-
 fatia = \l.\p.\q.
-
 	ifthenelse (geq q (listLength l))
-
 		(fatiaAux l p (pred (listLength l)))
-
 		(fatiaAux l p q);
-
-
-
-
+		
 -- Execução:
 
 in
