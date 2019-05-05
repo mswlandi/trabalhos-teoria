@@ -28,16 +28,16 @@ Y = \f. (\x. f (x x)) (\x. f (x x));
 -- Funções Genéricas Criadas
 
 minus = \p.\q. q pred p;
+divideX = \X.\p.\q.
+	ifthenelse (le p q)
+		0
+		(succ (X (minus p q) q));
 divide = Y divideX;
 modX = \X.\p.\q.
 	ifthenelse (le p q)
 		p
 		(X (minus p q) q);
 mod = Y modX;
-divideX = \X.\p.\q.
-	ifthenelse (le p q)
-		0
-		(succ (X (minus p q) q));
 geq = \p.\q. isZero (minus q p);
 leq = \p.\q. isZero (minus p q);
 ge = \p.\q. not (leq p q);
