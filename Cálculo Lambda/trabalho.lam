@@ -25,125 +25,119 @@ head = fst;
 tail = snd;
 Y = \f. (\x. f (x x)) (\x. f (x x));
 
--- Questão 1 
+-- Funções Genéricas Criadas
 
 minus = \p.\q. q pred p;
+divide = Y divideX;
+modX = \X.\p.\q.
+	ifthenelse (le p q)
+		p
+		(X (minus p q) q);
+mod = Y modX;
+divideX = \X.\p.\q.
+	ifthenelse (le p q)
+		0
+		(succ (X (minus p q) q));
+geq = \p.\q. isZero (minus q p);
+leq = \p.\q. isZero (minus p q);
+ge = \p.\q. not (leq p q);
+le = \p.\q. not (geq p q);
+eq = \p.\q. and (qeq p q) (geq q p);
+neq = \p.\q. not (eq p q);
 
-geq = \p.\q. (isZero (minus q p));
+-- Questão 1:
 
-leq = \p.\q. (isZero (minus p q));
+listDigitX = \X.\p.
+	ifthenelse isZero p
+		(cons
+			0
+			empty)
+		(cons
+			(divide p 10)
+			(X (divide p 10)));
+listDigit = Y listDigitX;
+listLastX = \X.\l.
+	ifthenelse (isEmpty (tail l))
+		(head l)
+		(X (tail l));
+listLast = Y listLastX;
+listReverseX = \X.\l.
+	ifthenelse (isEmpty l)
+		empty
+		(cons
+			(listLast l)
+			(X (tail l)));
+listReverse = Y listReverseX;
+listEqX = \X.\l.\m.
+	or	(and (isEmpty l) (isEmpty m))
+		(ifthenelse (eq (head l) (head m))
+			(X (tail l) (tail m))
+			false);
+listEq = Y listEqX;
+palin = \p.
+	ifthenelse  (le p 10) 
+		true
+		(listEq	 (listDigit p) (listReverse (listDigit p)));
 
-ge = \p.\q. (not (leq p q));
+-- Questão 2:
 
-le = \p.\q. (not (geq p q));
-
-eq = \p.\q. and (isZero (minus p q)) (isZero (minus q p));
-
-divF = \X.\p.\q. (ifthenelse (le p q) 0 (succ (X (minus p q) q)));
-
-div = Y divF;
-
-modF = \X.\p.\q. (ifthenelse (le p q) p (X (minus p q) q));
-
-mod = Y modF;
-
-listDigitF = \X.\p. ifthenelse isZero p
-			       (cons 0 empty)
-			       (cons (div p 10) (X (div p 10)));
-
-listDigit = Y listDigitF;
-
-
--- Funções de Lista -----------------
-
-listLastF = \X.\l. ifthenelse (isEmpty (tail l))
-			      (head l)
-			      (X (tail l));
-
-listLast = Y listLastF;
-
-listReverseF = \X.\l. ifthenelse (isEmpty l)
-				 empty
-				 (cons (listLast l) (X (tail l)));
-
-listReverse = Y listReverseF;
-
-listEqF = \X.\l.\m. (or	(and (isEmpty l) (isEmpty m))
-			(ifthenelse (eq (head l) (head m))
-				    (X (tail l) (tail m))
-				    false));
-
-listEq = Y listEqF;
-
-----------------------------------------
-
-palin = \p. ifthenelse  (le p 10) 
-			true
-			(listEq	 (listDigit p) (listReverse (listDigit p)));
-
-
--- Questão 2
-
-menorF = \F.\m.\n. ifthenelse (and (isZero m) (not (isZero n)))
-                              true
-                              (ifthenelse (isZero n)
-                                          false
-                                          (F (pred m) (pred n)));
-menor = Y menorF;
-
-posicionaF = \F.\h.\t. ifthenelse (isEmpty t)
-                                  (cons h empty)
-                                  (ifthenelse (menor h (head t))
-                                              (cons h t)
-                                              (cons (head t) (F h (tail t))));
+posicionaX = \X.\h.\t.
+	ifthenelse (isEmpty t)
+		(cons
+			h
+			empty)
+		(ifthenelse (le h (head t))
+			(cons
+				h
+				t)
+			(cons
+				(head t)
+				(X h (tail t))));
 posiciona = Y posicionaF;
+ordenaX = \X.\l.
+	ifthenelse (isEmpty l)
+		empty
+		(ifthenelse (isEmpty (tail l))
+			(cons
+				(head l)
+				empty)
+			(posiciona (head l) (X (tail l))));
+ordena = Y ordenaX;
 
-ordenaF = \F.\l. ifthenelse (isEmpty l)
-                            empty
-                            (ifthenelse (isEmpty (tail l))
-                                        (cons (head l) empty)
-                                        (posiciona (head l) (F (tail l))));
-ordena = Y ordenaF;
+-- Questão 3:
 
--- Questão 3
+assinaturaX = \X.\m.
+	ifthenelse (le m 10)
+		m
+		(plus (mod m 10) (X (divide m 10)));
+assinatura = Y assinaturaX;
 
-minus = \m. \n. n pred m;
+-- Questão 4:
 
-menor2 = \m. \n. isZero (minus (succ m) n);
-
-divF = \F. \m. \n. (\s. (ifthenelse (isZero s)
-                                   0
-                                   (succ (F (pred s) n))))
-                   (minus (succ m) n);
-div = Y divF;
-
-assinaturaF = \F. \m. ifthenelse (menor2 m 10)
-                                 m
-                                 (plus (mod m 10) (F (div m 10)));
-assinatura = Y assinaturaF;
-
--- Questão 4
-
-tryraizcubicaF = \F.\m.\n. ifthenelse (menor n (power (succ m) 3))
-                                      m
-                                      (F (succ m) n);
-tryraizcubica = Y tryraizcubicaF;
+tryraizcubicaX = \X.\m.\n.
+	ifthenelse (le n (power (succ m) 3))
+		m
+		(X (succ m) n);
+tryraizcubica = Y tryraizcubicaX;
 raizcubica = \n. tryraizcubica 0 n;
 
--- Questão 5
+-- Questão 5:
 
-fatiaF = \F.\l.\p.\q. 
-		(ifthenelse (or (isEmpty l) (ge p q))
-			    empty
-			    (ifthenelse (isZero q)
-					(cons (head l) empty)
-					(ifthenelse (isZero p)
-						    (cons (head l) (F (tail l) (pred p) (pred q)))
-						    (F (tail l) (pred p) (pred q)))));
+fatiaX = \X.\l.\p.\q.
+	ifthenelse (or (isEmpty l) (ge p q))
+		empty
+		(ifthenelse (isZero q)
+			(cons
+				(head l)
+				empty)
+			(ifthenelse (isZero p)
+				(cons
+					(head l)
+					(F (tail l) (pred p) (pred q)))
+				(X (tail l) (pred p) (pred q))));
+fatia = Y fatiaX;
 
-fatia = Y fatiaF;
-
--- Teste:
+-- Execução:
 
 in
 
