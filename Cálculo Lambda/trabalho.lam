@@ -78,6 +78,19 @@ tryraizcubicaF = \F.\m.\n. ifthenelse (menor n (exp2 (succ m) 3))
 tryraizcubica = Y tryraizcubicaF;
 raizcubica = \n. tryraizcubica 0 n;
 
+-- Questão 5
+
+fatiaF = \X.\l.\p.\q. 
+		(ifthenelse (or (isEmpty l) (ge p q))
+			empty
+			(ifthenelse (isZero q)
+				(cons (head l) empty)
+				(ifthenelse (isZero p)
+					(cons (head l) (X (tail l) (pred p) (pred q)))
+					(X (tail l) (pred p) (pred q)))));
+
+fatia = Y fatiaF;
+
 -- Teste:
 
 in
