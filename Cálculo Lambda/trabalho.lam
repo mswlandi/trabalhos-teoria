@@ -68,7 +68,7 @@ le = \p.\q. not (geq p q);
 -- Exemplos: (eq 10 5) -> false
 --	(eq 5 10) -> false
 --	(eq 5 5) -> true
-eq = \p.\q. and (geq p q)) (leq q p));
+eq = \p.\q. and (geq p q) (leq q p);
 
 -- neq: int int -> boolean
 -- Objetivo: dado dois números naturais M e N, retorna false se M = N. Senão, retorna true.
