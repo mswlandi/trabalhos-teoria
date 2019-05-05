@@ -82,12 +82,12 @@ raizcubica = \n. tryraizcubica 0 n;
 
 fatiaF = \X.\l.\p.\q. 
 		(ifthenelse (or (isEmpty l) (ge p q))
-			empty
-			(ifthenelse (isZero q)
-				(cons (head l) empty)
-				(ifthenelse (isZero p)
-					(cons (head l) (X (tail l) (pred p) (pred q)))
-					(X (tail l) (pred p) (pred q)))));
+				empty
+				(ifthenelse (isZero q)
+					    (cons (head l) empty)
+					    (ifthenelse (isZero p)
+							(cons (head l) (X (tail l) (pred p) (pred q)))
+							(X (tail l) (pred p) (pred q)))));
 
 fatia = Y fatiaF;
 
