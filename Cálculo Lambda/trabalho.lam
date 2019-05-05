@@ -9,12 +9,9 @@ or = \a.\b. a true b;
 implies = \a.\b. a b true;
 ifandonlyif = \a.\b. a b (not b);
 succ = \n.\p.\q. p (n p q);
-add = \m.\n. m succ n;
-add2 = \m.\n.\p.\q. m p (n p q);
-mult = \m.\n. m (add n) 0;
-mult2 = \m.\n.\p.\q. m (n p) q;
-exp = \m.\n. n (mult m) 1;
-exp2 = \m.\n. n m;
+plus = \m.\n.\p.\q. m p (n p q);
+times = \m.\n.\p.\q. m (n p) q;
+power = \m.\n. n m;
 isZero = \n. n (\x. false) true;
 pair = \m.\n.\b. b m n;
 fst = \p. p true;
@@ -27,6 +24,63 @@ isEmpty = \l. l (\x.\y. false);
 head = fst;
 tail = snd;
 Y = \f. (\x. f (x x)) (\x. f (x x));
+
+-- Questão 1 
+
+minus = \p.\q. q pred p;
+
+geq = \p.\q. (isZero (minus q p));
+
+leq = \p.\q. (isZero (minus p q));
+
+ge = \p.\q. (not (leq p q));
+
+le = \p.\q. (not (geq p q));
+
+eq = \p.\q. and (isZero (minus p q)) (isZero (minus q p));
+
+divF = \X.\p.\q. (ifthenelse (le p q) 0 (succ (X (minus p q) q)));
+
+div = Y divF;
+
+modF = \X.\p.\q. (ifthenelse (le p q) p (X (minus p q) q));
+
+mod = Y modF;
+
+listDigitF = \X.\p. ifthenelse isZero p
+			       (cons 0 empty)
+			       (cons (div p 10) (X (div p 10)));
+
+listDigit = Y listDigitF;
+
+
+-- Funções de Lista -----------------
+
+listLastF = \X.\l. ifthenelse (isEmpty (tail l))
+			      (head l)
+			      (X (tail l));
+
+listLast = Y listLastF;
+
+listReverseF = \X.\l. ifthenelse (isEmpty l)
+				 empty
+				 (cons (listLast l) (X (tail l)));
+
+listReverse = Y listReverseF;
+
+listEqF = \X.\l.\m. (or	(and (isEmpty l) (isEmpty m))
+			(ifthenelse (eq (head l) (head m))
+				    (X (tail l) (tail m))
+				    false));
+
+listEq = Y listEqF;
+
+----------------------------------------
+
+palin = \p. ifthenelse  (le p 10) 
+			true
+			(listEq	 (listDigit p) (listReverse (listDigit p)));
+
 
 -- Questão 2
 
@@ -53,26 +107,24 @@ ordena = Y ordenaF;
 
 -- Questão 3
 
-sub = \m. \n. n pred m;
+minus = \m. \n. n pred m;
 
-menor2 = \m. \n. isZero (sub (succ m) n);
+menor2 = \m. \n. isZero (minus (succ m) n);
 
 divF = \F. \m. \n. (\s. (ifthenelse (isZero s)
                                    0
                                    (succ (F (pred s) n))))
-                   (sub (succ m) n);
+                   (minus (succ m) n);
 div = Y divF;
-
-mod = \m. \n. (sub m (mult2 n (div m n)));
 
 assinaturaF = \F. \m. ifthenelse (menor2 m 10)
                                  m
-                                 (add (mod m 10) (F (div m 10)));
+                                 (plus (mod m 10) (F (div m 10)));
 assinatura = Y assinaturaF;
 
 -- Questão 4
 
-tryraizcubicaF = \F.\m.\n. ifthenelse (menor n (exp2 (succ m) 3))
+tryraizcubicaF = \F.\m.\n. ifthenelse (menor n (power (succ m) 3))
                                       m
                                       (F (succ m) n);
 tryraizcubica = Y tryraizcubicaF;
@@ -80,14 +132,14 @@ raizcubica = \n. tryraizcubica 0 n;
 
 -- Questão 5
 
-fatiaF = \X.\l.\p.\q. 
+fatiaF = \F.\l.\p.\q. 
 		(ifthenelse (or (isEmpty l) (ge p q))
-				empty
-				(ifthenelse (isZero q)
-					    (cons (head l) empty)
-					    (ifthenelse (isZero p)
-							(cons (head l) (X (tail l) (pred p) (pred q)))
-							(X (tail l) (pred p) (pred q)))));
+			    empty
+			    (ifthenelse (isZero q)
+					(cons (head l) empty)
+					(ifthenelse (isZero p)
+						    (cons (head l) (F (tail l) (pred p) (pred q)))
+						    (F (tail l) (pred p) (pred q)))));
 
 fatia = Y fatiaF;
 
