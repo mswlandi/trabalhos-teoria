@@ -155,8 +155,9 @@ listReverse = Y listReverseX;
 
 -- listEq: list list -> boolean
 -- Objetivo: dadas duas listas, devolve true se cada elemento em uma posição i (com i variando entre 0 e l.length()-1) em uma das listas é igual a cada elemento na mesma posição i da outra lista.
+-- Observação: as listas devem possuir o mesmo tamanho.
 -- Exemplo: (listEq empty empty) -> true
---	(listEq empty (cons 1 empty)) -> false
+--	(listEq (cons 1 empty) empty) -> indefinido
 --	(listEq (cons 2 empty) (cons 1 empty)) -> false
 --	(listEq (cons 1 empty) (cons 1 empty)) -> true
 listEqX = \X.\l.\m.
