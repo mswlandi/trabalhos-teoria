@@ -9,12 +9,9 @@ or = \a.\b. a true b;
 implies = \a.\b. a b true;
 ifandonlyif = \a.\b. a b (not b);
 succ = \n.\p.\q. p (n p q);
-add = \m.\n. m succ n;
-add2 = \m.\n.\p.\q. m p (n p q);
-mult = \m.\n. m (add n) 0;
-mult2 = \m.\n.\p.\q. m (n p) q;
-exp = \m.\n. n (mult m) 1;
-exp2 = \m.\n. n m;
+plus = \m.\n.\p.\q. m p (n p q);
+times = \m.\n.\p.\q. m (n p) q;
+power = \m.\n. n m;
 isZero = \n. n (\x. false) true;
 pair = \m.\n.\b. b m n;
 fst = \p. p true;
@@ -28,70 +25,203 @@ head = fst;
 tail = snd;
 Y = \f. (\x. f (x x)) (\x. f (x x));
 
--- Questão 2
+-- Funções Genéricas Criadas
 
-menorF = \F.\m.\n. ifthenelse (and (isZero m) (not (isZero n)))
-                              true
-                              (ifthenelse (isZero n)
-                                          false
-                                          (F (pred m) (pred n)));
-menor = Y menorF;
+-- Questão 1
 
-posicionaF = \F.\h.\t. ifthenelse (isEmpty t)
-                                  (cons h empty)
-                                  (ifthenelse (menor h (head t))
-                                              (cons h t)
-                                              (cons (head t) (F h (tail t))));
+-- minus: int int -> int
+-- Objetitvo: dado dois numeros naturais M e N, retorna a subtração M-N saturando em 0.
+-- Exemplos: (minus 10 5) -> 5
+-- 	(minus 5 10) -> 0
+minus = \p.\q. q pred p;
+
+-- geq: int int -> boolean
+-- Objetivo: dado dois números naturais M e N, retorna true se M >= N. Senão, retorna false.
+-- Exemplos: (geq 10 5) -> true
+-- 	(geq 5 10) -> false
+-- 	(geq 5 5) -> true
+geq = \p.\q. (isZero (minus q p));
+
+-- leq: int int -> boolean
+-- Objetivo: dado dois números naturais M e N, retorna true se M <= N. Senão, retorna false.
+-- Exemplos: (leq 10 5) -> false
+-- 	(leq 5 10) -> true
+-- 	(leq 5 5) -> true
+leq = \p.\q. (isZero (minus p q));
+
+-- ge: int int -> boolean
+-- Objetivo: dado dois números naturais M e N, retorna true se M > N. Senão, retorna false.
+-- Exemplos: (ge 10 5) -> true
+-- 	(ge 5 10) -> false
+-- 	(ge 5 5) -> false
+ge = \m. \n. isZero (minus (succ n) m);
+
+-- le: int int -> boolean
+-- Objetivo: dado dois números naturais M e N, retorna true se M < N. Senão, retorna false.
+-- Exemplos: (le 10 5) -> false
+-- 	(le 5 10) -> true
+-- 	(le 5 5) -> false
+le = \m. \n. isZero (minus (succ m) n);
+
+-- eq: int int -> boolean
+-- Objetivo: dado dois números naturais M e N, retorna true se M = N. Senão, retorna false.
+-- Exemplos: (eq 10 5) -> false
+--	(eq 5 10) -> false
+--	(eq 5 5) -> true
+eq = \p.\q. and (isZero (minus p q)) (isZero (minus q p));
+
+-- neq: int int -> boolean
+-- Objetivo: dado dois números naturais M e N, retorna false se M = N. Senão, retorna true.
+-- Exemplos: (neq 10 5) -> true
+--	(neq 5 10) -> true
+--	(neq 5 5) -> false
+neq = \p.\q. not (eq p q);
+
+-- divide: int int -> int
+-- Objetivo: dado dos números naturais M e N, retorna o quociente da divisão M/N.
+-- Exemplo: (divide 10 1) -> 10
+-- 	(divide 11 3) -> 3
+--	(divide 10 0) -> indefinido
+divideX = \X.\p.\q. (ifthenelse (le p q) 0 (succ (X (minus p q) q)));
+divide = Y divideX;
+
+-- mod: int int -> int
+-- Objetivo: dado dois números naturais M e N, retorna o resto da divisão M/N.
+-- Exemplo: (mod 10 1) -> 0
+--	(mod 11 3) -> 2
+--	(mod 10 0) -> indefinido
+modX = \X.\p.\q. (ifthenelse (le p q) p (X (minus p q) q));
+mod = Y modF;
+
+-- Questão 1:
+
+-- listDigit: int -> list
+-- Objetivo: dado um número natural M, devolve uma lista em que cada dígito deste número (na base 10) possui uma posição nessa lista. Contudo, a ordem é invertida em relação ao número.
+-- Observação: se o número for 0, devolve uma lista vazia.
+-- Exemplo: (listDigit 0) -> empty
+--	(listDigit 1) -> (cons 1 empty)
+--	(listDigit 10) -> (cons 0 (cons 1 empty))
+listDigitX = \X.\p. ifthenelse isZero p
+		empty
+		(cons (mod p 10) (X (divide p 10)));
+listDigit = Y listDigitF;
+
+-- listLast: list -> void*
+-- Objetivo: dada uma lista, devolve o último elemento da lista.
+-- Observação: supõe-se que a lista nunca será vazia.
+-- Exemplo: (listLast empty) -> indeterminado.
+--	(listLast (cons 1 empty)) -> 1
+--	(listLast (cons 2 (cons 3 empty))) -> 3
+listLastX = \X.\l. ifthenelse (isEmpty (tail l))
+			      (head l)
+			      (X (tail l));
+listLast = Y listLastX;
+
+-- deleteLast: list -> list
+-- Objetivo: dada uma lista, devolve essa lista sem o último elemento.
+-- Exemplo: (deleteLast empty) -> empty
+--	(deleteLast (cons 1 empty)) -> empty
+--	(deleteLast (cons 1 (cons 2 empty))) -> (cons 1 empty)
+deleteLastX = \X.\l. ifthenelse (or (isEmpty l) (isEmpty (tail l)))
+			    	empty
+			 	(cons (head l) (X (tail l)));
+deleteLast =  Y deleteLastX;
+
+-- listReverse: list -> list
+-- Objetivo: dada uma lista, devolve essa lista com cada elemento em uma posição i numa nova posição l.length() - i - 1.
+-- Exemplos: (listReverse empty) -> empty
+--	(listReverse (cons 1 empty)) -> (cons 1 empty)
+--	(listReverse (cons 1 (cons 2 empty))) -> (cons 2 (cons 1 empty))
+listReverseX = \X.\l. ifthenelse (isEmpty l)
+				 empty
+				 (cons (listLast l) (X (deleteLast l)));
+listReverse = Y listReverseX;
+
+-- listEq: list list -> boolean
+-- Objetivo: dadas duas listas, devolve true se cada elemento em uma posição i (com i variando entre 0 e l.length()-1) em uma das listas é igual a cada elemento na mesma posição i da outra lista.
+-- Exemplo: (listEq empty empty) -> true
+--	(listEq empty (cons 1 empty)) -> false
+--	(listEq (cons 2 empty) (cons 1 empty)) -> false
+--	(listEq (cons 1 empty) (cons 1 empty)) -> true
+listEqX = \X.\l.\m. (or	(and (isEmpty l) (isEmpty m))
+			(ifthenelse (eq (head l) (head m))
+				    (X (tail l) (tail m))
+				    false));
+listEq = Y listEqX;
+
+-- palin: int -> boolean
+-- Objetivo: dado um número natural, devolve true se ele é um palíndromo (ele é igual ao ele com os dígitos com posições invertidas). Senão, devolve false.
+-- Exemplo:
+palin = \p. ifthenelse  (le p 10)
+			true
+			(listEq	 (listDigit p) (listReverse (listDigit p)));
+
+-- Questão 2:
+
+posicionaX = \X.\h.\t.
+	ifthenelse (isEmpty t)
+		(cons
+			h
+			empty)
+		(ifthenelse (le h (head t))
+			(cons
+				h
+				t)
+			(cons
+				(head t)
+				(X h (tail t))));
 posiciona = Y posicionaF;
+ordenaX = \X.\l.
+	ifthenelse (isEmpty l)
+		empty
+		(ifthenelse (isEmpty (tail l))
+			(cons
+				(head l)
+				empty)
+			(posiciona (head l) (X (tail l))));
+ordena = Y ordenaX;
 
-ordenaF = \F.\l. ifthenelse (isEmpty l)
-                            empty
-                            (ifthenelse (isEmpty (tail l))
-                                        (cons (head l) empty)
-                                        (posiciona (head l) (F (tail l))));
-ordena = Y ordenaF;
+-- Questão 3:
 
--- Questão 3
+assinaturaX = \X.\m.
+	ifthenelse (le m 10)
+		m
+		(plus (mod m 10) (X (divide m 10)));
+assinatura = Y assinaturaX;
 
-sub = \m. \n. n pred m;
+-- Questão 4:
 
-menor2 = \m. \n. isZero (sub (succ m) n);
-
-divF = \F. \m. \n. (\s. (ifthenelse (isZero s)
-                                   0
-                                   (succ (F (pred s) n))))
-                   (sub (succ m) n);
-div = Y divF;
-
-mod = \m. \n. (sub m (mult2 n (div m n)));
-
-assinaturaF = \F. \m. ifthenelse (menor2 m 10)
-                                 m
-                                 (add (mod m 10) (F (div m 10)));
-assinatura = Y assinaturaF;
-
--- Questão 4
-
-tryraizcubicaF = \F.\m.\n. ifthenelse (menor n (exp2 (succ m) 3))
-                                      m
-                                      (F (succ m) n);
-tryraizcubica = Y tryraizcubicaF;
+tryraizcubicaX = \X.\m.\n.
+	ifthenelse (le n (power (succ m) 3))
+		m
+		(X (succ m) n);
+tryraizcubica = Y tryraizcubicaX;
 raizcubica = \n. tryraizcubica 0 n;
 
--- Questão 5
+-- Questão 5:
 
-fatiaF = \X.\l.\p.\q. 
-		(ifthenelse (or (isEmpty l) (ge p q))
-				empty
-				(ifthenelse (isZero q)
-					    (cons (head l) empty)
-					    (ifthenelse (isZero p)
-							(cons (head l) (X (tail l) (pred p) (pred q)))
-							(X (tail l) (pred p) (pred q)))));
+-- fatia: list int int -> list
+-- Objetivo: dada uma lista de dois números naturais M e N, devolve uma sub-lista da lista dada em que:
+--	- M > N: ela é vazia.
+--	- M <= N: o primeiro elemento dela tem índice M e o último índice N.
+-- Exemplos: (fatia [1 10 5 0] 1 3) -> [10 5 0]
+--	(fatia [1 10 5 0] 0 0) -> [1]
+--	(fatia [1 10 5 0] 7 3) -> empty
+fatiaX = \X.\l.\p.\q.
+	ifthenelse (or (isEmpty l) (ge p q))
+		empty
+		(ifthenelse (isZero q)
+			(cons
+				(head l)
+				empty)
+			(ifthenelse (isZero p)
+				(cons
+					(head l)
+					(F (tail l) (pred p) (pred q)))
+				(X (tail l) (pred p) (pred q))));
+fatia = Y fatiaX;
 
-fatia = Y fatiaF;
-
--- Teste:
+-- Execução:
 
 in
 
