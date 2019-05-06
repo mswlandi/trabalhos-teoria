@@ -181,7 +181,10 @@ listEq = Y listEqX;
 
 -- palind: int -> boolean
 -- Objetivo: dado um número natural, devolve true se ele é um palíndromo (ele é igual ao ele com os dígitos com posições invertidas). Senão, devolve false.
--- Exemplo:
+-- Exemplo: (palind 0) -> true
+--	(palind 11) -> true
+--	(palind 131) -> true
+--	(palind 31) -> false
 palind = \p.
 	ifthenelse  (geq p 10)
 		(listEq	 (listDigit p) (listReverse (listDigit p)))
