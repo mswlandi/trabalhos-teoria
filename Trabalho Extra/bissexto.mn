@@ -1,2482 +1,1303 @@
 main{
-1: do dec X goto 2
-2: do dec X goto 3
+1: do sub X 1581 goto 2
+// n < 1582
+2: if zero X then goto 0 else goto 3
 3: do dec X goto 4
-4: do dec X goto 5
+// n % 400 == 382, n % 100 == 82, n % 4 == 2
+4: if zero X then goto 0 else goto 5
 5: do dec X goto 6
-6: do dec X goto 7
+// n % 400 == 383, n % 100 == 83, n % 4 == 3
+6: if zero X then goto 0 else goto 7
 7: do dec X goto 8
-8: do dec X goto 9
-9: do dec X goto 10
+// n % 400 == 384, n % 100 == 84, n % 4 == 0
+8: if zero X then goto 9 else goto 10
+9: do inc Y goto 0
 10: do dec X goto 11
-11: do dec X goto 12
+// n % 400 == 385, n % 100 == 85, n % 4 == 1
+11: if zero X then goto 0 else goto 12
 12: do dec X goto 13
-13: do dec X goto 14
+// n % 400 == 386, n % 100 == 86, n % 4 == 2
+13: if zero X then goto 0 else goto 14
 14: do dec X goto 15
-15: do dec X goto 16
+// n % 400 == 387, n % 100 == 87, n % 4 == 3
+15: if zero X then goto 0 else goto 16
 16: do dec X goto 17
-17: do dec X goto 18
-18: do dec X goto 19
+// n % 400 == 388, n % 100 == 88, n % 4 == 0
+17: if zero X then goto 18 else goto 19
+18: do inc Y goto 0
 19: do dec X goto 20
-20: do dec X goto 21
+// n % 400 == 389, n % 100 == 89, n % 4 == 1
+20: if zero X then goto 0 else goto 21
 21: do dec X goto 22
-22: do dec X goto 23
+// n % 400 == 390, n % 100 == 90, n % 4 == 2
+22: if zero X then goto 0 else goto 23
 23: do dec X goto 24
-24: do dec X goto 25
+// n % 400 == 391, n % 100 == 91, n % 4 == 3
+24: if zero X then goto 0 else goto 25
 25: do dec X goto 26
-26: do dec X goto 27
-27: do dec X goto 28
+// n % 400 == 392, n % 100 == 92, n % 4 == 0
+26: if zero X then goto 27 else goto 28
+27: do inc Y goto 0
 28: do dec X goto 29
-29: do dec X goto 30
+// n % 400 == 393, n % 100 == 93, n % 4 == 1
+29: if zero X then goto 0 else goto 30
 30: do dec X goto 31
-31: do dec X goto 32
+// n % 400 == 394, n % 100 == 94, n % 4 == 2
+31: if zero X then goto 0 else goto 32
 32: do dec X goto 33
-33: do dec X goto 34
+// n % 400 == 395, n % 100 == 95, n % 4 == 3
+33: if zero X then goto 0 else goto 34
 34: do dec X goto 35
-35: do dec X goto 36
-36: do dec X goto 37
+// n % 400 == 396, n % 100 == 96, n % 4 == 0
+35: if zero X then goto 36 else goto 37
+36: do inc Y goto 0
 37: do dec X goto 38
-38: do dec X goto 39
+// n % 400 == 397, n % 100 == 97, n % 4 == 1
+38: if zero X then goto 0 else goto 39
 39: do dec X goto 40
-40: do dec X goto 41
+// n % 400 == 398, n % 100 == 98, n % 4 == 2
+40: if zero X then goto 0 else goto 41
 41: do dec X goto 42
-42: do dec X goto 43
+// n % 400 == 399, n % 100 == 99, n % 4 == 3
+42: if zero X then goto 0 else goto 43
 43: do dec X goto 44
-44: do dec X goto 45
-45: do dec X goto 46
+// n % 400 == 0, n % 100 == 0, n % 4 == 0
+44: if zero X then goto 45 else goto 46
+45: do inc Y goto 0
 46: do dec X goto 47
-47: do dec X goto 48
+// n % 400 == 1, n % 100 == 1, n % 4 == 1
+47: if zero X then goto 0 else goto 48
 48: do dec X goto 49
-49: do dec X goto 50
+// n % 400 == 2, n % 100 == 2, n % 4 == 2
+49: if zero X then goto 0 else goto 50
 50: do dec X goto 51
-51: do dec X goto 52
+// n % 400 == 3, n % 100 == 3, n % 4 == 3
+51: if zero X then goto 0 else goto 52
 52: do dec X goto 53
-53: do dec X goto 54
-54: do dec X goto 55
+// n % 400 == 4, n % 100 == 4, n % 4 == 0
+53: if zero X then goto 54 else goto 55
+54: do inc Y goto 0
 55: do dec X goto 56
-56: do dec X goto 57
+// n % 400 == 5, n % 100 == 5, n % 4 == 1
+56: if zero X then goto 0 else goto 57
 57: do dec X goto 58
-58: do dec X goto 59
+// n % 400 == 6, n % 100 == 6, n % 4 == 2
+58: if zero X then goto 0 else goto 59
 59: do dec X goto 60
-60: do dec X goto 61
+// n % 400 == 7, n % 100 == 7, n % 4 == 3
+60: if zero X then goto 0 else goto 61
 61: do dec X goto 62
-62: do dec X goto 63
-63: do dec X goto 64
+// n % 400 == 8, n % 100 == 8, n % 4 == 0
+62: if zero X then goto 63 else goto 64
+63: do inc Y goto 0
 64: do dec X goto 65
-65: do dec X goto 66
+// n % 400 == 9, n % 100 == 9, n % 4 == 1
+65: if zero X then goto 0 else goto 66
 66: do dec X goto 67
-67: do dec X goto 68
+// n % 400 == 10, n % 100 == 10, n % 4 == 2
+67: if zero X then goto 0 else goto 68
 68: do dec X goto 69
-69: do dec X goto 70
+// n % 400 == 11, n % 100 == 11, n % 4 == 3
+69: if zero X then goto 0 else goto 70
 70: do dec X goto 71
-71: do dec X goto 72
-72: do dec X goto 73
+// n % 400 == 12, n % 100 == 12, n % 4 == 0
+71: if zero X then goto 72 else goto 73
+72: do inc Y goto 0
 73: do dec X goto 74
-74: do dec X goto 75
+// n % 400 == 13, n % 100 == 13, n % 4 == 1
+74: if zero X then goto 0 else goto 75
 75: do dec X goto 76
-76: do dec X goto 77
+// n % 400 == 14, n % 100 == 14, n % 4 == 2
+76: if zero X then goto 0 else goto 77
 77: do dec X goto 78
-78: do dec X goto 79
+// n % 400 == 15, n % 100 == 15, n % 4 == 3
+78: if zero X then goto 0 else goto 79
 79: do dec X goto 80
-80: do dec X goto 81
-81: do dec X goto 82
+// n % 400 == 16, n % 100 == 16, n % 4 == 0
+80: if zero X then goto 81 else goto 82
+81: do inc Y goto 0
 82: do dec X goto 83
-83: do dec X goto 84
+// n % 400 == 17, n % 100 == 17, n % 4 == 1
+83: if zero X then goto 0 else goto 84
 84: do dec X goto 85
-85: do dec X goto 86
+// n % 400 == 18, n % 100 == 18, n % 4 == 2
+85: if zero X then goto 0 else goto 86
 86: do dec X goto 87
-87: do dec X goto 88
+// n % 400 == 19, n % 100 == 19, n % 4 == 3
+87: if zero X then goto 0 else goto 88
 88: do dec X goto 89
-89: do dec X goto 90
-90: do dec X goto 91
+// n % 400 == 20, n % 100 == 20, n % 4 == 0
+89: if zero X then goto 90 else goto 91
+90: do inc Y goto 0
 91: do dec X goto 92
-92: do dec X goto 93
+// n % 400 == 21, n % 100 == 21, n % 4 == 1
+92: if zero X then goto 0 else goto 93
 93: do dec X goto 94
-94: do dec X goto 95
+// n % 400 == 22, n % 100 == 22, n % 4 == 2
+94: if zero X then goto 0 else goto 95
 95: do dec X goto 96
-96: do dec X goto 97
+// n % 400 == 23, n % 100 == 23, n % 4 == 3
+96: if zero X then goto 0 else goto 97
 97: do dec X goto 98
-98: do dec X goto 99
-99: do dec X goto 100
+// n % 400 == 24, n % 100 == 24, n % 4 == 0
+98: if zero X then goto 99 else goto 100
+99: do inc Y goto 0
 100: do dec X goto 101
-101: do dec X goto 102
+// n % 400 == 25, n % 100 == 25, n % 4 == 1
+101: if zero X then goto 0 else goto 102
 102: do dec X goto 103
-103: do dec X goto 104
+// n % 400 == 26, n % 100 == 26, n % 4 == 2
+103: if zero X then goto 0 else goto 104
 104: do dec X goto 105
-105: do dec X goto 106
+// n % 400 == 27, n % 100 == 27, n % 4 == 3
+105: if zero X then goto 0 else goto 106
 106: do dec X goto 107
-107: do dec X goto 108
-108: do dec X goto 109
+// n % 400 == 28, n % 100 == 28, n % 4 == 0
+107: if zero X then goto 108 else goto 109
+108: do inc Y goto 0
 109: do dec X goto 110
-110: do dec X goto 111
+// n % 400 == 29, n % 100 == 29, n % 4 == 1
+110: if zero X then goto 0 else goto 111
 111: do dec X goto 112
-112: do dec X goto 113
+// n % 400 == 30, n % 100 == 30, n % 4 == 2
+112: if zero X then goto 0 else goto 113
 113: do dec X goto 114
-114: do dec X goto 115
+// n % 400 == 31, n % 100 == 31, n % 4 == 3
+114: if zero X then goto 0 else goto 115
 115: do dec X goto 116
-116: do dec X goto 117
-117: do dec X goto 118
+// n % 400 == 32, n % 100 == 32, n % 4 == 0
+116: if zero X then goto 117 else goto 118
+117: do inc Y goto 0
 118: do dec X goto 119
-119: do dec X goto 120
+// n % 400 == 33, n % 100 == 33, n % 4 == 1
+119: if zero X then goto 0 else goto 120
 120: do dec X goto 121
-121: do dec X goto 122
+// n % 400 == 34, n % 100 == 34, n % 4 == 2
+121: if zero X then goto 0 else goto 122
 122: do dec X goto 123
-123: do dec X goto 124
+// n % 400 == 35, n % 100 == 35, n % 4 == 3
+123: if zero X then goto 0 else goto 124
 124: do dec X goto 125
-125: do dec X goto 126
-126: do dec X goto 127
+// n % 400 == 36, n % 100 == 36, n % 4 == 0
+125: if zero X then goto 126 else goto 127
+126: do inc Y goto 0
 127: do dec X goto 128
-128: do dec X goto 129
+// n % 400 == 37, n % 100 == 37, n % 4 == 1
+128: if zero X then goto 0 else goto 129
 129: do dec X goto 130
-130: do dec X goto 131
+// n % 400 == 38, n % 100 == 38, n % 4 == 2
+130: if zero X then goto 0 else goto 131
 131: do dec X goto 132
-132: do dec X goto 133
+// n % 400 == 39, n % 100 == 39, n % 4 == 3
+132: if zero X then goto 0 else goto 133
 133: do dec X goto 134
-134: do dec X goto 135
-135: do dec X goto 136
+// n % 400 == 40, n % 100 == 40, n % 4 == 0
+134: if zero X then goto 135 else goto 136
+135: do inc Y goto 0
 136: do dec X goto 137
-137: do dec X goto 138
+// n % 400 == 41, n % 100 == 41, n % 4 == 1
+137: if zero X then goto 0 else goto 138
 138: do dec X goto 139
-139: do dec X goto 140
+// n % 400 == 42, n % 100 == 42, n % 4 == 2
+139: if zero X then goto 0 else goto 140
 140: do dec X goto 141
-141: do dec X goto 142
+// n % 400 == 43, n % 100 == 43, n % 4 == 3
+141: if zero X then goto 0 else goto 142
 142: do dec X goto 143
-143: do dec X goto 144
-144: do dec X goto 145
+// n % 400 == 44, n % 100 == 44, n % 4 == 0
+143: if zero X then goto 144 else goto 145
+144: do inc Y goto 0
 145: do dec X goto 146
-146: do dec X goto 147
+// n % 400 == 45, n % 100 == 45, n % 4 == 1
+146: if zero X then goto 0 else goto 147
 147: do dec X goto 148
-148: do dec X goto 149
+// n % 400 == 46, n % 100 == 46, n % 4 == 2
+148: if zero X then goto 0 else goto 149
 149: do dec X goto 150
-150: do dec X goto 151
+// n % 400 == 47, n % 100 == 47, n % 4 == 3
+150: if zero X then goto 0 else goto 151
 151: do dec X goto 152
-152: do dec X goto 153
-153: do dec X goto 154
+// n % 400 == 48, n % 100 == 48, n % 4 == 0
+152: if zero X then goto 153 else goto 154
+153: do inc Y goto 0
 154: do dec X goto 155
-155: do dec X goto 156
+// n % 400 == 49, n % 100 == 49, n % 4 == 1
+155: if zero X then goto 0 else goto 156
 156: do dec X goto 157
-157: do dec X goto 158
+// n % 400 == 50, n % 100 == 50, n % 4 == 2
+157: if zero X then goto 0 else goto 158
 158: do dec X goto 159
-159: do dec X goto 160
+// n % 400 == 51, n % 100 == 51, n % 4 == 3
+159: if zero X then goto 0 else goto 160
 160: do dec X goto 161
-161: do dec X goto 162
-162: do dec X goto 163
+// n % 400 == 52, n % 100 == 52, n % 4 == 0
+161: if zero X then goto 162 else goto 163
+162: do inc Y goto 0
 163: do dec X goto 164
-164: do dec X goto 165
+// n % 400 == 53, n % 100 == 53, n % 4 == 1
+164: if zero X then goto 0 else goto 165
 165: do dec X goto 166
-166: do dec X goto 167
+// n % 400 == 54, n % 100 == 54, n % 4 == 2
+166: if zero X then goto 0 else goto 167
 167: do dec X goto 168
-168: do dec X goto 169
+// n % 400 == 55, n % 100 == 55, n % 4 == 3
+168: if zero X then goto 0 else goto 169
 169: do dec X goto 170
-170: do dec X goto 171
-171: do dec X goto 172
+// n % 400 == 56, n % 100 == 56, n % 4 == 0
+170: if zero X then goto 171 else goto 172
+171: do inc Y goto 0
 172: do dec X goto 173
-173: do dec X goto 174
+// n % 400 == 57, n % 100 == 57, n % 4 == 1
+173: if zero X then goto 0 else goto 174
 174: do dec X goto 175
-175: do dec X goto 176
+// n % 400 == 58, n % 100 == 58, n % 4 == 2
+175: if zero X then goto 0 else goto 176
 176: do dec X goto 177
-177: do dec X goto 178
+// n % 400 == 59, n % 100 == 59, n % 4 == 3
+177: if zero X then goto 0 else goto 178
 178: do dec X goto 179
-179: do dec X goto 180
-180: do dec X goto 181
+// n % 400 == 60, n % 100 == 60, n % 4 == 0
+179: if zero X then goto 180 else goto 181
+180: do inc Y goto 0
 181: do dec X goto 182
-182: do dec X goto 183
+// n % 400 == 61, n % 100 == 61, n % 4 == 1
+182: if zero X then goto 0 else goto 183
 183: do dec X goto 184
-184: do dec X goto 185
+// n % 400 == 62, n % 100 == 62, n % 4 == 2
+184: if zero X then goto 0 else goto 185
 185: do dec X goto 186
-186: do dec X goto 187
+// n % 400 == 63, n % 100 == 63, n % 4 == 3
+186: if zero X then goto 0 else goto 187
 187: do dec X goto 188
-188: do dec X goto 189
-189: do dec X goto 190
+// n % 400 == 64, n % 100 == 64, n % 4 == 0
+188: if zero X then goto 189 else goto 190
+189: do inc Y goto 0
 190: do dec X goto 191
-191: do dec X goto 192
+// n % 400 == 65, n % 100 == 65, n % 4 == 1
+191: if zero X then goto 0 else goto 192
 192: do dec X goto 193
-193: do dec X goto 194
+// n % 400 == 66, n % 100 == 66, n % 4 == 2
+193: if zero X then goto 0 else goto 194
 194: do dec X goto 195
-195: do dec X goto 196
+// n % 400 == 67, n % 100 == 67, n % 4 == 3
+195: if zero X then goto 0 else goto 196
 196: do dec X goto 197
-197: do dec X goto 198
-198: do dec X goto 199
+// n % 400 == 68, n % 100 == 68, n % 4 == 0
+197: if zero X then goto 198 else goto 199
+198: do inc Y goto 0
 199: do dec X goto 200
-200: do dec X goto 201
+// n % 400 == 69, n % 100 == 69, n % 4 == 1
+200: if zero X then goto 0 else goto 201
 201: do dec X goto 202
-202: do dec X goto 203
+// n % 400 == 70, n % 100 == 70, n % 4 == 2
+202: if zero X then goto 0 else goto 203
 203: do dec X goto 204
-204: do dec X goto 205
+// n % 400 == 71, n % 100 == 71, n % 4 == 3
+204: if zero X then goto 0 else goto 205
 205: do dec X goto 206
-206: do dec X goto 207
-207: do dec X goto 208
+// n % 400 == 72, n % 100 == 72, n % 4 == 0
+206: if zero X then goto 207 else goto 208
+207: do inc Y goto 0
 208: do dec X goto 209
-209: do dec X goto 210
+// n % 400 == 73, n % 100 == 73, n % 4 == 1
+209: if zero X then goto 0 else goto 210
 210: do dec X goto 211
-211: do dec X goto 212
+// n % 400 == 74, n % 100 == 74, n % 4 == 2
+211: if zero X then goto 0 else goto 212
 212: do dec X goto 213
-213: do dec X goto 214
+// n % 400 == 75, n % 100 == 75, n % 4 == 3
+213: if zero X then goto 0 else goto 214
 214: do dec X goto 215
-215: do dec X goto 216
-216: do dec X goto 217
+// n % 400 == 76, n % 100 == 76, n % 4 == 0
+215: if zero X then goto 216 else goto 217
+216: do inc Y goto 0
 217: do dec X goto 218
-218: do dec X goto 219
+// n % 400 == 77, n % 100 == 77, n % 4 == 1
+218: if zero X then goto 0 else goto 219
 219: do dec X goto 220
-220: do dec X goto 221
+// n % 400 == 78, n % 100 == 78, n % 4 == 2
+220: if zero X then goto 0 else goto 221
 221: do dec X goto 222
-222: do dec X goto 223
+// n % 400 == 79, n % 100 == 79, n % 4 == 3
+222: if zero X then goto 0 else goto 223
 223: do dec X goto 224
-224: do dec X goto 225
-225: do dec X goto 226
+// n % 400 == 80, n % 100 == 80, n % 4 == 0
+224: if zero X then goto 225 else goto 226
+225: do inc Y goto 0
 226: do dec X goto 227
-227: do dec X goto 228
+// n % 400 == 81, n % 100 == 81, n % 4 == 1
+227: if zero X then goto 0 else goto 228
 228: do dec X goto 229
-229: do dec X goto 230
+// n % 400 == 82, n % 100 == 82, n % 4 == 2
+229: if zero X then goto 0 else goto 230
 230: do dec X goto 231
-231: do dec X goto 232
+// n % 400 == 83, n % 100 == 83, n % 4 == 3
+231: if zero X then goto 0 else goto 232
 232: do dec X goto 233
-233: do dec X goto 234
-234: do dec X goto 235
+// n % 400 == 84, n % 100 == 84, n % 4 == 0
+233: if zero X then goto 234 else goto 235
+234: do inc Y goto 0
 235: do dec X goto 236
-236: do dec X goto 237
+// n % 400 == 85, n % 100 == 85, n % 4 == 1
+236: if zero X then goto 0 else goto 237
 237: do dec X goto 238
-238: do dec X goto 239
+// n % 400 == 86, n % 100 == 86, n % 4 == 2
+238: if zero X then goto 0 else goto 239
 239: do dec X goto 240
-240: do dec X goto 241
+// n % 400 == 87, n % 100 == 87, n % 4 == 3
+240: if zero X then goto 0 else goto 241
 241: do dec X goto 242
-242: do dec X goto 243
-243: do dec X goto 244
+// n % 400 == 88, n % 100 == 88, n % 4 == 0
+242: if zero X then goto 243 else goto 244
+243: do inc Y goto 0
 244: do dec X goto 245
-245: do dec X goto 246
+// n % 400 == 89, n % 100 == 89, n % 4 == 1
+245: if zero X then goto 0 else goto 246
 246: do dec X goto 247
-247: do dec X goto 248
+// n % 400 == 90, n % 100 == 90, n % 4 == 2
+247: if zero X then goto 0 else goto 248
 248: do dec X goto 249
-249: do dec X goto 250
+// n % 400 == 91, n % 100 == 91, n % 4 == 3
+249: if zero X then goto 0 else goto 250
 250: do dec X goto 251
-251: do dec X goto 252
-252: do dec X goto 253
+// n % 400 == 92, n % 100 == 92, n % 4 == 0
+251: if zero X then goto 252 else goto 253
+252: do inc Y goto 0
 253: do dec X goto 254
-254: do dec X goto 255
+// n % 400 == 93, n % 100 == 93, n % 4 == 1
+254: if zero X then goto 0 else goto 255
 255: do dec X goto 256
-256: do dec X goto 257
+// n % 400 == 94, n % 100 == 94, n % 4 == 2
+256: if zero X then goto 0 else goto 257
 257: do dec X goto 258
-258: do dec X goto 259
+// n % 400 == 95, n % 100 == 95, n % 4 == 3
+258: if zero X then goto 0 else goto 259
 259: do dec X goto 260
-260: do dec X goto 261
-261: do dec X goto 262
+// n % 400 == 96, n % 100 == 96, n % 4 == 0
+260: if zero X then goto 261 else goto 262
+261: do inc Y goto 0
 262: do dec X goto 263
-263: do dec X goto 264
+// n % 400 == 97, n % 100 == 97, n % 4 == 1
+263: if zero X then goto 0 else goto 264
 264: do dec X goto 265
-265: do dec X goto 266
+// n % 400 == 98, n % 100 == 98, n % 4 == 2
+265: if zero X then goto 0 else goto 266
 266: do dec X goto 267
-267: do dec X goto 268
+// n % 400 == 99, n % 100 == 99, n % 4 == 3
+267: if zero X then goto 0 else goto 268
 268: do dec X goto 269
-269: do dec X goto 270
+// n % 400 == 100, n % 100 == 0, n % 4 == 0
+269: if zero X then goto 0 else goto 270
 270: do dec X goto 271
-271: do dec X goto 272
+// n % 400 == 101, n % 100 == 1, n % 4 == 1
+271: if zero X then goto 0 else goto 272
 272: do dec X goto 273
-273: do dec X goto 274
+// n % 400 == 102, n % 100 == 2, n % 4 == 2
+273: if zero X then goto 0 else goto 274
 274: do dec X goto 275
-275: do dec X goto 276
+// n % 400 == 103, n % 100 == 3, n % 4 == 3
+275: if zero X then goto 0 else goto 276
 276: do dec X goto 277
-277: do dec X goto 278
-278: do dec X goto 279
+// n % 400 == 104, n % 100 == 4, n % 4 == 0
+277: if zero X then goto 278 else goto 279
+278: do inc Y goto 0
 279: do dec X goto 280
-280: do dec X goto 281
+// n % 400 == 105, n % 100 == 5, n % 4 == 1
+280: if zero X then goto 0 else goto 281
 281: do dec X goto 282
-282: do dec X goto 283
+// n % 400 == 106, n % 100 == 6, n % 4 == 2
+282: if zero X then goto 0 else goto 283
 283: do dec X goto 284
-284: do dec X goto 285
+// n % 400 == 107, n % 100 == 7, n % 4 == 3
+284: if zero X then goto 0 else goto 285
 285: do dec X goto 286
-286: do dec X goto 287
-287: do dec X goto 288
+// n % 400 == 108, n % 100 == 8, n % 4 == 0
+286: if zero X then goto 287 else goto 288
+287: do inc Y goto 0
 288: do dec X goto 289
-289: do dec X goto 290
+// n % 400 == 109, n % 100 == 9, n % 4 == 1
+289: if zero X then goto 0 else goto 290
 290: do dec X goto 291
-291: do dec X goto 292
+// n % 400 == 110, n % 100 == 10, n % 4 == 2
+291: if zero X then goto 0 else goto 292
 292: do dec X goto 293
-293: do dec X goto 294
+// n % 400 == 111, n % 100 == 11, n % 4 == 3
+293: if zero X then goto 0 else goto 294
 294: do dec X goto 295
-295: do dec X goto 296
-296: do dec X goto 297
+// n % 400 == 112, n % 100 == 12, n % 4 == 0
+295: if zero X then goto 296 else goto 297
+296: do inc Y goto 0
 297: do dec X goto 298
-298: do dec X goto 299
+// n % 400 == 113, n % 100 == 13, n % 4 == 1
+298: if zero X then goto 0 else goto 299
 299: do dec X goto 300
-300: do dec X goto 301
+// n % 400 == 114, n % 100 == 14, n % 4 == 2
+300: if zero X then goto 0 else goto 301
 301: do dec X goto 302
-302: do dec X goto 303
+// n % 400 == 115, n % 100 == 15, n % 4 == 3
+302: if zero X then goto 0 else goto 303
 303: do dec X goto 304
-304: do dec X goto 305
-305: do dec X goto 306
+// n % 400 == 116, n % 100 == 16, n % 4 == 0
+304: if zero X then goto 305 else goto 306
+305: do inc Y goto 0
 306: do dec X goto 307
-307: do dec X goto 308
+// n % 400 == 117, n % 100 == 17, n % 4 == 1
+307: if zero X then goto 0 else goto 308
 308: do dec X goto 309
-309: do dec X goto 310
+// n % 400 == 118, n % 100 == 18, n % 4 == 2
+309: if zero X then goto 0 else goto 310
 310: do dec X goto 311
-311: do dec X goto 312
+// n % 400 == 119, n % 100 == 19, n % 4 == 3
+311: if zero X then goto 0 else goto 312
 312: do dec X goto 313
-313: do dec X goto 314
-314: do dec X goto 315
+// n % 400 == 120, n % 100 == 20, n % 4 == 0
+313: if zero X then goto 314 else goto 315
+314: do inc Y goto 0
 315: do dec X goto 316
-316: do dec X goto 317
+// n % 400 == 121, n % 100 == 21, n % 4 == 1
+316: if zero X then goto 0 else goto 317
 317: do dec X goto 318
-318: do dec X goto 319
+// n % 400 == 122, n % 100 == 22, n % 4 == 2
+318: if zero X then goto 0 else goto 319
 319: do dec X goto 320
-320: do dec X goto 321
+// n % 400 == 123, n % 100 == 23, n % 4 == 3
+320: if zero X then goto 0 else goto 321
 321: do dec X goto 322
-322: do dec X goto 323
-323: do dec X goto 324
+// n % 400 == 124, n % 100 == 24, n % 4 == 0
+322: if zero X then goto 323 else goto 324
+323: do inc Y goto 0
 324: do dec X goto 325
-325: do dec X goto 326
+// n % 400 == 125, n % 100 == 25, n % 4 == 1
+325: if zero X then goto 0 else goto 326
 326: do dec X goto 327
-327: do dec X goto 328
+// n % 400 == 126, n % 100 == 26, n % 4 == 2
+327: if zero X then goto 0 else goto 328
 328: do dec X goto 329
-329: do dec X goto 330
+// n % 400 == 127, n % 100 == 27, n % 4 == 3
+329: if zero X then goto 0 else goto 330
 330: do dec X goto 331
-331: do dec X goto 332
-332: do dec X goto 333
+// n % 400 == 128, n % 100 == 28, n % 4 == 0
+331: if zero X then goto 332 else goto 333
+332: do inc Y goto 0
 333: do dec X goto 334
-334: do dec X goto 335
+// n % 400 == 129, n % 100 == 29, n % 4 == 1
+334: if zero X then goto 0 else goto 335
 335: do dec X goto 336
-336: do dec X goto 337
+// n % 400 == 130, n % 100 == 30, n % 4 == 2
+336: if zero X then goto 0 else goto 337
 337: do dec X goto 338
-338: do dec X goto 339
+// n % 400 == 131, n % 100 == 31, n % 4 == 3
+338: if zero X then goto 0 else goto 339
 339: do dec X goto 340
-340: do dec X goto 341
-341: do dec X goto 342
+// n % 400 == 132, n % 100 == 32, n % 4 == 0
+340: if zero X then goto 341 else goto 342
+341: do inc Y goto 0
 342: do dec X goto 343
-343: do dec X goto 344
+// n % 400 == 133, n % 100 == 33, n % 4 == 1
+343: if zero X then goto 0 else goto 344
 344: do dec X goto 345
-345: do dec X goto 346
+// n % 400 == 134, n % 100 == 34, n % 4 == 2
+345: if zero X then goto 0 else goto 346
 346: do dec X goto 347
-347: do dec X goto 348
+// n % 400 == 135, n % 100 == 35, n % 4 == 3
+347: if zero X then goto 0 else goto 348
 348: do dec X goto 349
-349: do dec X goto 350
-350: do dec X goto 351
+// n % 400 == 136, n % 100 == 36, n % 4 == 0
+349: if zero X then goto 350 else goto 351
+350: do inc Y goto 0
 351: do dec X goto 352
-352: do dec X goto 353
+// n % 400 == 137, n % 100 == 37, n % 4 == 1
+352: if zero X then goto 0 else goto 353
 353: do dec X goto 354
-354: do dec X goto 355
+// n % 400 == 138, n % 100 == 38, n % 4 == 2
+354: if zero X then goto 0 else goto 355
 355: do dec X goto 356
-356: do dec X goto 357
+// n % 400 == 139, n % 100 == 39, n % 4 == 3
+356: if zero X then goto 0 else goto 357
 357: do dec X goto 358
-358: do dec X goto 359
-359: do dec X goto 360
+// n % 400 == 140, n % 100 == 40, n % 4 == 0
+358: if zero X then goto 359 else goto 360
+359: do inc Y goto 0
 360: do dec X goto 361
-361: do dec X goto 362
+// n % 400 == 141, n % 100 == 41, n % 4 == 1
+361: if zero X then goto 0 else goto 362
 362: do dec X goto 363
-363: do dec X goto 364
+// n % 400 == 142, n % 100 == 42, n % 4 == 2
+363: if zero X then goto 0 else goto 364
 364: do dec X goto 365
-365: do dec X goto 366
+// n % 400 == 143, n % 100 == 43, n % 4 == 3
+365: if zero X then goto 0 else goto 366
 366: do dec X goto 367
-367: do dec X goto 368
-368: do dec X goto 369
+// n % 400 == 144, n % 100 == 44, n % 4 == 0
+367: if zero X then goto 368 else goto 369
+368: do inc Y goto 0
 369: do dec X goto 370
-370: do dec X goto 371
+// n % 400 == 145, n % 100 == 45, n % 4 == 1
+370: if zero X then goto 0 else goto 371
 371: do dec X goto 372
-372: do dec X goto 373
+// n % 400 == 146, n % 100 == 46, n % 4 == 2
+372: if zero X then goto 0 else goto 373
 373: do dec X goto 374
-374: do dec X goto 375
+// n % 400 == 147, n % 100 == 47, n % 4 == 3
+374: if zero X then goto 0 else goto 375
 375: do dec X goto 376
-376: do dec X goto 377
-377: do dec X goto 378
+// n % 400 == 148, n % 100 == 48, n % 4 == 0
+376: if zero X then goto 377 else goto 378
+377: do inc Y goto 0
 378: do dec X goto 379
-379: do dec X goto 380
+// n % 400 == 149, n % 100 == 49, n % 4 == 1
+379: if zero X then goto 0 else goto 380
 380: do dec X goto 381
-381: do dec X goto 382
+// n % 400 == 150, n % 100 == 50, n % 4 == 2
+381: if zero X then goto 0 else goto 382
 382: do dec X goto 383
-383: do dec X goto 384
+// n % 400 == 151, n % 100 == 51, n % 4 == 3
+383: if zero X then goto 0 else goto 384
 384: do dec X goto 385
-385: do dec X goto 386
-386: do dec X goto 387
+// n % 400 == 152, n % 100 == 52, n % 4 == 0
+385: if zero X then goto 386 else goto 387
+386: do inc Y goto 0
 387: do dec X goto 388
-388: do dec X goto 389
+// n % 400 == 153, n % 100 == 53, n % 4 == 1
+388: if zero X then goto 0 else goto 389
 389: do dec X goto 390
-390: do dec X goto 391
+// n % 400 == 154, n % 100 == 54, n % 4 == 2
+390: if zero X then goto 0 else goto 391
 391: do dec X goto 392
-392: do dec X goto 393
+// n % 400 == 155, n % 100 == 55, n % 4 == 3
+392: if zero X then goto 0 else goto 393
 393: do dec X goto 394
-394: do dec X goto 395
-395: do dec X goto 396
+// n % 400 == 156, n % 100 == 56, n % 4 == 0
+394: if zero X then goto 395 else goto 396
+395: do inc Y goto 0
 396: do dec X goto 397
-397: do dec X goto 398
+// n % 400 == 157, n % 100 == 57, n % 4 == 1
+397: if zero X then goto 0 else goto 398
 398: do dec X goto 399
-399: do dec X goto 400
+// n % 400 == 158, n % 100 == 58, n % 4 == 2
+399: if zero X then goto 0 else goto 400
 400: do dec X goto 401
-401: do dec X goto 402
+// n % 400 == 159, n % 100 == 59, n % 4 == 3
+401: if zero X then goto 0 else goto 402
 402: do dec X goto 403
-403: do dec X goto 404
-404: do dec X goto 405
+// n % 400 == 160, n % 100 == 60, n % 4 == 0
+403: if zero X then goto 404 else goto 405
+404: do inc Y goto 0
 405: do dec X goto 406
-406: do dec X goto 407
+// n % 400 == 161, n % 100 == 61, n % 4 == 1
+406: if zero X then goto 0 else goto 407
 407: do dec X goto 408
-408: do dec X goto 409
+// n % 400 == 162, n % 100 == 62, n % 4 == 2
+408: if zero X then goto 0 else goto 409
 409: do dec X goto 410
-410: do dec X goto 411
+// n % 400 == 163, n % 100 == 63, n % 4 == 3
+410: if zero X then goto 0 else goto 411
 411: do dec X goto 412
-412: do dec X goto 413
-413: do dec X goto 414
+// n % 400 == 164, n % 100 == 64, n % 4 == 0
+412: if zero X then goto 413 else goto 414
+413: do inc Y goto 0
 414: do dec X goto 415
-415: do dec X goto 416
+// n % 400 == 165, n % 100 == 65, n % 4 == 1
+415: if zero X then goto 0 else goto 416
 416: do dec X goto 417
-417: do dec X goto 418
+// n % 400 == 166, n % 100 == 66, n % 4 == 2
+417: if zero X then goto 0 else goto 418
 418: do dec X goto 419
-419: do dec X goto 420
+// n % 400 == 167, n % 100 == 67, n % 4 == 3
+419: if zero X then goto 0 else goto 420
 420: do dec X goto 421
-421: do dec X goto 422
-422: do dec X goto 423
+// n % 400 == 168, n % 100 == 68, n % 4 == 0
+421: if zero X then goto 422 else goto 423
+422: do inc Y goto 0
 423: do dec X goto 424
-424: do dec X goto 425
+// n % 400 == 169, n % 100 == 69, n % 4 == 1
+424: if zero X then goto 0 else goto 425
 425: do dec X goto 426
-426: do dec X goto 427
+// n % 400 == 170, n % 100 == 70, n % 4 == 2
+426: if zero X then goto 0 else goto 427
 427: do dec X goto 428
-428: do dec X goto 429
+// n % 400 == 171, n % 100 == 71, n % 4 == 3
+428: if zero X then goto 0 else goto 429
 429: do dec X goto 430
-430: do dec X goto 431
-431: do dec X goto 432
+// n % 400 == 172, n % 100 == 72, n % 4 == 0
+430: if zero X then goto 431 else goto 432
+431: do inc Y goto 0
 432: do dec X goto 433
-433: do dec X goto 434
+// n % 400 == 173, n % 100 == 73, n % 4 == 1
+433: if zero X then goto 0 else goto 434
 434: do dec X goto 435
-435: do dec X goto 436
+// n % 400 == 174, n % 100 == 74, n % 4 == 2
+435: if zero X then goto 0 else goto 436
 436: do dec X goto 437
-437: do dec X goto 438
+// n % 400 == 175, n % 100 == 75, n % 4 == 3
+437: if zero X then goto 0 else goto 438
 438: do dec X goto 439
-439: do dec X goto 440
-440: do dec X goto 441
+// n % 400 == 176, n % 100 == 76, n % 4 == 0
+439: if zero X then goto 440 else goto 441
+440: do inc Y goto 0
 441: do dec X goto 442
-442: do dec X goto 443
+// n % 400 == 177, n % 100 == 77, n % 4 == 1
+442: if zero X then goto 0 else goto 443
 443: do dec X goto 444
-444: do dec X goto 445
+// n % 400 == 178, n % 100 == 78, n % 4 == 2
+444: if zero X then goto 0 else goto 445
 445: do dec X goto 446
-446: do dec X goto 447
+// n % 400 == 179, n % 100 == 79, n % 4 == 3
+446: if zero X then goto 0 else goto 447
 447: do dec X goto 448
-448: do dec X goto 449
-449: do dec X goto 450
+// n % 400 == 180, n % 100 == 80, n % 4 == 0
+448: if zero X then goto 449 else goto 450
+449: do inc Y goto 0
 450: do dec X goto 451
-451: do dec X goto 452
+// n % 400 == 181, n % 100 == 81, n % 4 == 1
+451: if zero X then goto 0 else goto 452
 452: do dec X goto 453
-453: do dec X goto 454
+// n % 400 == 182, n % 100 == 82, n % 4 == 2
+453: if zero X then goto 0 else goto 454
 454: do dec X goto 455
-455: do dec X goto 456
+// n % 400 == 183, n % 100 == 83, n % 4 == 3
+455: if zero X then goto 0 else goto 456
 456: do dec X goto 457
-457: do dec X goto 458
-458: do dec X goto 459
+// n % 400 == 184, n % 100 == 84, n % 4 == 0
+457: if zero X then goto 458 else goto 459
+458: do inc Y goto 0
 459: do dec X goto 460
-460: do dec X goto 461
+// n % 400 == 185, n % 100 == 85, n % 4 == 1
+460: if zero X then goto 0 else goto 461
 461: do dec X goto 462
-462: do dec X goto 463
+// n % 400 == 186, n % 100 == 86, n % 4 == 2
+462: if zero X then goto 0 else goto 463
 463: do dec X goto 464
-464: do dec X goto 465
+// n % 400 == 187, n % 100 == 87, n % 4 == 3
+464: if zero X then goto 0 else goto 465
 465: do dec X goto 466
-466: do dec X goto 467
-467: do dec X goto 468
+// n % 400 == 188, n % 100 == 88, n % 4 == 0
+466: if zero X then goto 467 else goto 468
+467: do inc Y goto 0
 468: do dec X goto 469
-469: do dec X goto 470
+// n % 400 == 189, n % 100 == 89, n % 4 == 1
+469: if zero X then goto 0 else goto 470
 470: do dec X goto 471
-471: do dec X goto 472
+// n % 400 == 190, n % 100 == 90, n % 4 == 2
+471: if zero X then goto 0 else goto 472
 472: do dec X goto 473
-473: do dec X goto 474
+// n % 400 == 191, n % 100 == 91, n % 4 == 3
+473: if zero X then goto 0 else goto 474
 474: do dec X goto 475
-475: do dec X goto 476
-476: do dec X goto 477
+// n % 400 == 192, n % 100 == 92, n % 4 == 0
+475: if zero X then goto 476 else goto 477
+476: do inc Y goto 0
 477: do dec X goto 478
-478: do dec X goto 479
+// n % 400 == 193, n % 100 == 93, n % 4 == 1
+478: if zero X then goto 0 else goto 479
 479: do dec X goto 480
-480: do dec X goto 481
+// n % 400 == 194, n % 100 == 94, n % 4 == 2
+480: if zero X then goto 0 else goto 481
 481: do dec X goto 482
-482: do dec X goto 483
+// n % 400 == 195, n % 100 == 95, n % 4 == 3
+482: if zero X then goto 0 else goto 483
 483: do dec X goto 484
-484: do dec X goto 485
-485: do dec X goto 486
+// n % 400 == 196, n % 100 == 96, n % 4 == 0
+484: if zero X then goto 485 else goto 486
+485: do inc Y goto 0
 486: do dec X goto 487
-487: do dec X goto 488
+// n % 400 == 197, n % 100 == 97, n % 4 == 1
+487: if zero X then goto 0 else goto 488
 488: do dec X goto 489
-489: do dec X goto 490
+// n % 400 == 198, n % 100 == 98, n % 4 == 2
+489: if zero X then goto 0 else goto 490
 490: do dec X goto 491
-491: do dec X goto 492
+// n % 400 == 199, n % 100 == 99, n % 4 == 3
+491: if zero X then goto 0 else goto 492
 492: do dec X goto 493
-493: do dec X goto 494
+// n % 400 == 200, n % 100 == 0, n % 4 == 0
+493: if zero X then goto 0 else goto 494
 494: do dec X goto 495
-495: do dec X goto 496
+// n % 400 == 201, n % 100 == 1, n % 4 == 1
+495: if zero X then goto 0 else goto 496
 496: do dec X goto 497
-497: do dec X goto 498
+// n % 400 == 202, n % 100 == 2, n % 4 == 2
+497: if zero X then goto 0 else goto 498
 498: do dec X goto 499
-499: do dec X goto 500
+// n % 400 == 203, n % 100 == 3, n % 4 == 3
+499: if zero X then goto 0 else goto 500
 500: do dec X goto 501
-501: do dec X goto 502
-502: do dec X goto 503
+// n % 400 == 204, n % 100 == 4, n % 4 == 0
+501: if zero X then goto 502 else goto 503
+502: do inc Y goto 0
 503: do dec X goto 504
-504: do dec X goto 505
+// n % 400 == 205, n % 100 == 5, n % 4 == 1
+504: if zero X then goto 0 else goto 505
 505: do dec X goto 506
-506: do dec X goto 507
+// n % 400 == 206, n % 100 == 6, n % 4 == 2
+506: if zero X then goto 0 else goto 507
 507: do dec X goto 508
-508: do dec X goto 509
+// n % 400 == 207, n % 100 == 7, n % 4 == 3
+508: if zero X then goto 0 else goto 509
 509: do dec X goto 510
-510: do dec X goto 511
-511: do dec X goto 512
+// n % 400 == 208, n % 100 == 8, n % 4 == 0
+510: if zero X then goto 511 else goto 512
+511: do inc Y goto 0
 512: do dec X goto 513
-513: do dec X goto 514
+// n % 400 == 209, n % 100 == 9, n % 4 == 1
+513: if zero X then goto 0 else goto 514
 514: do dec X goto 515
-515: do dec X goto 516
+// n % 400 == 210, n % 100 == 10, n % 4 == 2
+515: if zero X then goto 0 else goto 516
 516: do dec X goto 517
-517: do dec X goto 518
+// n % 400 == 211, n % 100 == 11, n % 4 == 3
+517: if zero X then goto 0 else goto 518
 518: do dec X goto 519
-519: do dec X goto 520
-520: do dec X goto 521
+// n % 400 == 212, n % 100 == 12, n % 4 == 0
+519: if zero X then goto 520 else goto 521
+520: do inc Y goto 0
 521: do dec X goto 522
-522: do dec X goto 523
+// n % 400 == 213, n % 100 == 13, n % 4 == 1
+522: if zero X then goto 0 else goto 523
 523: do dec X goto 524
-524: do dec X goto 525
+// n % 400 == 214, n % 100 == 14, n % 4 == 2
+524: if zero X then goto 0 else goto 525
 525: do dec X goto 526
-526: do dec X goto 527
+// n % 400 == 215, n % 100 == 15, n % 4 == 3
+526: if zero X then goto 0 else goto 527
 527: do dec X goto 528
-528: do dec X goto 529
-529: do dec X goto 530
+// n % 400 == 216, n % 100 == 16, n % 4 == 0
+528: if zero X then goto 529 else goto 530
+529: do inc Y goto 0
 530: do dec X goto 531
-531: do dec X goto 532
+// n % 400 == 217, n % 100 == 17, n % 4 == 1
+531: if zero X then goto 0 else goto 532
 532: do dec X goto 533
-533: do dec X goto 534
+// n % 400 == 218, n % 100 == 18, n % 4 == 2
+533: if zero X then goto 0 else goto 534
 534: do dec X goto 535
-535: do dec X goto 536
+// n % 400 == 219, n % 100 == 19, n % 4 == 3
+535: if zero X then goto 0 else goto 536
 536: do dec X goto 537
-537: do dec X goto 538
-538: do dec X goto 539
+// n % 400 == 220, n % 100 == 20, n % 4 == 0
+537: if zero X then goto 538 else goto 539
+538: do inc Y goto 0
 539: do dec X goto 540
-540: do dec X goto 541
+// n % 400 == 221, n % 100 == 21, n % 4 == 1
+540: if zero X then goto 0 else goto 541
 541: do dec X goto 542
-542: do dec X goto 543
+// n % 400 == 222, n % 100 == 22, n % 4 == 2
+542: if zero X then goto 0 else goto 543
 543: do dec X goto 544
-544: do dec X goto 545
+// n % 400 == 223, n % 100 == 23, n % 4 == 3
+544: if zero X then goto 0 else goto 545
 545: do dec X goto 546
-546: do dec X goto 547
-547: do dec X goto 548
+// n % 400 == 224, n % 100 == 24, n % 4 == 0
+546: if zero X then goto 547 else goto 548
+547: do inc Y goto 0
 548: do dec X goto 549
-549: do dec X goto 550
+// n % 400 == 225, n % 100 == 25, n % 4 == 1
+549: if zero X then goto 0 else goto 550
 550: do dec X goto 551
-551: do dec X goto 552
+// n % 400 == 226, n % 100 == 26, n % 4 == 2
+551: if zero X then goto 0 else goto 552
 552: do dec X goto 553
-553: do dec X goto 554
+// n % 400 == 227, n % 100 == 27, n % 4 == 3
+553: if zero X then goto 0 else goto 554
 554: do dec X goto 555
-555: do dec X goto 556
-556: do dec X goto 557
+// n % 400 == 228, n % 100 == 28, n % 4 == 0
+555: if zero X then goto 556 else goto 557
+556: do inc Y goto 0
 557: do dec X goto 558
-558: do dec X goto 559
+// n % 400 == 229, n % 100 == 29, n % 4 == 1
+558: if zero X then goto 0 else goto 559
 559: do dec X goto 560
-560: do dec X goto 561
+// n % 400 == 230, n % 100 == 30, n % 4 == 2
+560: if zero X then goto 0 else goto 561
 561: do dec X goto 562
-562: do dec X goto 563
+// n % 400 == 231, n % 100 == 31, n % 4 == 3
+562: if zero X then goto 0 else goto 563
 563: do dec X goto 564
-564: do dec X goto 565
-565: do dec X goto 566
+// n % 400 == 232, n % 100 == 32, n % 4 == 0
+564: if zero X then goto 565 else goto 566
+565: do inc Y goto 0
 566: do dec X goto 567
-567: do dec X goto 568
+// n % 400 == 233, n % 100 == 33, n % 4 == 1
+567: if zero X then goto 0 else goto 568
 568: do dec X goto 569
-569: do dec X goto 570
+// n % 400 == 234, n % 100 == 34, n % 4 == 2
+569: if zero X then goto 0 else goto 570
 570: do dec X goto 571
-571: do dec X goto 572
+// n % 400 == 235, n % 100 == 35, n % 4 == 3
+571: if zero X then goto 0 else goto 572
 572: do dec X goto 573
-573: do dec X goto 574
-574: do dec X goto 575
+// n % 400 == 236, n % 100 == 36, n % 4 == 0
+573: if zero X then goto 574 else goto 575
+574: do inc Y goto 0
 575: do dec X goto 576
-576: do dec X goto 577
+// n % 400 == 237, n % 100 == 37, n % 4 == 1
+576: if zero X then goto 0 else goto 577
 577: do dec X goto 578
-578: do dec X goto 579
+// n % 400 == 238, n % 100 == 38, n % 4 == 2
+578: if zero X then goto 0 else goto 579
 579: do dec X goto 580
-580: do dec X goto 581
+// n % 400 == 239, n % 100 == 39, n % 4 == 3
+580: if zero X then goto 0 else goto 581
 581: do dec X goto 582
-582: do dec X goto 583
-583: do dec X goto 584
+// n % 400 == 240, n % 100 == 40, n % 4 == 0
+582: if zero X then goto 583 else goto 584
+583: do inc Y goto 0
 584: do dec X goto 585
-585: do dec X goto 586
+// n % 400 == 241, n % 100 == 41, n % 4 == 1
+585: if zero X then goto 0 else goto 586
 586: do dec X goto 587
-587: do dec X goto 588
+// n % 400 == 242, n % 100 == 42, n % 4 == 2
+587: if zero X then goto 0 else goto 588
 588: do dec X goto 589
-589: do dec X goto 590
+// n % 400 == 243, n % 100 == 43, n % 4 == 3
+589: if zero X then goto 0 else goto 590
 590: do dec X goto 591
-591: do dec X goto 592
-592: do dec X goto 593
+// n % 400 == 244, n % 100 == 44, n % 4 == 0
+591: if zero X then goto 592 else goto 593
+592: do inc Y goto 0
 593: do dec X goto 594
-594: do dec X goto 595
+// n % 400 == 245, n % 100 == 45, n % 4 == 1
+594: if zero X then goto 0 else goto 595
 595: do dec X goto 596
-596: do dec X goto 597
+// n % 400 == 246, n % 100 == 46, n % 4 == 2
+596: if zero X then goto 0 else goto 597
 597: do dec X goto 598
-598: do dec X goto 599
+// n % 400 == 247, n % 100 == 47, n % 4 == 3
+598: if zero X then goto 0 else goto 599
 599: do dec X goto 600
-600: do dec X goto 601
-601: do dec X goto 602
+// n % 400 == 248, n % 100 == 48, n % 4 == 0
+600: if zero X then goto 601 else goto 602
+601: do inc Y goto 0
 602: do dec X goto 603
-603: do dec X goto 604
+// n % 400 == 249, n % 100 == 49, n % 4 == 1
+603: if zero X then goto 0 else goto 604
 604: do dec X goto 605
-605: do dec X goto 606
+// n % 400 == 250, n % 100 == 50, n % 4 == 2
+605: if zero X then goto 0 else goto 606
 606: do dec X goto 607
-607: do dec X goto 608
+// n % 400 == 251, n % 100 == 51, n % 4 == 3
+607: if zero X then goto 0 else goto 608
 608: do dec X goto 609
-609: do dec X goto 610
-610: do dec X goto 611
+// n % 400 == 252, n % 100 == 52, n % 4 == 0
+609: if zero X then goto 610 else goto 611
+610: do inc Y goto 0
 611: do dec X goto 612
-612: do dec X goto 613
+// n % 400 == 253, n % 100 == 53, n % 4 == 1
+612: if zero X then goto 0 else goto 613
 613: do dec X goto 614
-614: do dec X goto 615
+// n % 400 == 254, n % 100 == 54, n % 4 == 2
+614: if zero X then goto 0 else goto 615
 615: do dec X goto 616
-616: do dec X goto 617
+// n % 400 == 255, n % 100 == 55, n % 4 == 3
+616: if zero X then goto 0 else goto 617
 617: do dec X goto 618
-618: do dec X goto 619
-619: do dec X goto 620
+// n % 400 == 256, n % 100 == 56, n % 4 == 0
+618: if zero X then goto 619 else goto 620
+619: do inc Y goto 0
 620: do dec X goto 621
-621: do dec X goto 622
+// n % 400 == 257, n % 100 == 57, n % 4 == 1
+621: if zero X then goto 0 else goto 622
 622: do dec X goto 623
-623: do dec X goto 624
+// n % 400 == 258, n % 100 == 58, n % 4 == 2
+623: if zero X then goto 0 else goto 624
 624: do dec X goto 625
-625: do dec X goto 626
+// n % 400 == 259, n % 100 == 59, n % 4 == 3
+625: if zero X then goto 0 else goto 626
 626: do dec X goto 627
-627: do dec X goto 628
-628: do dec X goto 629
+// n % 400 == 260, n % 100 == 60, n % 4 == 0
+627: if zero X then goto 628 else goto 629
+628: do inc Y goto 0
 629: do dec X goto 630
-630: do dec X goto 631
+// n % 400 == 261, n % 100 == 61, n % 4 == 1
+630: if zero X then goto 0 else goto 631
 631: do dec X goto 632
-632: do dec X goto 633
+// n % 400 == 262, n % 100 == 62, n % 4 == 2
+632: if zero X then goto 0 else goto 633
 633: do dec X goto 634
-634: do dec X goto 635
+// n % 400 == 263, n % 100 == 63, n % 4 == 3
+634: if zero X then goto 0 else goto 635
 635: do dec X goto 636
-636: do dec X goto 637
-637: do dec X goto 638
+// n % 400 == 264, n % 100 == 64, n % 4 == 0
+636: if zero X then goto 637 else goto 638
+637: do inc Y goto 0
 638: do dec X goto 639
-639: do dec X goto 640
+// n % 400 == 265, n % 100 == 65, n % 4 == 1
+639: if zero X then goto 0 else goto 640
 640: do dec X goto 641
-641: do dec X goto 642
+// n % 400 == 266, n % 100 == 66, n % 4 == 2
+641: if zero X then goto 0 else goto 642
 642: do dec X goto 643
-643: do dec X goto 644
+// n % 400 == 267, n % 100 == 67, n % 4 == 3
+643: if zero X then goto 0 else goto 644
 644: do dec X goto 645
-645: do dec X goto 646
-646: do dec X goto 647
+// n % 400 == 268, n % 100 == 68, n % 4 == 0
+645: if zero X then goto 646 else goto 647
+646: do inc Y goto 0
 647: do dec X goto 648
-648: do dec X goto 649
+// n % 400 == 269, n % 100 == 69, n % 4 == 1
+648: if zero X then goto 0 else goto 649
 649: do dec X goto 650
-650: do dec X goto 651
+// n % 400 == 270, n % 100 == 70, n % 4 == 2
+650: if zero X then goto 0 else goto 651
 651: do dec X goto 652
-652: do dec X goto 653
+// n % 400 == 271, n % 100 == 71, n % 4 == 3
+652: if zero X then goto 0 else goto 653
 653: do dec X goto 654
-654: do dec X goto 655
-655: do dec X goto 656
+// n % 400 == 272, n % 100 == 72, n % 4 == 0
+654: if zero X then goto 655 else goto 656
+655: do inc Y goto 0
 656: do dec X goto 657
-657: do dec X goto 658
+// n % 400 == 273, n % 100 == 73, n % 4 == 1
+657: if zero X then goto 0 else goto 658
 658: do dec X goto 659
-659: do dec X goto 660
+// n % 400 == 274, n % 100 == 74, n % 4 == 2
+659: if zero X then goto 0 else goto 660
 660: do dec X goto 661
-661: do dec X goto 662
+// n % 400 == 275, n % 100 == 75, n % 4 == 3
+661: if zero X then goto 0 else goto 662
 662: do dec X goto 663
-663: do dec X goto 664
-664: do dec X goto 665
+// n % 400 == 276, n % 100 == 76, n % 4 == 0
+663: if zero X then goto 664 else goto 665
+664: do inc Y goto 0
 665: do dec X goto 666
-666: do dec X goto 667
+// n % 400 == 277, n % 100 == 77, n % 4 == 1
+666: if zero X then goto 0 else goto 667
 667: do dec X goto 668
-668: do dec X goto 669
+// n % 400 == 278, n % 100 == 78, n % 4 == 2
+668: if zero X then goto 0 else goto 669
 669: do dec X goto 670
-670: do dec X goto 671
+// n % 400 == 279, n % 100 == 79, n % 4 == 3
+670: if zero X then goto 0 else goto 671
 671: do dec X goto 672
-672: do dec X goto 673
-673: do dec X goto 674
+// n % 400 == 280, n % 100 == 80, n % 4 == 0
+672: if zero X then goto 673 else goto 674
+673: do inc Y goto 0
 674: do dec X goto 675
-675: do dec X goto 676
+// n % 400 == 281, n % 100 == 81, n % 4 == 1
+675: if zero X then goto 0 else goto 676
 676: do dec X goto 677
-677: do dec X goto 678
+// n % 400 == 282, n % 100 == 82, n % 4 == 2
+677: if zero X then goto 0 else goto 678
 678: do dec X goto 679
-679: do dec X goto 680
+// n % 400 == 283, n % 100 == 83, n % 4 == 3
+679: if zero X then goto 0 else goto 680
 680: do dec X goto 681
-681: do dec X goto 682
-682: do dec X goto 683
+// n % 400 == 284, n % 100 == 84, n % 4 == 0
+681: if zero X then goto 682 else goto 683
+682: do inc Y goto 0
 683: do dec X goto 684
-684: do dec X goto 685
+// n % 400 == 285, n % 100 == 85, n % 4 == 1
+684: if zero X then goto 0 else goto 685
 685: do dec X goto 686
-686: do dec X goto 687
+// n % 400 == 286, n % 100 == 86, n % 4 == 2
+686: if zero X then goto 0 else goto 687
 687: do dec X goto 688
-688: do dec X goto 689
+// n % 400 == 287, n % 100 == 87, n % 4 == 3
+688: if zero X then goto 0 else goto 689
 689: do dec X goto 690
-690: do dec X goto 691
-691: do dec X goto 692
+// n % 400 == 288, n % 100 == 88, n % 4 == 0
+690: if zero X then goto 691 else goto 692
+691: do inc Y goto 0
 692: do dec X goto 693
-693: do dec X goto 694
+// n % 400 == 289, n % 100 == 89, n % 4 == 1
+693: if zero X then goto 0 else goto 694
 694: do dec X goto 695
-695: do dec X goto 696
+// n % 400 == 290, n % 100 == 90, n % 4 == 2
+695: if zero X then goto 0 else goto 696
 696: do dec X goto 697
-697: do dec X goto 698
+// n % 400 == 291, n % 100 == 91, n % 4 == 3
+697: if zero X then goto 0 else goto 698
 698: do dec X goto 699
-699: do dec X goto 700
-700: do dec X goto 701
+// n % 400 == 292, n % 100 == 92, n % 4 == 0
+699: if zero X then goto 700 else goto 701
+700: do inc Y goto 0
 701: do dec X goto 702
-702: do dec X goto 703
+// n % 400 == 293, n % 100 == 93, n % 4 == 1
+702: if zero X then goto 0 else goto 703
 703: do dec X goto 704
-704: do dec X goto 705
+// n % 400 == 294, n % 100 == 94, n % 4 == 2
+704: if zero X then goto 0 else goto 705
 705: do dec X goto 706
-706: do dec X goto 707
+// n % 400 == 295, n % 100 == 95, n % 4 == 3
+706: if zero X then goto 0 else goto 707
 707: do dec X goto 708
-708: do dec X goto 709
-709: do dec X goto 710
+// n % 400 == 296, n % 100 == 96, n % 4 == 0
+708: if zero X then goto 709 else goto 710
+709: do inc Y goto 0
 710: do dec X goto 711
-711: do dec X goto 712
+// n % 400 == 297, n % 100 == 97, n % 4 == 1
+711: if zero X then goto 0 else goto 712
 712: do dec X goto 713
-713: do dec X goto 714
+// n % 400 == 298, n % 100 == 98, n % 4 == 2
+713: if zero X then goto 0 else goto 714
 714: do dec X goto 715
-715: do dec X goto 716
+// n % 400 == 299, n % 100 == 99, n % 4 == 3
+715: if zero X then goto 0 else goto 716
 716: do dec X goto 717
-717: do dec X goto 718
+// n % 400 == 300, n % 100 == 0, n % 4 == 0
+717: if zero X then goto 0 else goto 718
 718: do dec X goto 719
-719: do dec X goto 720
+// n % 400 == 301, n % 100 == 1, n % 4 == 1
+719: if zero X then goto 0 else goto 720
 720: do dec X goto 721
-721: do dec X goto 722
+// n % 400 == 302, n % 100 == 2, n % 4 == 2
+721: if zero X then goto 0 else goto 722
 722: do dec X goto 723
-723: do dec X goto 724
+// n % 400 == 303, n % 100 == 3, n % 4 == 3
+723: if zero X then goto 0 else goto 724
 724: do dec X goto 725
-725: do dec X goto 726
-726: do dec X goto 727
+// n % 400 == 304, n % 100 == 4, n % 4 == 0
+725: if zero X then goto 726 else goto 727
+726: do inc Y goto 0
 727: do dec X goto 728
-728: do dec X goto 729
+// n % 400 == 305, n % 100 == 5, n % 4 == 1
+728: if zero X then goto 0 else goto 729
 729: do dec X goto 730
-730: do dec X goto 731
+// n % 400 == 306, n % 100 == 6, n % 4 == 2
+730: if zero X then goto 0 else goto 731
 731: do dec X goto 732
-732: do dec X goto 733
+// n % 400 == 307, n % 100 == 7, n % 4 == 3
+732: if zero X then goto 0 else goto 733
 733: do dec X goto 734
-734: do dec X goto 735
-735: do dec X goto 736
+// n % 400 == 308, n % 100 == 8, n % 4 == 0
+734: if zero X then goto 735 else goto 736
+735: do inc Y goto 0
 736: do dec X goto 737
-737: do dec X goto 738
+// n % 400 == 309, n % 100 == 9, n % 4 == 1
+737: if zero X then goto 0 else goto 738
 738: do dec X goto 739
-739: do dec X goto 740
+// n % 400 == 310, n % 100 == 10, n % 4 == 2
+739: if zero X then goto 0 else goto 740
 740: do dec X goto 741
-741: do dec X goto 742
+// n % 400 == 311, n % 100 == 11, n % 4 == 3
+741: if zero X then goto 0 else goto 742
 742: do dec X goto 743
-743: do dec X goto 744
-744: do dec X goto 745
+// n % 400 == 312, n % 100 == 12, n % 4 == 0
+743: if zero X then goto 744 else goto 745
+744: do inc Y goto 0
 745: do dec X goto 746
-746: do dec X goto 747
+// n % 400 == 313, n % 100 == 13, n % 4 == 1
+746: if zero X then goto 0 else goto 747
 747: do dec X goto 748
-748: do dec X goto 749
+// n % 400 == 314, n % 100 == 14, n % 4 == 2
+748: if zero X then goto 0 else goto 749
 749: do dec X goto 750
-750: do dec X goto 751
+// n % 400 == 315, n % 100 == 15, n % 4 == 3
+750: if zero X then goto 0 else goto 751
 751: do dec X goto 752
-752: do dec X goto 753
-753: do dec X goto 754
+// n % 400 == 316, n % 100 == 16, n % 4 == 0
+752: if zero X then goto 753 else goto 754
+753: do inc Y goto 0
 754: do dec X goto 755
-755: do dec X goto 756
+// n % 400 == 317, n % 100 == 17, n % 4 == 1
+755: if zero X then goto 0 else goto 756
 756: do dec X goto 757
-757: do dec X goto 758
+// n % 400 == 318, n % 100 == 18, n % 4 == 2
+757: if zero X then goto 0 else goto 758
 758: do dec X goto 759
-759: do dec X goto 760
+// n % 400 == 319, n % 100 == 19, n % 4 == 3
+759: if zero X then goto 0 else goto 760
 760: do dec X goto 761
-761: do dec X goto 762
-762: do dec X goto 763
+// n % 400 == 320, n % 100 == 20, n % 4 == 0
+761: if zero X then goto 762 else goto 763
+762: do inc Y goto 0
 763: do dec X goto 764
-764: do dec X goto 765
+// n % 400 == 321, n % 100 == 21, n % 4 == 1
+764: if zero X then goto 0 else goto 765
 765: do dec X goto 766
-766: do dec X goto 767
+// n % 400 == 322, n % 100 == 22, n % 4 == 2
+766: if zero X then goto 0 else goto 767
 767: do dec X goto 768
-768: do dec X goto 769
+// n % 400 == 323, n % 100 == 23, n % 4 == 3
+768: if zero X then goto 0 else goto 769
 769: do dec X goto 770
-770: do dec X goto 771
-771: do dec X goto 772
+// n % 400 == 324, n % 100 == 24, n % 4 == 0
+770: if zero X then goto 771 else goto 772
+771: do inc Y goto 0
 772: do dec X goto 773
-773: do dec X goto 774
+// n % 400 == 325, n % 100 == 25, n % 4 == 1
+773: if zero X then goto 0 else goto 774
 774: do dec X goto 775
-775: do dec X goto 776
+// n % 400 == 326, n % 100 == 26, n % 4 == 2
+775: if zero X then goto 0 else goto 776
 776: do dec X goto 777
-777: do dec X goto 778
+// n % 400 == 327, n % 100 == 27, n % 4 == 3
+777: if zero X then goto 0 else goto 778
 778: do dec X goto 779
-779: do dec X goto 780
-780: do dec X goto 781
+// n % 400 == 328, n % 100 == 28, n % 4 == 0
+779: if zero X then goto 780 else goto 781
+780: do inc Y goto 0
 781: do dec X goto 782
-782: do dec X goto 783
+// n % 400 == 329, n % 100 == 29, n % 4 == 1
+782: if zero X then goto 0 else goto 783
 783: do dec X goto 784
-784: do dec X goto 785
+// n % 400 == 330, n % 100 == 30, n % 4 == 2
+784: if zero X then goto 0 else goto 785
 785: do dec X goto 786
-786: do dec X goto 787
+// n % 400 == 331, n % 100 == 31, n % 4 == 3
+786: if zero X then goto 0 else goto 787
 787: do dec X goto 788
-788: do dec X goto 789
-789: do dec X goto 790
+// n % 400 == 332, n % 100 == 32, n % 4 == 0
+788: if zero X then goto 789 else goto 790
+789: do inc Y goto 0
 790: do dec X goto 791
-791: do dec X goto 792
+// n % 400 == 333, n % 100 == 33, n % 4 == 1
+791: if zero X then goto 0 else goto 792
 792: do dec X goto 793
-793: do dec X goto 794
+// n % 400 == 334, n % 100 == 34, n % 4 == 2
+793: if zero X then goto 0 else goto 794
 794: do dec X goto 795
-795: do dec X goto 796
+// n % 400 == 335, n % 100 == 35, n % 4 == 3
+795: if zero X then goto 0 else goto 796
 796: do dec X goto 797
-797: do dec X goto 798
-798: do dec X goto 799
+// n % 400 == 336, n % 100 == 36, n % 4 == 0
+797: if zero X then goto 798 else goto 799
+798: do inc Y goto 0
 799: do dec X goto 800
-800: do dec X goto 801
+// n % 400 == 337, n % 100 == 37, n % 4 == 1
+800: if zero X then goto 0 else goto 801
 801: do dec X goto 802
-802: do dec X goto 803
+// n % 400 == 338, n % 100 == 38, n % 4 == 2
+802: if zero X then goto 0 else goto 803
 803: do dec X goto 804
-804: do dec X goto 805
+// n % 400 == 339, n % 100 == 39, n % 4 == 3
+804: if zero X then goto 0 else goto 805
 805: do dec X goto 806
-806: do dec X goto 807
-807: do dec X goto 808
+// n % 400 == 340, n % 100 == 40, n % 4 == 0
+806: if zero X then goto 807 else goto 808
+807: do inc Y goto 0
 808: do dec X goto 809
-809: do dec X goto 810
+// n % 400 == 341, n % 100 == 41, n % 4 == 1
+809: if zero X then goto 0 else goto 810
 810: do dec X goto 811
-811: do dec X goto 812
+// n % 400 == 342, n % 100 == 42, n % 4 == 2
+811: if zero X then goto 0 else goto 812
 812: do dec X goto 813
-813: do dec X goto 814
+// n % 400 == 343, n % 100 == 43, n % 4 == 3
+813: if zero X then goto 0 else goto 814
 814: do dec X goto 815
-815: do dec X goto 816
-816: do dec X goto 817
+// n % 400 == 344, n % 100 == 44, n % 4 == 0
+815: if zero X then goto 816 else goto 817
+816: do inc Y goto 0
 817: do dec X goto 818
-818: do dec X goto 819
+// n % 400 == 345, n % 100 == 45, n % 4 == 1
+818: if zero X then goto 0 else goto 819
 819: do dec X goto 820
-820: do dec X goto 821
+// n % 400 == 346, n % 100 == 46, n % 4 == 2
+820: if zero X then goto 0 else goto 821
 821: do dec X goto 822
-822: do dec X goto 823
+// n % 400 == 347, n % 100 == 47, n % 4 == 3
+822: if zero X then goto 0 else goto 823
 823: do dec X goto 824
-824: do dec X goto 825
-825: do dec X goto 826
+// n % 400 == 348, n % 100 == 48, n % 4 == 0
+824: if zero X then goto 825 else goto 826
+825: do inc Y goto 0
 826: do dec X goto 827
-827: do dec X goto 828
+// n % 400 == 349, n % 100 == 49, n % 4 == 1
+827: if zero X then goto 0 else goto 828
 828: do dec X goto 829
-829: do dec X goto 830
+// n % 400 == 350, n % 100 == 50, n % 4 == 2
+829: if zero X then goto 0 else goto 830
 830: do dec X goto 831
-831: do dec X goto 832
+// n % 400 == 351, n % 100 == 51, n % 4 == 3
+831: if zero X then goto 0 else goto 832
 832: do dec X goto 833
-833: do dec X goto 834
-834: do dec X goto 835
+// n % 400 == 352, n % 100 == 52, n % 4 == 0
+833: if zero X then goto 834 else goto 835
+834: do inc Y goto 0
 835: do dec X goto 836
-836: do dec X goto 837
+// n % 400 == 353, n % 100 == 53, n % 4 == 1
+836: if zero X then goto 0 else goto 837
 837: do dec X goto 838
-838: do dec X goto 839
+// n % 400 == 354, n % 100 == 54, n % 4 == 2
+838: if zero X then goto 0 else goto 839
 839: do dec X goto 840
-840: do dec X goto 841
+// n % 400 == 355, n % 100 == 55, n % 4 == 3
+840: if zero X then goto 0 else goto 841
 841: do dec X goto 842
-842: do dec X goto 843
-843: do dec X goto 844
+// n % 400 == 356, n % 100 == 56, n % 4 == 0
+842: if zero X then goto 843 else goto 844
+843: do inc Y goto 0
 844: do dec X goto 845
-845: do dec X goto 846
+// n % 400 == 357, n % 100 == 57, n % 4 == 1
+845: if zero X then goto 0 else goto 846
 846: do dec X goto 847
-847: do dec X goto 848
+// n % 400 == 358, n % 100 == 58, n % 4 == 2
+847: if zero X then goto 0 else goto 848
 848: do dec X goto 849
-849: do dec X goto 850
+// n % 400 == 359, n % 100 == 59, n % 4 == 3
+849: if zero X then goto 0 else goto 850
 850: do dec X goto 851
-851: do dec X goto 852
-852: do dec X goto 853
+// n % 400 == 360, n % 100 == 60, n % 4 == 0
+851: if zero X then goto 852 else goto 853
+852: do inc Y goto 0
 853: do dec X goto 854
-854: do dec X goto 855
+// n % 400 == 361, n % 100 == 61, n % 4 == 1
+854: if zero X then goto 0 else goto 855
 855: do dec X goto 856
-856: do dec X goto 857
+// n % 400 == 362, n % 100 == 62, n % 4 == 2
+856: if zero X then goto 0 else goto 857
 857: do dec X goto 858
-858: do dec X goto 859
+// n % 400 == 363, n % 100 == 63, n % 4 == 3
+858: if zero X then goto 0 else goto 859
 859: do dec X goto 860
-860: do dec X goto 861
-861: do dec X goto 862
+// n % 400 == 364, n % 100 == 64, n % 4 == 0
+860: if zero X then goto 861 else goto 862
+861: do inc Y goto 0
 862: do dec X goto 863
-863: do dec X goto 864
+// n % 400 == 365, n % 100 == 65, n % 4 == 1
+863: if zero X then goto 0 else goto 864
 864: do dec X goto 865
-865: do dec X goto 866
+// n % 400 == 366, n % 100 == 66, n % 4 == 2
+865: if zero X then goto 0 else goto 866
 866: do dec X goto 867
-867: do dec X goto 868
+// n % 400 == 367, n % 100 == 67, n % 4 == 3
+867: if zero X then goto 0 else goto 868
 868: do dec X goto 869
-869: do dec X goto 870
-870: do dec X goto 871
+// n % 400 == 368, n % 100 == 68, n % 4 == 0
+869: if zero X then goto 870 else goto 871
+870: do inc Y goto 0
 871: do dec X goto 872
-872: do dec X goto 873
+// n % 400 == 369, n % 100 == 69, n % 4 == 1
+872: if zero X then goto 0 else goto 873
 873: do dec X goto 874
-874: do dec X goto 875
+// n % 400 == 370, n % 100 == 70, n % 4 == 2
+874: if zero X then goto 0 else goto 875
 875: do dec X goto 876
-876: do dec X goto 877
+// n % 400 == 371, n % 100 == 71, n % 4 == 3
+876: if zero X then goto 0 else goto 877
 877: do dec X goto 878
-878: do dec X goto 879
-879: do dec X goto 880
+// n % 400 == 372, n % 100 == 72, n % 4 == 0
+878: if zero X then goto 879 else goto 880
+879: do inc Y goto 0
 880: do dec X goto 881
-881: do dec X goto 882
+// n % 400 == 373, n % 100 == 73, n % 4 == 1
+881: if zero X then goto 0 else goto 882
 882: do dec X goto 883
-883: do dec X goto 884
+// n % 400 == 374, n % 100 == 74, n % 4 == 2
+883: if zero X then goto 0 else goto 884
 884: do dec X goto 885
-885: do dec X goto 886
+// n % 400 == 375, n % 100 == 75, n % 4 == 3
+885: if zero X then goto 0 else goto 886
 886: do dec X goto 887
-887: do dec X goto 888
-888: do dec X goto 889
+// n % 400 == 376, n % 100 == 76, n % 4 == 0
+887: if zero X then goto 888 else goto 889
+888: do inc Y goto 0
 889: do dec X goto 890
-890: do dec X goto 891
+// n % 400 == 377, n % 100 == 77, n % 4 == 1
+890: if zero X then goto 0 else goto 891
 891: do dec X goto 892
-892: do dec X goto 893
+// n % 400 == 378, n % 100 == 78, n % 4 == 2
+892: if zero X then goto 0 else goto 893
 893: do dec X goto 894
-894: do dec X goto 895
+// n % 400 == 379, n % 100 == 79, n % 4 == 3
+894: if zero X then goto 0 else goto 895
 895: do dec X goto 896
-896: do dec X goto 897
-897: do dec X goto 898
+// n % 400 == 380, n % 100 == 80, n % 4 == 0
+896: if zero X then goto 897 else goto 898
+897: do inc Y goto 0
 898: do dec X goto 899
-899: do dec X goto 900
-900: do dec X goto 901
-901: do dec X goto 902
-902: do dec X goto 903
-903: do dec X goto 904
-904: do dec X goto 905
-905: do dec X goto 906
-906: do dec X goto 907
-907: do dec X goto 908
-908: do dec X goto 909
-909: do dec X goto 910
-910: do dec X goto 911
-911: do dec X goto 912
-912: do dec X goto 913
-913: do dec X goto 914
-914: do dec X goto 915
-915: do dec X goto 916
-916: do dec X goto 917
-917: do dec X goto 918
-918: do dec X goto 919
-919: do dec X goto 920
-920: do dec X goto 921
-921: do dec X goto 922
-922: do dec X goto 923
-923: do dec X goto 924
-924: do dec X goto 925
-925: do dec X goto 926
-926: do dec X goto 927
-927: do dec X goto 928
-928: do dec X goto 929
-929: do dec X goto 930
-930: do dec X goto 931
-931: do dec X goto 932
-932: do dec X goto 933
-933: do dec X goto 934
-934: do dec X goto 935
-935: do dec X goto 936
-936: do dec X goto 937
-937: do dec X goto 938
-938: do dec X goto 939
-939: do dec X goto 940
-940: do dec X goto 941
-941: do dec X goto 942
-942: do dec X goto 943
-943: do dec X goto 944
-944: do dec X goto 945
-945: do dec X goto 946
-946: do dec X goto 947
-947: do dec X goto 948
-948: do dec X goto 949
-949: do dec X goto 950
-950: do dec X goto 951
-951: do dec X goto 952
-952: do dec X goto 953
-953: do dec X goto 954
-954: do dec X goto 955
-955: do dec X goto 956
-956: do dec X goto 957
-957: do dec X goto 958
-958: do dec X goto 959
-959: do dec X goto 960
-960: do dec X goto 961
-961: do dec X goto 962
-962: do dec X goto 963
-963: do dec X goto 964
-964: do dec X goto 965
-965: do dec X goto 966
-966: do dec X goto 967
-967: do dec X goto 968
-968: do dec X goto 969
-969: do dec X goto 970
-970: do dec X goto 971
-971: do dec X goto 972
-972: do dec X goto 973
-973: do dec X goto 974
-974: do dec X goto 975
-975: do dec X goto 976
-976: do dec X goto 977
-977: do dec X goto 978
-978: do dec X goto 979
-979: do dec X goto 980
-980: do dec X goto 981
-981: do dec X goto 982
-982: do dec X goto 983
-983: do dec X goto 984
-984: do dec X goto 985
-985: do dec X goto 986
-986: do dec X goto 987
-987: do dec X goto 988
-988: do dec X goto 989
-989: do dec X goto 990
-990: do dec X goto 991
-991: do dec X goto 992
-992: do dec X goto 993
-993: do dec X goto 994
-994: do dec X goto 995
-995: do dec X goto 996
-996: do dec X goto 997
-997: do dec X goto 998
-998: do dec X goto 999
-999: do dec X goto 1000
-1000: do dec X goto 1001
-1001: do dec X goto 1002
-1002: do dec X goto 1003
-1003: do dec X goto 1004
-1004: do dec X goto 1005
-1005: do dec X goto 1006
-1006: do dec X goto 1007
-1007: do dec X goto 1008
-1008: do dec X goto 1009
-1009: do dec X goto 1010
-1010: do dec X goto 1011
-1011: do dec X goto 1012
-1012: do dec X goto 1013
-1013: do dec X goto 1014
-1014: do dec X goto 1015
-1015: do dec X goto 1016
-1016: do dec X goto 1017
-1017: do dec X goto 1018
-1018: do dec X goto 1019
-1019: do dec X goto 1020
-1020: do dec X goto 1021
-1021: do dec X goto 1022
-1022: do dec X goto 1023
-1023: do dec X goto 1024
-1024: do dec X goto 1025
-1025: do dec X goto 1026
-1026: do dec X goto 1027
-1027: do dec X goto 1028
-1028: do dec X goto 1029
-1029: do dec X goto 1030
-1030: do dec X goto 1031
-1031: do dec X goto 1032
-1032: do dec X goto 1033
-1033: do dec X goto 1034
-1034: do dec X goto 1035
-1035: do dec X goto 1036
-1036: do dec X goto 1037
-1037: do dec X goto 1038
-1038: do dec X goto 1039
-1039: do dec X goto 1040
-1040: do dec X goto 1041
-1041: do dec X goto 1042
-1042: do dec X goto 1043
-1043: do dec X goto 1044
-1044: do dec X goto 1045
-1045: do dec X goto 1046
-1046: do dec X goto 1047
-1047: do dec X goto 1048
-1048: do dec X goto 1049
-1049: do dec X goto 1050
-1050: do dec X goto 1051
-1051: do dec X goto 1052
-1052: do dec X goto 1053
-1053: do dec X goto 1054
-1054: do dec X goto 1055
-1055: do dec X goto 1056
-1056: do dec X goto 1057
-1057: do dec X goto 1058
-1058: do dec X goto 1059
-1059: do dec X goto 1060
-1060: do dec X goto 1061
-1061: do dec X goto 1062
-1062: do dec X goto 1063
-1063: do dec X goto 1064
-1064: do dec X goto 1065
-1065: do dec X goto 1066
-1066: do dec X goto 1067
-1067: do dec X goto 1068
-1068: do dec X goto 1069
-1069: do dec X goto 1070
-1070: do dec X goto 1071
-1071: do dec X goto 1072
-1072: do dec X goto 1073
-1073: do dec X goto 1074
-1074: do dec X goto 1075
-1075: do dec X goto 1076
-1076: do dec X goto 1077
-1077: do dec X goto 1078
-1078: do dec X goto 1079
-1079: do dec X goto 1080
-1080: do dec X goto 1081
-1081: do dec X goto 1082
-1082: do dec X goto 1083
-1083: do dec X goto 1084
-1084: do dec X goto 1085
-1085: do dec X goto 1086
-1086: do dec X goto 1087
-1087: do dec X goto 1088
-1088: do dec X goto 1089
-1089: do dec X goto 1090
-1090: do dec X goto 1091
-1091: do dec X goto 1092
-1092: do dec X goto 1093
-1093: do dec X goto 1094
-1094: do dec X goto 1095
-1095: do dec X goto 1096
-1096: do dec X goto 1097
-1097: do dec X goto 1098
-1098: do dec X goto 1099
-1099: do dec X goto 1100
-1100: do dec X goto 1101
-1101: do dec X goto 1102
-1102: do dec X goto 1103
-1103: do dec X goto 1104
-1104: do dec X goto 1105
-1105: do dec X goto 1106
-1106: do dec X goto 1107
-1107: do dec X goto 1108
-1108: do dec X goto 1109
-1109: do dec X goto 1110
-1110: do dec X goto 1111
-1111: do dec X goto 1112
-1112: do dec X goto 1113
-1113: do dec X goto 1114
-1114: do dec X goto 1115
-1115: do dec X goto 1116
-1116: do dec X goto 1117
-1117: do dec X goto 1118
-1118: do dec X goto 1119
-1119: do dec X goto 1120
-1120: do dec X goto 1121
-1121: do dec X goto 1122
-1122: do dec X goto 1123
-1123: do dec X goto 1124
-1124: do dec X goto 1125
-1125: do dec X goto 1126
-1126: do dec X goto 1127
-1127: do dec X goto 1128
-1128: do dec X goto 1129
-1129: do dec X goto 1130
-1130: do dec X goto 1131
-1131: do dec X goto 1132
-1132: do dec X goto 1133
-1133: do dec X goto 1134
-1134: do dec X goto 1135
-1135: do dec X goto 1136
-1136: do dec X goto 1137
-1137: do dec X goto 1138
-1138: do dec X goto 1139
-1139: do dec X goto 1140
-1140: do dec X goto 1141
-1141: do dec X goto 1142
-1142: do dec X goto 1143
-1143: do dec X goto 1144
-1144: do dec X goto 1145
-1145: do dec X goto 1146
-1146: do dec X goto 1147
-1147: do dec X goto 1148
-1148: do dec X goto 1149
-1149: do dec X goto 1150
-1150: do dec X goto 1151
-1151: do dec X goto 1152
-1152: do dec X goto 1153
-1153: do dec X goto 1154
-1154: do dec X goto 1155
-1155: do dec X goto 1156
-1156: do dec X goto 1157
-1157: do dec X goto 1158
-1158: do dec X goto 1159
-1159: do dec X goto 1160
-1160: do dec X goto 1161
-1161: do dec X goto 1162
-1162: do dec X goto 1163
-1163: do dec X goto 1164
-1164: do dec X goto 1165
-1165: do dec X goto 1166
-1166: do dec X goto 1167
-1167: do dec X goto 1168
-1168: do dec X goto 1169
-1169: do dec X goto 1170
-1170: do dec X goto 1171
-1171: do dec X goto 1172
-1172: do dec X goto 1173
-1173: do dec X goto 1174
-1174: do dec X goto 1175
-1175: do dec X goto 1176
-1176: do dec X goto 1177
-1177: do dec X goto 1178
-1178: do dec X goto 1179
-1179: do dec X goto 1180
-1180: do dec X goto 1181
-1181: do dec X goto 1182
-1182: do dec X goto 1183
-1183: do dec X goto 1184
-1184: do dec X goto 1185
-1185: do dec X goto 1186
-1186: do dec X goto 1187
-1187: do dec X goto 1188
-1188: do dec X goto 1189
-1189: do dec X goto 1190
-1190: do dec X goto 1191
-1191: do dec X goto 1192
-1192: do dec X goto 1193
-1193: do dec X goto 1194
-1194: do dec X goto 1195
-1195: do dec X goto 1196
-1196: do dec X goto 1197
-1197: do dec X goto 1198
-1198: do dec X goto 1199
-1199: do dec X goto 1200
-1200: do dec X goto 1201
-1201: do dec X goto 1202
-1202: do dec X goto 1203
-1203: do dec X goto 1204
-1204: do dec X goto 1205
-1205: do dec X goto 1206
-1206: do dec X goto 1207
-1207: do dec X goto 1208
-1208: do dec X goto 1209
-1209: do dec X goto 1210
-1210: do dec X goto 1211
-1211: do dec X goto 1212
-1212: do dec X goto 1213
-1213: do dec X goto 1214
-1214: do dec X goto 1215
-1215: do dec X goto 1216
-1216: do dec X goto 1217
-1217: do dec X goto 1218
-1218: do dec X goto 1219
-1219: do dec X goto 1220
-1220: do dec X goto 1221
-1221: do dec X goto 1222
-1222: do dec X goto 1223
-1223: do dec X goto 1224
-1224: do dec X goto 1225
-1225: do dec X goto 1226
-1226: do dec X goto 1227
-1227: do dec X goto 1228
-1228: do dec X goto 1229
-1229: do dec X goto 1230
-1230: do dec X goto 1231
-1231: do dec X goto 1232
-1232: do dec X goto 1233
-1233: do dec X goto 1234
-1234: do dec X goto 1235
-1235: do dec X goto 1236
-1236: do dec X goto 1237
-1237: do dec X goto 1238
-1238: do dec X goto 1239
-1239: do dec X goto 1240
-1240: do dec X goto 1241
-1241: do dec X goto 1242
-1242: do dec X goto 1243
-1243: do dec X goto 1244
-1244: do dec X goto 1245
-1245: do dec X goto 1246
-1246: do dec X goto 1247
-1247: do dec X goto 1248
-1248: do dec X goto 1249
-1249: do dec X goto 1250
-1250: do dec X goto 1251
-1251: do dec X goto 1252
-1252: do dec X goto 1253
-1253: do dec X goto 1254
-1254: do dec X goto 1255
-1255: do dec X goto 1256
-1256: do dec X goto 1257
-1257: do dec X goto 1258
-1258: do dec X goto 1259
-1259: do dec X goto 1260
-1260: do dec X goto 1261
-1261: do dec X goto 1262
-1262: do dec X goto 1263
-1263: do dec X goto 1264
-1264: do dec X goto 1265
-1265: do dec X goto 1266
-1266: do dec X goto 1267
-1267: do dec X goto 1268
-1268: do dec X goto 1269
-1269: do dec X goto 1270
-1270: do dec X goto 1271
-1271: do dec X goto 1272
-1272: do dec X goto 1273
-1273: do dec X goto 1274
-1274: do dec X goto 1275
-1275: do dec X goto 1276
-1276: do dec X goto 1277
-1277: do dec X goto 1278
-1278: do dec X goto 1279
-1279: do dec X goto 1280
-1280: do dec X goto 1281
-1281: do dec X goto 1282
-1282: do dec X goto 1283
-1283: do dec X goto 1284
-1284: do dec X goto 1285
-1285: do dec X goto 1286
-1286: do dec X goto 1287
-1287: do dec X goto 1288
-1288: do dec X goto 1289
-1289: do dec X goto 1290
-1290: do dec X goto 1291
-1291: do dec X goto 1292
-1292: do dec X goto 1293
-1293: do dec X goto 1294
-1294: do dec X goto 1295
-1295: do dec X goto 1296
-1296: do dec X goto 1297
-1297: do dec X goto 1298
-1298: do dec X goto 1299
-1299: do dec X goto 1300
-1300: do dec X goto 1301
-1301: do dec X goto 1302
-1302: do dec X goto 1303
-1303: do dec X goto 1304
-1304: do dec X goto 1305
-1305: do dec X goto 1306
-1306: do dec X goto 1307
-1307: do dec X goto 1308
-1308: do dec X goto 1309
-1309: do dec X goto 1310
-1310: do dec X goto 1311
-1311: do dec X goto 1312
-1312: do dec X goto 1313
-1313: do dec X goto 1314
-1314: do dec X goto 1315
-1315: do dec X goto 1316
-1316: do dec X goto 1317
-1317: do dec X goto 1318
-1318: do dec X goto 1319
-1319: do dec X goto 1320
-1320: do dec X goto 1321
-1321: do dec X goto 1322
-1322: do dec X goto 1323
-1323: do dec X goto 1324
-1324: do dec X goto 1325
-1325: do dec X goto 1326
-1326: do dec X goto 1327
-1327: do dec X goto 1328
-1328: do dec X goto 1329
-1329: do dec X goto 1330
-1330: do dec X goto 1331
-1331: do dec X goto 1332
-1332: do dec X goto 1333
-1333: do dec X goto 1334
-1334: do dec X goto 1335
-1335: do dec X goto 1336
-1336: do dec X goto 1337
-1337: do dec X goto 1338
-1338: do dec X goto 1339
-1339: do dec X goto 1340
-1340: do dec X goto 1341
-1341: do dec X goto 1342
-1342: do dec X goto 1343
-1343: do dec X goto 1344
-1344: do dec X goto 1345
-1345: do dec X goto 1346
-1346: do dec X goto 1347
-1347: do dec X goto 1348
-1348: do dec X goto 1349
-1349: do dec X goto 1350
-1350: do dec X goto 1351
-1351: do dec X goto 1352
-1352: do dec X goto 1353
-1353: do dec X goto 1354
-1354: do dec X goto 1355
-1355: do dec X goto 1356
-1356: do dec X goto 1357
-1357: do dec X goto 1358
-1358: do dec X goto 1359
-1359: do dec X goto 1360
-1360: do dec X goto 1361
-1361: do dec X goto 1362
-1362: do dec X goto 1363
-1363: do dec X goto 1364
-1364: do dec X goto 1365
-1365: do dec X goto 1366
-1366: do dec X goto 1367
-1367: do dec X goto 1368
-1368: do dec X goto 1369
-1369: do dec X goto 1370
-1370: do dec X goto 1371
-1371: do dec X goto 1372
-1372: do dec X goto 1373
-1373: do dec X goto 1374
-1374: do dec X goto 1375
-1375: do dec X goto 1376
-1376: do dec X goto 1377
-1377: do dec X goto 1378
-1378: do dec X goto 1379
-1379: do dec X goto 1380
-1380: do dec X goto 1381
-1381: do dec X goto 1382
-1382: do dec X goto 1383
-1383: do dec X goto 1384
-1384: do dec X goto 1385
-1385: do dec X goto 1386
-1386: do dec X goto 1387
-1387: do dec X goto 1388
-1388: do dec X goto 1389
-1389: do dec X goto 1390
-1390: do dec X goto 1391
-1391: do dec X goto 1392
-1392: do dec X goto 1393
-1393: do dec X goto 1394
-1394: do dec X goto 1395
-1395: do dec X goto 1396
-1396: do dec X goto 1397
-1397: do dec X goto 1398
-1398: do dec X goto 1399
-1399: do dec X goto 1400
-1400: do dec X goto 1401
-1401: do dec X goto 1402
-1402: do dec X goto 1403
-1403: do dec X goto 1404
-1404: do dec X goto 1405
-1405: do dec X goto 1406
-1406: do dec X goto 1407
-1407: do dec X goto 1408
-1408: do dec X goto 1409
-1409: do dec X goto 1410
-1410: do dec X goto 1411
-1411: do dec X goto 1412
-1412: do dec X goto 1413
-1413: do dec X goto 1414
-1414: do dec X goto 1415
-1415: do dec X goto 1416
-1416: do dec X goto 1417
-1417: do dec X goto 1418
-1418: do dec X goto 1419
-1419: do dec X goto 1420
-1420: do dec X goto 1421
-1421: do dec X goto 1422
-1422: do dec X goto 1423
-1423: do dec X goto 1424
-1424: do dec X goto 1425
-1425: do dec X goto 1426
-1426: do dec X goto 1427
-1427: do dec X goto 1428
-1428: do dec X goto 1429
-1429: do dec X goto 1430
-1430: do dec X goto 1431
-1431: do dec X goto 1432
-1432: do dec X goto 1433
-1433: do dec X goto 1434
-1434: do dec X goto 1435
-1435: do dec X goto 1436
-1436: do dec X goto 1437
-1437: do dec X goto 1438
-1438: do dec X goto 1439
-1439: do dec X goto 1440
-1440: do dec X goto 1441
-1441: do dec X goto 1442
-1442: do dec X goto 1443
-1443: do dec X goto 1444
-1444: do dec X goto 1445
-1445: do dec X goto 1446
-1446: do dec X goto 1447
-1447: do dec X goto 1448
-1448: do dec X goto 1449
-1449: do dec X goto 1450
-1450: do dec X goto 1451
-1451: do dec X goto 1452
-1452: do dec X goto 1453
-1453: do dec X goto 1454
-1454: do dec X goto 1455
-1455: do dec X goto 1456
-1456: do dec X goto 1457
-1457: do dec X goto 1458
-1458: do dec X goto 1459
-1459: do dec X goto 1460
-1460: do dec X goto 1461
-1461: do dec X goto 1462
-1462: do dec X goto 1463
-1463: do dec X goto 1464
-1464: do dec X goto 1465
-1465: do dec X goto 1466
-1466: do dec X goto 1467
-1467: do dec X goto 1468
-1468: do dec X goto 1469
-1469: do dec X goto 1470
-1470: do dec X goto 1471
-1471: do dec X goto 1472
-1472: do dec X goto 1473
-1473: do dec X goto 1474
-1474: do dec X goto 1475
-1475: do dec X goto 1476
-1476: do dec X goto 1477
-1477: do dec X goto 1478
-1478: do dec X goto 1479
-1479: do dec X goto 1480
-1480: do dec X goto 1481
-1481: do dec X goto 1482
-1482: do dec X goto 1483
-1483: do dec X goto 1484
-1484: do dec X goto 1485
-1485: do dec X goto 1486
-1486: do dec X goto 1487
-1487: do dec X goto 1488
-1488: do dec X goto 1489
-1489: do dec X goto 1490
-1490: do dec X goto 1491
-1491: do dec X goto 1492
-1492: do dec X goto 1493
-1493: do dec X goto 1494
-1494: do dec X goto 1495
-1495: do dec X goto 1496
-1496: do dec X goto 1497
-1497: do dec X goto 1498
-1498: do dec X goto 1499
-1499: do dec X goto 1500
-1500: do dec X goto 1501
-1501: do dec X goto 1502
-1502: do dec X goto 1503
-1503: do dec X goto 1504
-1504: do dec X goto 1505
-1505: do dec X goto 1506
-1506: do dec X goto 1507
-1507: do dec X goto 1508
-1508: do dec X goto 1509
-1509: do dec X goto 1510
-1510: do dec X goto 1511
-1511: do dec X goto 1512
-1512: do dec X goto 1513
-1513: do dec X goto 1514
-1514: do dec X goto 1515
-1515: do dec X goto 1516
-1516: do dec X goto 1517
-1517: do dec X goto 1518
-1518: do dec X goto 1519
-1519: do dec X goto 1520
-1520: do dec X goto 1521
-1521: do dec X goto 1522
-1522: do dec X goto 1523
-1523: do dec X goto 1524
-1524: do dec X goto 1525
-1525: do dec X goto 1526
-1526: do dec X goto 1527
-1527: do dec X goto 1528
-1528: do dec X goto 1529
-1529: do dec X goto 1530
-1530: do dec X goto 1531
-1531: do dec X goto 1532
-1532: do dec X goto 1533
-1533: do dec X goto 1534
-1534: do dec X goto 1535
-1535: do dec X goto 1536
-1536: do dec X goto 1537
-1537: do dec X goto 1538
-1538: do dec X goto 1539
-1539: do dec X goto 1540
-1540: do dec X goto 1541
-1541: do dec X goto 1542
-1542: do dec X goto 1543
-1543: do dec X goto 1544
-1544: do dec X goto 1545
-1545: do dec X goto 1546
-1546: do dec X goto 1547
-1547: do dec X goto 1548
-1548: do dec X goto 1549
-1549: do dec X goto 1550
-1550: do dec X goto 1551
-1551: do dec X goto 1552
-1552: do dec X goto 1553
-1553: do dec X goto 1554
-1554: do dec X goto 1555
-1555: do dec X goto 1556
-1556: do dec X goto 1557
-1557: do dec X goto 1558
-1558: do dec X goto 1559
-1559: do dec X goto 1560
-1560: do dec X goto 1561
-1561: do dec X goto 1562
-1562: do dec X goto 1563
-1563: do dec X goto 1564
-1564: do dec X goto 1565
-1565: do dec X goto 1566
-1566: do dec X goto 1567
-1567: do dec X goto 1568
-1568: do dec X goto 1569
-1569: do dec X goto 1570
-1570: do dec X goto 1571
-1571: do dec X goto 1572
-1572: do dec X goto 1573
-1573: do dec X goto 1574
-1574: do dec X goto 1575
-1575: do dec X goto 1576
-1576: do dec X goto 1577
-1577: do dec X goto 1578
-1578: do dec X goto 1579
-1579: do dec X goto 1580
-1580: do dec X goto 1581
-1581: do dec X goto 1582
-1582: if zero X then goto 0 else goto 1583
-1583: do dec X goto 1584
-1584: if zero X then goto 0 else goto 1585
-1585: do dec X goto 1586
-1586: if zero X then goto 0 else goto 1587
-1587: do dec X goto 1588
-1588: if zero X then goto 1589 else goto 1590
-1589: do inc Y goto 0
-1590: do dec X goto 1591
-1591: if zero X then goto 0 else goto 1592
-1592: do dec X goto 1593
-1593: if zero X then goto 0 else goto 1594
-1594: do dec X goto 1595
-1595: if zero X then goto 0 else goto 1596
-1596: do dec X goto 1597
-1597: if zero X then goto 1598 else goto 1599
-1598: do inc Y goto 0
-1599: do dec X goto 1600
-1600: if zero X then goto 0 else goto 1601
-1601: do dec X goto 1602
-1602: if zero X then goto 0 else goto 1603
-1603: do dec X goto 1604
-1604: if zero X then goto 0 else goto 1605
-1605: do dec X goto 1606
-1606: if zero X then goto 1607 else goto 1608
-1607: do inc Y goto 0
-1608: do dec X goto 1609
-1609: if zero X then goto 0 else goto 1610
-1610: do dec X goto 1611
-1611: if zero X then goto 0 else goto 1612
-1612: do dec X goto 1613
-1613: if zero X then goto 0 else goto 1614
-1614: do dec X goto 1615
-1615: if zero X then goto 1616 else goto 1617
-1616: do inc Y goto 0
-1617: do dec X goto 1618
-1618: if zero X then goto 0 else goto 1619
-1619: do dec X goto 1620
-1620: if zero X then goto 0 else goto 1621
-1621: do dec X goto 1622
-1622: if zero X then goto 0 else goto 1623
-1623: do dec X goto 1624
-1624: if zero X then goto 1625 else goto 1626
-1625: do inc Y goto 0
-1626: do dec X goto 1627
-1627: if zero X then goto 0 else goto 1628
-1628: do dec X goto 1629
-1629: if zero X then goto 0 else goto 1630
-1630: do dec X goto 1631
-1631: if zero X then goto 0 else goto 1632
-1632: do dec X goto 1633
-1633: if zero X then goto 1634 else goto 1635
-1634: do inc Y goto 0
-1635: do dec X goto 1636
-1636: if zero X then goto 0 else goto 1637
-1637: do dec X goto 1638
-1638: if zero X then goto 0 else goto 1639
-1639: do dec X goto 1640
-1640: if zero X then goto 0 else goto 1641
-1641: do dec X goto 1642
-1642: if zero X then goto 1643 else goto 1644
-1643: do inc Y goto 0
-1644: do dec X goto 1645
-1645: if zero X then goto 0 else goto 1646
-1646: do dec X goto 1647
-1647: if zero X then goto 0 else goto 1648
-1648: do dec X goto 1649
-1649: if zero X then goto 0 else goto 1650
-1650: do dec X goto 1651
-1651: if zero X then goto 1652 else goto 1653
-1652: do inc Y goto 0
-1653: do dec X goto 1654
-1654: if zero X then goto 0 else goto 1655
-1655: do dec X goto 1656
-1656: if zero X then goto 0 else goto 1657
-1657: do dec X goto 1658
-1658: if zero X then goto 0 else goto 1659
-1659: do dec X goto 1660
-1660: if zero X then goto 1661 else goto 1662
-1661: do inc Y goto 0
-1662: do dec X goto 1663
-1663: if zero X then goto 0 else goto 1664
-1664: do dec X goto 1665
-1665: if zero X then goto 0 else goto 1666
-1666: do dec X goto 1667
-1667: if zero X then goto 0 else goto 1668
-1668: do dec X goto 1669
-1669: if zero X then goto 1670 else goto 1671
-1670: do inc Y goto 0
-1671: do dec X goto 1672
-1672: if zero X then goto 0 else goto 1673
-1673: do dec X goto 1674
-1674: if zero X then goto 0 else goto 1675
-1675: do dec X goto 1676
-1676: if zero X then goto 0 else goto 1677
-1677: do dec X goto 1678
-1678: if zero X then goto 1679 else goto 1680
-1679: do inc Y goto 0
-1680: do dec X goto 1681
-1681: if zero X then goto 0 else goto 1682
-1682: do dec X goto 1683
-1683: if zero X then goto 0 else goto 1684
-1684: do dec X goto 1685
-1685: if zero X then goto 0 else goto 1686
-1686: do dec X goto 1687
-1687: if zero X then goto 1688 else goto 1689
-1688: do inc Y goto 0
-1689: do dec X goto 1690
-1690: if zero X then goto 0 else goto 1691
-1691: do dec X goto 1692
-1692: if zero X then goto 0 else goto 1693
-1693: do dec X goto 1694
-1694: if zero X then goto 0 else goto 1695
-1695: do dec X goto 1696
-1696: if zero X then goto 1697 else goto 1698
-1697: do inc Y goto 0
-1698: do dec X goto 1699
-1699: if zero X then goto 0 else goto 1700
-1700: do dec X goto 1701
-1701: if zero X then goto 0 else goto 1702
-1702: do dec X goto 1703
-1703: if zero X then goto 0 else goto 1704
-1704: do dec X goto 1705
-1705: if zero X then goto 1706 else goto 1707
-1706: do inc Y goto 0
-1707: do dec X goto 1708
-1708: if zero X then goto 0 else goto 1709
-1709: do dec X goto 1710
-1710: if zero X then goto 0 else goto 1711
-1711: do dec X goto 1712
-1712: if zero X then goto 0 else goto 1713
-1713: do dec X goto 1714
-1714: if zero X then goto 1715 else goto 1716
-1715: do inc Y goto 0
-1716: do dec X goto 1717
-1717: if zero X then goto 0 else goto 1718
-1718: do dec X goto 1719
-1719: if zero X then goto 0 else goto 1720
-1720: do dec X goto 1721
-1721: if zero X then goto 0 else goto 1722
-1722: do dec X goto 1723
-1723: if zero X then goto 1724 else goto 1725
-1724: do inc Y goto 0
-1725: do dec X goto 1726
-1726: if zero X then goto 0 else goto 1727
-1727: do dec X goto 1728
-1728: if zero X then goto 0 else goto 1729
-1729: do dec X goto 1730
-1730: if zero X then goto 0 else goto 1731
-1731: do dec X goto 1732
-1732: if zero X then goto 1733 else goto 1734
-1733: do inc Y goto 0
-1734: do dec X goto 1735
-1735: if zero X then goto 0 else goto 1736
-1736: do dec X goto 1737
-1737: if zero X then goto 0 else goto 1738
-1738: do dec X goto 1739
-1739: if zero X then goto 0 else goto 1740
-1740: do dec X goto 1741
-1741: if zero X then goto 1742 else goto 1743
-1742: do inc Y goto 0
-1743: do dec X goto 1744
-1744: if zero X then goto 0 else goto 1745
-1745: do dec X goto 1746
-1746: if zero X then goto 0 else goto 1747
-1747: do dec X goto 1748
-1748: if zero X then goto 0 else goto 1749
-1749: do dec X goto 1750
-1750: if zero X then goto 1751 else goto 1752
-1751: do inc Y goto 0
-1752: do dec X goto 1753
-1753: if zero X then goto 0 else goto 1754
-1754: do dec X goto 1755
-1755: if zero X then goto 0 else goto 1756
-1756: do dec X goto 1757
-1757: if zero X then goto 0 else goto 1758
-1758: do dec X goto 1759
-1759: if zero X then goto 1760 else goto 1761
-1760: do inc Y goto 0
-1761: do dec X goto 1762
-1762: if zero X then goto 0 else goto 1763
-1763: do dec X goto 1764
-1764: if zero X then goto 0 else goto 1765
-1765: do dec X goto 1766
-1766: if zero X then goto 0 else goto 1767
-1767: do dec X goto 1768
-1768: if zero X then goto 1769 else goto 1770
-1769: do inc Y goto 0
-1770: do dec X goto 1771
-1771: if zero X then goto 0 else goto 1772
-1772: do dec X goto 1773
-1773: if zero X then goto 0 else goto 1774
-1774: do dec X goto 1775
-1775: if zero X then goto 0 else goto 1776
-1776: do dec X goto 1777
-1777: if zero X then goto 1778 else goto 1779
-1778: do inc Y goto 0
-1779: do dec X goto 1780
-1780: if zero X then goto 0 else goto 1781
-1781: do dec X goto 1782
-1782: if zero X then goto 0 else goto 1783
-1783: do dec X goto 1784
-1784: if zero X then goto 0 else goto 1785
-1785: do dec X goto 1786
-1786: if zero X then goto 1787 else goto 1788
-1787: do inc Y goto 0
-1788: do dec X goto 1789
-1789: if zero X then goto 0 else goto 1790
-1790: do dec X goto 1791
-1791: if zero X then goto 0 else goto 1792
-1792: do dec X goto 1793
-1793: if zero X then goto 0 else goto 1794
-1794: do dec X goto 1795
-1795: if zero X then goto 1796 else goto 1797
-1796: do inc Y goto 0
-1797: do dec X goto 1798
-1798: if zero X then goto 0 else goto 1799
-1799: do dec X goto 1800
-1800: if zero X then goto 0 else goto 1801
-1801: do dec X goto 1802
-1802: if zero X then goto 0 else goto 1803
-1803: do dec X goto 1804
-1804: if zero X then goto 1805 else goto 1806
-1805: do inc Y goto 0
-1806: do dec X goto 1807
-1807: if zero X then goto 0 else goto 1808
-1808: do dec X goto 1809
-1809: if zero X then goto 0 else goto 1810
-1810: do dec X goto 1811
-1811: if zero X then goto 0 else goto 1812
-1812: do dec X goto 1813
-1813: if zero X then goto 1814 else goto 1815
-1814: do inc Y goto 0
-1815: do dec X goto 1816
-1816: if zero X then goto 0 else goto 1817
-1817: do dec X goto 1818
-1818: if zero X then goto 0 else goto 1819
-1819: do dec X goto 1820
-1820: if zero X then goto 0 else goto 1821
-1821: do dec X goto 1822
-1822: if zero X then goto 1823 else goto 1824
-1823: do inc Y goto 0
-1824: do dec X goto 1825
-1825: if zero X then goto 0 else goto 1826
-1826: do dec X goto 1827
-1827: if zero X then goto 0 else goto 1828
-1828: do dec X goto 1829
-1829: if zero X then goto 0 else goto 1830
-1830: do dec X goto 1831
-1831: if zero X then goto 1832 else goto 1833
-1832: do inc Y goto 0
-1833: do dec X goto 1834
-1834: if zero X then goto 0 else goto 1835
-1835: do dec X goto 1836
-1836: if zero X then goto 0 else goto 1837
-1837: do dec X goto 1838
-1838: if zero X then goto 0 else goto 1839
-1839: do dec X goto 1840
-1840: if zero X then goto 1841 else goto 1842
-1841: do inc Y goto 0
-1842: do dec X goto 1843
-1843: if zero X then goto 0 else goto 1844
-1844: do dec X goto 1845
-1845: if zero X then goto 0 else goto 1846
-1846: do dec X goto 1847
-1847: if zero X then goto 0 else goto 1848
-1848: do dec X goto 1849
-1849: if zero X then goto 0 else goto 1850
-1850: do dec X goto 1851
-1851: if zero X then goto 0 else goto 1852
-1852: do dec X goto 1853
-1853: if zero X then goto 0 else goto 1854
-1854: do dec X goto 1855
-1855: if zero X then goto 0 else goto 1856
-1856: do dec X goto 1857
-1857: if zero X then goto 1858 else goto 1859
-1858: do inc Y goto 0
-1859: do dec X goto 1860
-1860: if zero X then goto 0 else goto 1861
-1861: do dec X goto 1862
-1862: if zero X then goto 0 else goto 1863
-1863: do dec X goto 1864
-1864: if zero X then goto 0 else goto 1865
-1865: do dec X goto 1866
-1866: if zero X then goto 1867 else goto 1868
-1867: do inc Y goto 0
-1868: do dec X goto 1869
-1869: if zero X then goto 0 else goto 1870
-1870: do dec X goto 1871
-1871: if zero X then goto 0 else goto 1872
-1872: do dec X goto 1873
-1873: if zero X then goto 0 else goto 1874
-1874: do dec X goto 1875
-1875: if zero X then goto 1876 else goto 1877
-1876: do inc Y goto 0
-1877: do dec X goto 1878
-1878: if zero X then goto 0 else goto 1879
-1879: do dec X goto 1880
-1880: if zero X then goto 0 else goto 1881
-1881: do dec X goto 1882
-1882: if zero X then goto 0 else goto 1883
-1883: do dec X goto 1884
-1884: if zero X then goto 1885 else goto 1886
-1885: do inc Y goto 0
-1886: do dec X goto 1887
-1887: if zero X then goto 0 else goto 1888
-1888: do dec X goto 1889
-1889: if zero X then goto 0 else goto 1890
-1890: do dec X goto 1891
-1891: if zero X then goto 0 else goto 1892
-1892: do dec X goto 1893
-1893: if zero X then goto 1894 else goto 1895
-1894: do inc Y goto 0
-1895: do dec X goto 1896
-1896: if zero X then goto 0 else goto 1897
-1897: do dec X goto 1898
-1898: if zero X then goto 0 else goto 1899
-1899: do dec X goto 1900
-1900: if zero X then goto 0 else goto 1901
-1901: do dec X goto 1902
-1902: if zero X then goto 1903 else goto 1904
-1903: do inc Y goto 0
-1904: do dec X goto 1905
-1905: if zero X then goto 0 else goto 1906
-1906: do dec X goto 1907
-1907: if zero X then goto 0 else goto 1908
-1908: do dec X goto 1909
-1909: if zero X then goto 0 else goto 1910
-1910: do dec X goto 1911
-1911: if zero X then goto 1912 else goto 1913
-1912: do inc Y goto 0
-1913: do dec X goto 1914
-1914: if zero X then goto 0 else goto 1915
-1915: do dec X goto 1916
-1916: if zero X then goto 0 else goto 1917
-1917: do dec X goto 1918
-1918: if zero X then goto 0 else goto 1919
-1919: do dec X goto 1920
-1920: if zero X then goto 1921 else goto 1922
-1921: do inc Y goto 0
-1922: do dec X goto 1923
-1923: if zero X then goto 0 else goto 1924
-1924: do dec X goto 1925
-1925: if zero X then goto 0 else goto 1926
-1926: do dec X goto 1927
-1927: if zero X then goto 0 else goto 1928
-1928: do dec X goto 1929
-1929: if zero X then goto 1930 else goto 1931
-1930: do inc Y goto 0
-1931: do dec X goto 1932
-1932: if zero X then goto 0 else goto 1933
-1933: do dec X goto 1934
-1934: if zero X then goto 0 else goto 1935
-1935: do dec X goto 1936
-1936: if zero X then goto 0 else goto 1937
-1937: do dec X goto 1938
-1938: if zero X then goto 1939 else goto 1940
-1939: do inc Y goto 0
-1940: do dec X goto 1941
-1941: if zero X then goto 0 else goto 1942
-1942: do dec X goto 1943
-1943: if zero X then goto 0 else goto 1944
-1944: do dec X goto 1945
-1945: if zero X then goto 0 else goto 1946
-1946: do dec X goto 1947
-1947: if zero X then goto 1948 else goto 1949
-1948: do inc Y goto 0
-1949: do dec X goto 1950
-1950: if zero X then goto 0 else goto 1951
-1951: do dec X goto 1952
-1952: if zero X then goto 0 else goto 1953
-1953: do dec X goto 1954
-1954: if zero X then goto 0 else goto 1955
-1955: do dec X goto 1956
-1956: if zero X then goto 1957 else goto 1958
-1957: do inc Y goto 0
-1958: do dec X goto 1959
-1959: if zero X then goto 0 else goto 1960
-1960: do dec X goto 1961
-1961: if zero X then goto 0 else goto 1962
-1962: do dec X goto 1963
-1963: if zero X then goto 0 else goto 1964
-1964: do dec X goto 1965
-1965: if zero X then goto 1966 else goto 1967
-1966: do inc Y goto 0
-1967: do dec X goto 1968
-1968: if zero X then goto 0 else goto 1969
-1969: do dec X goto 1970
-1970: if zero X then goto 0 else goto 1971
-1971: do dec X goto 1972
-1972: if zero X then goto 0 else goto 1973
-1973: do dec X goto 1974
-1974: if zero X then goto 1975 else goto 1976
-1975: do inc Y goto 0
-1976: do dec X goto 1977
-1977: if zero X then goto 0 else goto 1978
-1978: do dec X goto 1979
-1979: if zero X then goto 0 else goto 1980
-1980: do dec X goto 1981
-1981: if zero X then goto 0 else goto 1982
-1982: do dec X goto 1983
-1983: if zero X then goto 1984 else goto 1985
-1984: do inc Y goto 0
-1985: do dec X goto 1986
-1986: if zero X then goto 0 else goto 1987
-1987: do dec X goto 1988
-1988: if zero X then goto 0 else goto 1989
-1989: do dec X goto 1990
-1990: if zero X then goto 0 else goto 1991
-1991: do dec X goto 1992
-1992: if zero X then goto 1993 else goto 1994
-1993: do inc Y goto 0
-1994: do dec X goto 1995
-1995: if zero X then goto 0 else goto 1996
-1996: do dec X goto 1997
-1997: if zero X then goto 0 else goto 1998
-1998: do dec X goto 1999
-1999: if zero X then goto 0 else goto 2000
-2000: do dec X goto 2001
-2001: if zero X then goto 2002 else goto 2003
-2002: do inc Y goto 0
-2003: do dec X goto 2004
-2004: if zero X then goto 0 else goto 2005
-2005: do dec X goto 2006
-2006: if zero X then goto 0 else goto 2007
-2007: do dec X goto 2008
-2008: if zero X then goto 0 else goto 2009
-2009: do dec X goto 2010
-2010: if zero X then goto 2011 else goto 2012
-2011: do inc Y goto 0
-2012: do dec X goto 2013
-2013: if zero X then goto 0 else goto 2014
-2014: do dec X goto 2015
-2015: if zero X then goto 0 else goto 2016
-2016: do dec X goto 2017
-2017: if zero X then goto 0 else goto 2018
-2018: do dec X goto 2019
-2019: if zero X then goto 2020 else goto 2021
-2020: do inc Y goto 0
-2021: do dec X goto 2022
-2022: if zero X then goto 0 else goto 2023
-2023: do dec X goto 2024
-2024: if zero X then goto 0 else goto 2025
-2025: do dec X goto 2026
-2026: if zero X then goto 0 else goto 2027
-2027: do dec X goto 2028
-2028: if zero X then goto 2029 else goto 2030
-2029: do inc Y goto 0
-2030: do dec X goto 2031
-2031: if zero X then goto 0 else goto 2032
-2032: do dec X goto 2033
-2033: if zero X then goto 0 else goto 2034
-2034: do dec X goto 2035
-2035: if zero X then goto 0 else goto 2036
-2036: do dec X goto 2037
-2037: if zero X then goto 2038 else goto 2039
-2038: do inc Y goto 0
-2039: do dec X goto 2040
-2040: if zero X then goto 0 else goto 2041
-2041: do dec X goto 2042
-2042: if zero X then goto 0 else goto 2043
-2043: do dec X goto 2044
-2044: if zero X then goto 0 else goto 2045
-2045: do dec X goto 2046
-2046: if zero X then goto 2047 else goto 2048
-2047: do inc Y goto 0
-2048: do dec X goto 2049
-2049: if zero X then goto 0 else goto 2050
-2050: do dec X goto 2051
-2051: if zero X then goto 0 else goto 2052
-2052: do dec X goto 2053
-2053: if zero X then goto 0 else goto 2054
-2054: do dec X goto 2055
-2055: if zero X then goto 2056 else goto 2057
-2056: do inc Y goto 0
-2057: do dec X goto 2058
-2058: if zero X then goto 0 else goto 2059
-2059: do dec X goto 2060
-2060: if zero X then goto 0 else goto 2061
-2061: do dec X goto 2062
-2062: if zero X then goto 0 else goto 2063
-2063: do dec X goto 2064
-2064: if zero X then goto 2065 else goto 2066
-2065: do inc Y goto 0
-2066: do dec X goto 2067
-2067: if zero X then goto 0 else goto 2068
-2068: do dec X goto 2069
-2069: if zero X then goto 0 else goto 2070
-2070: do dec X goto 2071
-2071: if zero X then goto 0 else goto 2072
-2072: do dec X goto 2073
-2073: if zero X then goto 0 else goto 2074
-2074: do dec X goto 2075
-2075: if zero X then goto 0 else goto 2076
-2076: do dec X goto 2077
-2077: if zero X then goto 0 else goto 2078
-2078: do dec X goto 2079
-2079: if zero X then goto 0 else goto 2080
-2080: do dec X goto 2081
-2081: if zero X then goto 2082 else goto 2083
-2082: do inc Y goto 0
-2083: do dec X goto 2084
-2084: if zero X then goto 0 else goto 2085
-2085: do dec X goto 2086
-2086: if zero X then goto 0 else goto 2087
-2087: do dec X goto 2088
-2088: if zero X then goto 0 else goto 2089
-2089: do dec X goto 2090
-2090: if zero X then goto 2091 else goto 2092
-2091: do inc Y goto 0
-2092: do dec X goto 2093
-2093: if zero X then goto 0 else goto 2094
-2094: do dec X goto 2095
-2095: if zero X then goto 0 else goto 2096
-2096: do dec X goto 2097
-2097: if zero X then goto 0 else goto 2098
-2098: do dec X goto 2099
-2099: if zero X then goto 2100 else goto 2101
-2100: do inc Y goto 0
-2101: do dec X goto 2102
-2102: if zero X then goto 0 else goto 2103
-2103: do dec X goto 2104
-2104: if zero X then goto 0 else goto 2105
-2105: do dec X goto 2106
-2106: if zero X then goto 0 else goto 2107
-2107: do dec X goto 2108
-2108: if zero X then goto 2109 else goto 2110
-2109: do inc Y goto 0
-2110: do dec X goto 2111
-2111: if zero X then goto 0 else goto 2112
-2112: do dec X goto 2113
-2113: if zero X then goto 0 else goto 2114
-2114: do dec X goto 2115
-2115: if zero X then goto 0 else goto 2116
-2116: do dec X goto 2117
-2117: if zero X then goto 2118 else goto 2119
-2118: do inc Y goto 0
-2119: do dec X goto 2120
-2120: if zero X then goto 0 else goto 2121
-2121: do dec X goto 2122
-2122: if zero X then goto 0 else goto 2123
-2123: do dec X goto 2124
-2124: if zero X then goto 0 else goto 2125
-2125: do dec X goto 2126
-2126: if zero X then goto 2127 else goto 2128
-2127: do inc Y goto 0
-2128: do dec X goto 2129
-2129: if zero X then goto 0 else goto 2130
-2130: do dec X goto 2131
-2131: if zero X then goto 0 else goto 2132
-2132: do dec X goto 2133
-2133: if zero X then goto 0 else goto 2134
-2134: do dec X goto 2135
-2135: if zero X then goto 2136 else goto 2137
-2136: do inc Y goto 0
-2137: do dec X goto 2138
-2138: if zero X then goto 0 else goto 2139
-2139: do dec X goto 2140
-2140: if zero X then goto 0 else goto 2141
-2141: do dec X goto 2142
-2142: if zero X then goto 0 else goto 2143
-2143: do dec X goto 2144
-2144: if zero X then goto 2145 else goto 2146
-2145: do inc Y goto 0
-2146: do dec X goto 2147
-2147: if zero X then goto 0 else goto 2148
-2148: do dec X goto 2149
-2149: if zero X then goto 0 else goto 2150
-2150: do dec X goto 2151
-2151: if zero X then goto 0 else goto 2152
-2152: do dec X goto 2153
-2153: if zero X then goto 2154 else goto 2155
-2154: do inc Y goto 0
-2155: do dec X goto 2156
-2156: if zero X then goto 0 else goto 2157
-2157: do dec X goto 2158
-2158: if zero X then goto 0 else goto 2159
-2159: do dec X goto 2160
-2160: if zero X then goto 0 else goto 2161
-2161: do dec X goto 2162
-2162: if zero X then goto 2163 else goto 2164
-2163: do inc Y goto 0
-2164: do dec X goto 2165
-2165: if zero X then goto 0 else goto 2166
-2166: do dec X goto 2167
-2167: if zero X then goto 0 else goto 2168
-2168: do dec X goto 2169
-2169: if zero X then goto 0 else goto 2170
-2170: do dec X goto 2171
-2171: if zero X then goto 2172 else goto 2173
-2172: do inc Y goto 0
-2173: do dec X goto 2174
-2174: if zero X then goto 0 else goto 2175
-2175: do dec X goto 2176
-2176: if zero X then goto 0 else goto 2177
-2177: do dec X goto 2178
-2178: if zero X then goto 0 else goto 2179
-2179: do dec X goto 2180
-2180: if zero X then goto 2181 else goto 2182
-2181: do inc Y goto 0
-2182: do dec X goto 2183
-2183: if zero X then goto 0 else goto 2184
-2184: do dec X goto 2185
-2185: if zero X then goto 0 else goto 2186
-2186: do dec X goto 2187
-2187: if zero X then goto 0 else goto 2188
-2188: do dec X goto 2189
-2189: if zero X then goto 2190 else goto 2191
-2190: do inc Y goto 0
-2191: do dec X goto 2192
-2192: if zero X then goto 0 else goto 2193
-2193: do dec X goto 2194
-2194: if zero X then goto 0 else goto 2195
-2195: do dec X goto 2196
-2196: if zero X then goto 0 else goto 2197
-2197: do dec X goto 2198
-2198: if zero X then goto 2199 else goto 2200
-2199: do inc Y goto 0
-2200: do dec X goto 2201
-2201: if zero X then goto 0 else goto 2202
-2202: do dec X goto 2203
-2203: if zero X then goto 0 else goto 2204
-2204: do dec X goto 2205
-2205: if zero X then goto 0 else goto 2206
-2206: do dec X goto 2207
-2207: if zero X then goto 2208 else goto 2209
-2208: do inc Y goto 0
-2209: do dec X goto 2210
-2210: if zero X then goto 0 else goto 2211
-2211: do dec X goto 2212
-2212: if zero X then goto 0 else goto 2213
-2213: do dec X goto 2214
-2214: if zero X then goto 0 else goto 2215
-2215: do dec X goto 2216
-2216: if zero X then goto 2217 else goto 2218
-2217: do inc Y goto 0
-2218: do dec X goto 2219
-2219: if zero X then goto 0 else goto 2220
-2220: do dec X goto 2221
-2221: if zero X then goto 0 else goto 2222
-2222: do dec X goto 2223
-2223: if zero X then goto 0 else goto 2224
-2224: do dec X goto 2225
-2225: if zero X then goto 2226 else goto 2227
-2226: do inc Y goto 0
-2227: do dec X goto 2228
-2228: if zero X then goto 0 else goto 2229
-2229: do dec X goto 2230
-2230: if zero X then goto 0 else goto 2231
-2231: do dec X goto 2232
-2232: if zero X then goto 0 else goto 2233
-2233: do dec X goto 2234
-2234: if zero X then goto 2235 else goto 2236
-2235: do inc Y goto 0
-2236: do dec X goto 2237
-2237: if zero X then goto 0 else goto 2238
-2238: do dec X goto 2239
-2239: if zero X then goto 0 else goto 2240
-2240: do dec X goto 2241
-2241: if zero X then goto 0 else goto 2242
-2242: do dec X goto 2243
-2243: if zero X then goto 2244 else goto 2245
-2244: do inc Y goto 0
-2245: do dec X goto 2246
-2246: if zero X then goto 0 else goto 2247
-2247: do dec X goto 2248
-2248: if zero X then goto 0 else goto 2249
-2249: do dec X goto 2250
-2250: if zero X then goto 0 else goto 2251
-2251: do dec X goto 2252
-2252: if zero X then goto 2253 else goto 2254
-2253: do inc Y goto 0
-2254: do dec X goto 2255
-2255: if zero X then goto 0 else goto 2256
-2256: do dec X goto 2257
-2257: if zero X then goto 0 else goto 2258
-2258: do dec X goto 2259
-2259: if zero X then goto 0 else goto 2260
-2260: do dec X goto 2261
-2261: if zero X then goto 2262 else goto 2263
-2262: do inc Y goto 0
-2263: do dec X goto 2264
-2264: if zero X then goto 0 else goto 2265
-2265: do dec X goto 2266
-2266: if zero X then goto 0 else goto 2267
-2267: do dec X goto 2268
-2268: if zero X then goto 0 else goto 2269
-2269: do dec X goto 2270
-2270: if zero X then goto 2271 else goto 2272
-2271: do inc Y goto 0
-2272: do dec X goto 2273
-2273: if zero X then goto 0 else goto 2274
-2274: do dec X goto 2275
-2275: if zero X then goto 0 else goto 2276
-2276: do dec X goto 2277
-2277: if zero X then goto 0 else goto 2278
-2278: do dec X goto 2279
-2279: if zero X then goto 2280 else goto 2281
-2280: do inc Y goto 0
-2281: do dec X goto 2282
-2282: if zero X then goto 0 else goto 2283
-2283: do dec X goto 2284
-2284: if zero X then goto 0 else goto 2285
-2285: do dec X goto 2286
-2286: if zero X then goto 0 else goto 2287
-2287: do dec X goto 2288
-2288: if zero X then goto 2289 else goto 2290
-2289: do inc Y goto 0
-2290: do dec X goto 2291
-2291: if zero X then goto 0 else goto 2292
-2292: do dec X goto 2293
-2293: if zero X then goto 0 else goto 2294
-2294: do dec X goto 2295
-2295: if zero X then goto 0 else goto 2296
-2296: do dec X goto 2297
-2297: if zero X then goto 0 else goto 2298
-2298: do dec X goto 2299
-2299: if zero X then goto 0 else goto 2300
-2300: do dec X goto 2301
-2301: if zero X then goto 0 else goto 2302
-2302: do dec X goto 2303
-2303: if zero X then goto 0 else goto 2304
-2304: do dec X goto 2305
-2305: if zero X then goto 2306 else goto 2307
-2306: do inc Y goto 0
-2307: do dec X goto 2308
-2308: if zero X then goto 0 else goto 2309
-2309: do dec X goto 2310
-2310: if zero X then goto 0 else goto 2311
-2311: do dec X goto 2312
-2312: if zero X then goto 0 else goto 2313
-2313: do dec X goto 2314
-2314: if zero X then goto 2315 else goto 2316
-2315: do inc Y goto 0
-2316: do dec X goto 2317
-2317: if zero X then goto 0 else goto 2318
-2318: do dec X goto 2319
-2319: if zero X then goto 0 else goto 2320
-2320: do dec X goto 2321
-2321: if zero X then goto 0 else goto 2322
-2322: do dec X goto 2323
-2323: if zero X then goto 2324 else goto 2325
-2324: do inc Y goto 0
-2325: do dec X goto 2326
-2326: if zero X then goto 0 else goto 2327
-2327: do dec X goto 2328
-2328: if zero X then goto 0 else goto 2329
-2329: do dec X goto 2330
-2330: if zero X then goto 0 else goto 2331
-2331: do dec X goto 2332
-2332: if zero X then goto 2333 else goto 2334
-2333: do inc Y goto 0
-2334: do dec X goto 2335
-2335: if zero X then goto 0 else goto 2336
-2336: do dec X goto 2337
-2337: if zero X then goto 0 else goto 2338
-2338: do dec X goto 2339
-2339: if zero X then goto 0 else goto 2340
-2340: do dec X goto 2341
-2341: if zero X then goto 2342 else goto 2343
-2342: do inc Y goto 0
-2343: do dec X goto 2344
-2344: if zero X then goto 0 else goto 2345
-2345: do dec X goto 2346
-2346: if zero X then goto 0 else goto 2347
-2347: do dec X goto 2348
-2348: if zero X then goto 0 else goto 2349
-2349: do dec X goto 2350
-2350: if zero X then goto 2351 else goto 2352
-2351: do inc Y goto 0
-2352: do dec X goto 2353
-2353: if zero X then goto 0 else goto 2354
-2354: do dec X goto 2355
-2355: if zero X then goto 0 else goto 2356
-2356: do dec X goto 2357
-2357: if zero X then goto 0 else goto 2358
-2358: do dec X goto 2359
-2359: if zero X then goto 2360 else goto 2361
-2360: do inc Y goto 0
-2361: do dec X goto 2362
-2362: if zero X then goto 0 else goto 2363
-2363: do dec X goto 2364
-2364: if zero X then goto 0 else goto 2365
-2365: do dec X goto 2366
-2366: if zero X then goto 0 else goto 2367
-2367: do dec X goto 2368
-2368: if zero X then goto 2369 else goto 2370
-2369: do inc Y goto 0
-2370: do dec X goto 2371
-2371: if zero X then goto 0 else goto 2372
-2372: do dec X goto 2373
-2373: if zero X then goto 0 else goto 2374
-2374: do dec X goto 2375
-2375: if zero X then goto 0 else goto 2376
-2376: do dec X goto 2377
-2377: if zero X then goto 2378 else goto 2379
-2378: do inc Y goto 0
-2379: do dec X goto 2380
-2380: if zero X then goto 0 else goto 2381
-2381: do dec X goto 2382
-2382: if zero X then goto 0 else goto 2383
-2383: do dec X goto 2384
-2384: if zero X then goto 0 else goto 2385
-2385: do dec X goto 2386
-2386: if zero X then goto 2387 else goto 2388
-2387: do inc Y goto 0
-2388: do dec X goto 2389
-2389: if zero X then goto 0 else goto 2390
-2390: do dec X goto 2391
-2391: if zero X then goto 0 else goto 2392
-2392: do dec X goto 2393
-2393: if zero X then goto 0 else goto 2394
-2394: do dec X goto 2395
-2395: if zero X then goto 2396 else goto 2397
-2396: do inc Y goto 0
-2397: do dec X goto 2398
-2398: if zero X then goto 0 else goto 2399
-2399: do dec X goto 2400
-2400: if zero X then goto 0 else goto 2401
-2401: do dec X goto 2402
-2402: if zero X then goto 0 else goto 2403
-2403: do dec X goto 2404
-2404: if zero X then goto 2405 else goto 2406
-2405: do inc Y goto 0
-2406: do dec X goto 2407
-2407: if zero X then goto 0 else goto 2408
-2408: do dec X goto 2409
-2409: if zero X then goto 0 else goto 2410
-2410: do dec X goto 2411
-2411: if zero X then goto 0 else goto 2412
-2412: do dec X goto 2413
-2413: if zero X then goto 2414 else goto 2415
-2414: do inc Y goto 0
-2415: do dec X goto 2416
-2416: if zero X then goto 0 else goto 2417
-2417: do dec X goto 2418
-2418: if zero X then goto 0 else goto 2419
-2419: do dec X goto 2420
-2420: if zero X then goto 0 else goto 2421
-2421: do dec X goto 2422
-2422: if zero X then goto 2423 else goto 2424
-2423: do inc Y goto 0
-2424: do dec X goto 2425
-2425: if zero X then goto 0 else goto 2426
-2426: do dec X goto 2427
-2427: if zero X then goto 0 else goto 2428
-2428: do dec X goto 2429
-2429: if zero X then goto 0 else goto 2430
-2430: do dec X goto 2431
-2431: if zero X then goto 2432 else goto 2433
-2432: do inc Y goto 0
-2433: do dec X goto 2434
-2434: if zero X then goto 0 else goto 2435
-2435: do dec X goto 2436
-2436: if zero X then goto 0 else goto 2437
-2437: do dec X goto 2438
-2438: if zero X then goto 0 else goto 2439
-2439: do dec X goto 2440
-2440: if zero X then goto 2441 else goto 2442
-2441: do inc Y goto 0
-2442: do dec X goto 2443
-2443: if zero X then goto 0 else goto 2444
-2444: do dec X goto 2445
-2445: if zero X then goto 0 else goto 2446
-2446: do dec X goto 2447
-2447: if zero X then goto 0 else goto 2448
-2448: do dec X goto 2449
-2449: if zero X then goto 2450 else goto 2451
-2450: do inc Y goto 0
-2451: do dec X goto 2452
-2452: if zero X then goto 0 else goto 2453
-2453: do dec X goto 2454
-2454: if zero X then goto 0 else goto 2455
-2455: do dec X goto 2456
-2456: if zero X then goto 0 else goto 2457
-2457: do dec X goto 2458
-2458: if zero X then goto 2459 else goto 2460
-2459: do inc Y goto 0
-2460: do dec X goto 2461
-2461: if zero X then goto 0 else goto 2462
-2462: do dec X goto 2463
-2463: if zero X then goto 0 else goto 2464
-2464: do dec X goto 2465
-2465: if zero X then goto 0 else goto 2466
-2466: do dec X goto 2467
-2467: if zero X then goto 2468 else goto 2469
-2468: do inc Y goto 0
-2469: do dec X goto 2470
-2470: if zero X then goto 0 else goto 2471
-2471: do dec X goto 2472
-2472: if zero X then goto 0 else goto 2473
-2473: do dec X goto 2474
-2474: if zero X then goto 0 else goto 2475
-2475: do dec X goto 2476
-2476: if zero X then goto 2477 else goto 2478
-2477: do inc Y goto 0
-2478: do dec X goto 2479
-2479: if zero X then goto 0 else goto 2480
-2480: do dec X goto 1584
+// n % 400 == 381, n % 100 == 81, n % 4 == 1
+899: if zero X then goto 0 else goto 900
+900: do dec X goto 4
 }
