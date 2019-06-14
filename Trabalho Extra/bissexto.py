@@ -21,6 +21,6 @@ for i in range(400):
     else:
         file.write('{0}: if zero X then goto {1} else goto {2}\n'.format(k+i, 0, k+i+1))
         k += 1
-    file.write('{0}: do dec X goto {1}\n'.format(k+i, 4 if i == 399 else k+i+1))
+    file.write('{0}: do dec X goto {1}\n'.format(k+i, k if i == 399 else k+i+1))
 file.write('}')
 file.close()
