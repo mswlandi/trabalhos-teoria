@@ -1,0 +1,94 @@
+/// FUNÇÕES FORNECIDAS
+
+// limpa variável
+operation clear(A){
+1: if zero A then goto 0 else goto 2
+2: do dec A goto 1
+}
+
+// A:=A+B (soma não-destrutiva)
+operation addt(A,B,C){
+1: do clear(C) goto 2
+2: if zero B then goto 6 else goto 3
+3: do dec B goto 4
+4: do inc A goto 5
+5: do inc C goto 2
+6: if zero C then goto 0 else goto 7
+7: do dec C goto 8
+8: do inc B goto 6
+}
+
+// A:=B usando C (atribuição não-destrutiva)
+operation load(A,B,C){
+1: do clear(A) goto 2
+2: do addt(A,B,C) goto 0
+}
+
+/// FUNÇÕES CRIADAS
+
+// A:=A-B usando C (subtração não-destrutiva)
+operation subt(A,B,C){
+1: do clear(C) goto 2
+2: if zero B then goto 6 else goto 3
+3: do dec B goto 4
+4: do dec A goto 5
+5: do inc C goto 2
+6: if zero C then goto 0 else goto 7
+7: do dec C goto 8
+8: do inc B goto 6
+}
+
+// Testa se A maior que B usando C e D
+test maior(A,B,C,D){
+1: do load(C,A,D) goto 2
+2: do subt(C,B,D) goto 3
+3: if zero C then goto false else goto true
+}
+
+// A:=B%C usando D e E (operação módulo não-destrutiva)
+operation mod(A,B,C,D,E){
+1: do load(A,B,D) goto 2
+2: if maior(C,A,D,E) then goto 0 else goto 3
+3: do subt(A,C,D) goto 2
+}
+
+// A:=B*B usando C e D (operação de potenciação quadrada não-destrutiva)
+operation sqr(A,B,C,D){
+1: do load(C,B,D) goto 2
+2: do clear(A) goto 3
+3: if zero C then goto 0 else goto 4
+4: do addt(A,B,D) goto 5
+5: do dec C goto 3
+}
+
+// A:=\sqrt(B)/ usando C, D e E (operação de raiz quadrada (floor) não-destrutiva)
+operation floor_sqrt(A,B,C,D,E){
+1: do clear(A) goto 2
+2: do inc A goto 3
+3: do sqr(C,A,D,E) goto 4
+4: if maior(C,B,D,E) then goto 5 else goto 2
+5: do dec A goto 0
+}
+
+main{
+1: do load(VN, X, Lixo1) goto 2
+2: do floor_sqrt(VsqrtN, VN, Lixo1, Lixo2, Lixo3) goto 3
+3: do sqr(VsqrsqrtN, VsqrtN, Lixo1, Lixo2) goto 4
+4: do load(VNsubtsqrsqrtN, VN, Lixo1) goto 5
+5: do subt(VNsubtsqrsqrtN, VsqrsqrtN, Lixo1) goto 6
+6: if maior(VsqrtN, VNsubtsqrsqrtN, Lixo1, Lixo2) then goto 7 else goto 9
+7: do load(X1, VNsubtsqrsqrtN, Lixo1) goto 8
+8: do load(X2, VsqrtN, Lixo1) goto 15
+9: do load(VsqrsqrtNaddt2sqrtNsubtN, VsqrsqrtN, Lixo1) goto 10
+10: do addt(VsqrsqrtNaddt2sqrtNsubtN, VsqrtN, Lixo1) goto 11
+11: do addt(VsqrsqrtNaddt2sqrtNsubtN, VsqrtN, Lixo1) goto 12
+12: do subt(VsqrsqrtNaddt2sqrtNsubtN, VN, Lixo1) goto 13
+13: do load(X1, VsqrtN, Lixo1) goto 14
+14: do load(X2, VsqrsqrtNaddt2sqrtNsubtN, Lixo1) goto 15
+15: do mod(VmodX1X2, X1, X2, Lixo1, Lixo2) goto 16
+16: if zero VmodX1X2 then goto 0 else goto 17
+17: do inc Y goto 18
+18: do mod(VmodX2X1, X2, X1, Lixo1, Lixo2) goto 19
+19: do load(X2, X1, Lixo1) goto 20
+20: do load(X1, VmodX2X1, Lixo1) goto 15
+}
