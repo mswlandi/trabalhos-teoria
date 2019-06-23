@@ -14,10 +14,11 @@ Algoritmo:
 
 Marca # no final
 (seja w sempre a palavra antes de #)
-se w == ab ou a ou b, aceita, se não:
+enquanto w diferente de ab ou a ou b:
     para cada a:
         marca 1 no final
     para cada 1:
         trocar n-ésimo 1 por n-ésimo dígito de w (apagando de w)
     para cada digito depois de #:
-        comparar com últimos dígitos de w, apagando-os. (se forem diferentes, rejeita)
+        comparar com últimos dígitos de w, apagando os dígitos depois de #. (se forem diferentes, rejeita)
+aceita (se chegou aqui, falhou no teste do 'enquanto', ou seja, w == ab ou a ou b)
