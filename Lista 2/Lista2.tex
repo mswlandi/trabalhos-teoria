@@ -55,7 +55,7 @@
       \item Veja se alguma simulação parou. Se sim, exclua ela da lista de simulações existentes ($l$) e, se parou aceitando, incremente c.
       \item Verifique se $c = 20$. Se sim, pare aceitando $M$. Senão, incremente $t$ e volte ao passo 2.
     \end{enumerate}
-    \par Dessa maneira, a máquina $T$ sempre para para qualquer entrada $M$ tal que $|ACEITA(M)| \geq 20$, pois como essas palavras têm tamanho finito e a máquina $T$ verifica todas as palavras de tamanho finito como entrada para essas máquinas, então $T$ irá parar aceitando. Ademais, $T$ entra em loop sempre que receber uma máquina $M'$ tal que $|ACEITA(M') < 20$. Portanto, como $T$ é uma máquina que semi-decide o primeiro problema, então o primeiro problema é semi-decidível.
+    \par Dessa maneira, a máquina $T$ sempre para para qualquer entrada $M$ tal que $|ACEITA(M)| \geq 20$, pois como essas palavras têm tamanho finito e a máquina $T$ verifica todas as palavras de tamanho finito como entrada para essas máquinas, então $T$ irá parar aceitando. Ademais, $T$ entra em loop sempre que receber uma máquina $M'$ tal que $|ACEITA(M')| < 20$. Portanto, como $T$ é uma máquina que semi-decide o primeiro problema, então o primeiro problema é semi-decidível.
     \par Considerando que os problemas são exatamente o complemento um do outro, visto que, se, dada uma máquina de Turing $M$ tal que $|ACEITA(M)| < 20$, então $P_1(M) = false$ e $P_2(M) = true$. Já, se $|ACEITA(M)| \geq 20$, então $P_1(M) = true$ e $P_2(M) = false$.
     \par Assim sendo, como $P_1$ é indecidível e é semi-decidível, então $P_2$ deve ser completamente insolucionável, pois, se fosse semi-decidível, $P_1$ seria decidível, o que é falso pelo teorema de Rice.
   }
