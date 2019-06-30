@@ -1,0 +1,175 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{dsfont}
+\usepackage{esint}
+
+\setlength{\parindent}{2em}
+
+\begin{document}
+  \noindent
+  Universidade Federal do Rio Grande do Sul \hfill Instituto de Inform\'atica \newline
+  INF05501 -- Teoria da Computa\c{c}\~ao \hfill 2019/1 \newline
+  Frederico Messa Schwartzhaupt \hfill 00304244 \newline
+  Henry Bernardo Kochenborger de Avila \hfill 00301161 \newline
+  Marcos Samuel Winkel Landi \hfill 00304688
+  \rule{\linewidth}{1.pt}
+
+  \section*{\centering Lista de Exerc\'icios 2}
+
+  \subsection*{Quest\~ao 1: (2 pontos)} Exatamente um dos problemas abaixo \'e semi-decid\'ivel. Diga qual problema \'e$/$n\~ao \'e semi-decid\'ivel justificando sua resposta. \\
+    \begin{itemize}[label={}]
+      \item
+        \fbox
+        {
+          \parbox{\textwidth}
+          {
+            \textbf{Instância:} Uma m\'aquina de Turing $M$. \\
+            \textbf{Pergunta:} $ACEITA(M)$ cont\'em pelo menos 20 palavras? \\
+          }
+        }
+      \item
+        \fbox
+        {
+          \parbox{\textwidth}
+          {
+          \textbf{Instância:} Uma m\'aquina de Turing $M$.\\
+          \textbf{Pergunta:} $ACEITA(M)$ cont\'em menos do que 20 palavras? \\
+          }
+        }
+    \end{itemize}
+
+  {
+  \color{blue}
+    \par Usando o teorema de Rice, temos que, toda propriedade não-trivial sobre uma linguagem enumerável recursivamente é indecidível. Logo, é possível verificar que a propriedade sobre a linguagem do primeiro problema é ela conter pelo menos 20 palavras e ela é não-trivial - assim como a propriedade do segundo problema que, por sinal, é o complemento do primeiro.
+    \par De fato, é possível verificar que existem linguagens que não contém essa propriedade - a linguagem vazia, por exemplo - e existem linguagens que contém - a linguagem que contém todos os símbolos do sistema de numeração vigesimal.
+    \par Portanto, como a propriedade é não-trivial, então o problema é indecidível.
+    \par Visto isso, é possível que exista uma máquina de Turing $T$ que recebe uma máquina de Turing $M$ e realiza o seguinte processo:
+    \begin{enumerate}
+      \item Atribue a $c$ o valor $0$, a $t$ o valor $0$ e a $l$ a lista vazia.
+      \item Acrescente a $l$ simulações de $M$ com todas as palavras de tamanho $t$.
+      \item Avance um passo em todas simulações existentes.
+      \item Veja se alguma simulação parou. Se sim, exclua ela da lista de simulações existentes ($l$) e, se parou aceitando, incremente c.
+      \item Verifique se $c = 20$. Se sim, pare aceitando $M$. Senão, incremente $t$ e volte ao passo 2.
+    \end{enumerate}
+    \par Dessa maneira, a máquina $T$ sempre para para qualquer entrada $M$ tal que $|ACEITA(M)| \geq 20$, pois como essas palavras têm tamanho finito e a máquina $T$ verifica todas as palavras de tamanho finito como entrada para essas máquinas, então $T$ irá parar aceitando. Ademais, $T$ entra em loop sempre que receber uma máquina $M'$ tal que $|ACEITA(M') < 20$. Portanto, como $T$ é uma máquina que semi-decide o primeiro problema, então o primeiro problema é semi-decidível.
+    \par Considerando que os problemas são exatamente o complemento um do outro, visto que, se, dada uma máquina de Turing $M$ tal que $|ACEITA(M)| < 20$, então $P_1(M) = false$ e $P_2(M) = true$. Já, se $|ACEITA(M)| \geq 20$, então $P_1(M) = true$ e $P_2(M) = false$.
+    \par Assim sendo, como $P_1$ é indecidível e é semi-decidível, então $P_2$ deve ser completamente insolucionável, pois, se fosse semi-decidível, $P_1$ seria decidível, o que é falso pelo teorema de Rice.
+  }
+
+
+\subsection*{Questão 2: (2 pontos)} Para cada um dos problemas abaixo, diga se o problema é
+decidível ou não justificando sua resposta.
+\begin{itemize}[label={}]
+  \item
+    \fbox
+    {
+      \parbox{\textwidth}
+      {
+        \begin{itemize}
+          \item \textbf{(1 ponto)} PROBLEMA DA PARADA COM ESPAÇO QUADRÁTICO\\
+                \textbf{Instância:} Uma m\'aquina de Turing $M$ e uma palavra $w$. \\
+                \textbf{Pergunta:} $M$ para com entrada $w$ gastando não mais do que $|w|^2$ de espaço?
+        \end{itemize}
+      }
+    }
+  \item
+    \fbox
+    {
+      \parbox{\textwidth}
+      {
+        \begin{itemize}
+          \item \textbf{(1 ponto)} PROBLEMA DA EXPANSÃO DECIMAL DE $e$\\
+                \textbf{Instância:} Um número natural $n\geq1$ \\
+                \textbf{Pergunta:} Existe uma sequência contígua com pelo menos n 9’s na expansão decimal do número de Euler $e$?
+        \end{itemize}
+      }
+    }
+\end{itemize}
+
+{
+\color{blue}
+  \begin{itemize}
+    \item \textbf{Problema da parada com espaço quadrático:}
+      \par Se esse problema é decidível, então existe uma máquina de Turing $MT$ que recebe um par $(M, w)$, tal que $M$ é uma máquina de Turing e $w$ é uma palavra, e que nunca entra em loop - ou seja, devolve sim ou não para qualquer entrada.
+      \par Sendo assim, $MT$ pode ser dada por uma máquina de Turing com duas fitas que faz os seguintes processos:
+      \begin{enumerate}
+        \item Simula $M$ para a palavra $w$ na primeira fita, sendo que, a cada passo, verifica se o uso da fita ultrapassou $|w|^2$. Se sim, $MT$ rejeita a entrada. Senão, vai para o passo 2.
+        \item Verifica se $M$ parou (está em um estado final em $M$ ou rejeita por indefinição). Se sim, aceita a entrada. Senão, escreve a configuração atual da máquina (o estado em que se encontra, a fita 1 até $|w|^2$ e a posição atual da cabeça na fita 1) em alguma codificação na fita 2 e compara com as outras presentes na fita 2. Se existir uma outra configuração idêntica na fita 2, então significa que a máquina entrou em loop e a entrada é rejeitada. Senão, volta para o passo 1.
+      \end{enumerate}
+      \par Isso se dá porque a máquina é determinística, ou seja, dado um estado, uma fita de uma maneira específica e a cabeça numa certa posição, o próximo passo será sempre o mesmo. Dessa forma, como o número de estados é finito e o número de possíveis situações da fita também - visto que, se ultrapassar $|w|^2$ a máquina já para no passo 1 - então o número de combinações é finito e em algum momento a máquina irá parar ou terá chegado no número máximo de combinações de estado atual e fita, e irá gerar no próximo passo uma combinação que já está presente na fita 2, rejeitando a entrada.
+      \par Portanto, $MT$ decide o problema e o problema é decidível.
+    \item \textbf{Problema da expansão decimal de $e$:}
+      \par Uma das possibilidades para o conjunto de instâncias codificadas do problema é a linguagem $L = \{ 1^n|n\in\mathds{N}^*\}$. Dessa forma, suponha que o problema seja decidível. Assim sendo, existe uma máquina de Turing $M$ que recebe uma instância do problema da expansão decimal de $e$ e para para qualquer entrada. Considerando isso, existem duas possibilidades para $ACEITA(M)$:
+      \begin{itemize}
+        \item \textbf{$ACEITA(M)$ é finita:} dessa forma, é importante notar que, para qualquer linguagem finita, é possível criar uma máquina de Turing que verifica se a palavra de entrada é alguma palavra pertencente a essa linguagem. Assim sendo, o conjunto $A$, dado por todas as máquinas de Turing que contém alguma combinação finita $c$ dos números naturais como palavras pertencentes às linguagens de aceitação e $\forall w \in L, MT_c \in A| w \in ACEITA(MT_c) \iff w \in c$, com certeza contém a máquina $M$, pois a máquina $M$ nada mais é que uma máquina de Turing que verifica se a palavra de entrada é igual a alguma palavra de uma certa combinação de palavras (essas que são pertencentes a linguagem $L$). Portanto, $M$ existe e decide o problema da expansão decimal de $e$.
+        \item \textbf{$ACEITA(M)$ é infinita:} consequentemente, $ACEITA(M) = L$. Para isso, usarei uma prova por contradição.
+        \par Suponha que $ACEITA(M) \neq L$. Assim sendo, como $L = \{ 1^n|n\in\mathds{N}^*\}$, então deve existir uma palavra $w_n \in L$ que se refere a um número $n$ tal que $w_n \notin ACEITA(M)$. Dessa forma, como a sequência deve ser contígua, então $(\forall w_m \in L) \land (m \geq n) \implies w_m \notin ACEITA(M)$, pois, se $w_m \in ACEITA(M)$, então a "subsequência" de tamanho $n$ estaria contida na sequência de tamanho $m$, mas como $w_n \notin ACEITA(M)$, então essa afirmação é verdadeira. Contudo, se essa afirmação for verdadeira, então $ACEITA(M)$ deve ser finita, pois, para quaisquer dois números naturais $a$ e $b$ tal que $a \le b$, o conjunto formado por todos os números naturais $a$ e $b$ é necessariamente um conjunto finito. Contradição, pois a suposição inicial é que $ACEITA(M)$ é infinita. Logo, $ACEITA(M) = L$. Como $L$ é a linguagem que codifica os números naturais positivos, então é possível construir uma máquina de Turing $T$ que decide $L$ simplesmente verificando se a palavra de entrada é uma sequência de 1's. Por conseguinte, $M = T$ e o problema da expansão decimal de $e$ é decidível.
+      \end{itemize}
+      \par Como em todos os casos o problema é decidível, então o problema é decidível.
+  \end{itemize}
+}
+
+\subsection*{Questão 3: (2 pontos)} Prove que o problema descrito abaixo não é semi-decidível. Prove também que o $complemento$ do problema descrito abaixo não é semi-decidível.
+\begin{itemize}[label={}]
+  \item
+    \fbox
+    {
+      \parbox{\textwidth}
+      {
+        \begin{itemize}
+          \item PROBLEMA DAS LINGUAGENS DE ACEITAÇÃO IDÊNTICAS\\
+                \textbf{Instância:} Máquinas de Turing $M_1$ e $M_2$.\\
+                \textbf{Pergunta:} É verdade que $ACEITA(M_1) = ACEITA(M_2)$?
+        \end{itemize}
+      }
+    }
+\end{itemize}
+
+{
+\color{blue}
+  Para provar que esse problema não é semi-decidível, irei utilizar um corolário.
+  \begin{itemize}
+    \item \textbf{Corolário:} sejam $A$ e $B$ problemas de decisão. Se $A$ não é semi-decidível e existe uma redução $r: A \to B$, então $B$ não é semi-decidível.
+    \par Prova por contradição: \\
+    Se $A$ não é semi-decidível, existe uma redução $r: A \to B$ e $B$ é semi-decidível, então é possível utilizar, para qualquer instância de $a$ de $A$, $M_B(r(a))$ - tal que $M_B$ é a máquina de Turing que semi-decide $B$ - para semi-decidir $A$. Dessa forma, $A$ é semi-decidível. Contradição!
+  \end{itemize}
+  Assim sendo, levando em consideração que esse problema ($PA-IGUAL$) é indecidível (de acordo com o slide 384). Então só existem três possibilidades:
+  \begin{itemize}
+    \item $PA-IGUAL$ é semi-decidível e $\overline{PA-IGUAL}$ não é semi-decidível.
+    \item $\overline{PA-IGUAL}$ é semi-decidível e ${PA-IGUAL}$ não é semi-decidível.
+    \item $PA-IGUAL$ não é semi-decidível e $\overline{PA-IGUAL}$ não é semi-decidível.
+  \end{itemize}
+  Portanto, se existe uma redução $r:PA-IGUAL \to \overline{PA-IGUAL}$ e existe uma redução $t:\overline{PA-IGUAL} \to PA-IGUAL$, então ambos problemas não são semi-decidíveis, pois os dois primeiros casos implicam no terceiro caso.
+  \par Dessa forma, seja $(M,M')$ uma instância de $PA-IGUAL$, então $r((M,M')) = ()$
+
+}
+
+\subsection*{Questão 4: (2 pontos)} Seja $M = (\Sigma, Q, \Pi, q_0, F, V, \beta, \copyright)$ uma máquina de Turing. Dizemos que uma transição de M é \textit{corretiva} se tal transição faz com que M escreva na fita seu símbolo de espaço em branco $\beta$ por cima de qualquer símbolo que seja diferente de $\beta$. Por exemplo, sejam $q, q' \in Q$ e $a \in \Sigma$. Suponha que $\Pi(q, a) = (q', \beta, D)$. Como $a \neq \beta$ (pois, por definição, $\beta \notin \Sigma$), então a transição de $M$ descrita por $\Pi(q, a)$ é uma transição corretiva, visto que tal transição ordena que M escreva o símbolo de espaço em branco $\beta$ em cima de um símbolo diferente de $\beta$ (nesse caso $a$).
+\par Mostre que, para \textit{toda} máquina de Turing $M$, existe uma máquina de Turing $M'$ \textit{equivalente} a $M$ (veja no final do enunciado desta questão o conceito de máquinas de Turing equivalentes) \textit{sem transições corretivas}. Em outras palavras, esta questão, essencialmente, pede que você prove que "proibir" transições corretivas em máquinas de Turing não implica na diminuição do seu poder computacional.
+
+{
+\color{blue}
+  \par É simples fazer a contrução de $M'$, pois basta acrescentar uma letra $a$ que não pertence a $\Sigma \cup V$ ao alfabeto auxiliar e, nas transições corretivas, trocar o símbolo de espaço em branco por essa letra. Ademais, para toda transição $t$ que existir em $M$ e leia da fita o símbolo do espaço em branco, acrescente uma transição $t'$ que faça exatamente a mesma coisa (saia do mesmo estado que a transição que lê o espaço em branco sai e vai para o mesmo estado que a transição que lê o espaço em branco vai) só que lê da fita $a$ e, se $t$ escreve o espaço em branco em cima do espaço em branco lido, então $t'$ escreve $a$ em cima do $a$ lido. Assim sendo, é acrescentado outro símbolo que é equivalente ao símbolo de espaço em branco, mas não é ele, e todas as transições corretivas são retiradas.
+  \par Dessa forma, é possível verificar que para qualquer $M$, existe uma $M'$ equivalente, pois as transições corretivas foram trocadas por outras transições equivalentes quanto ao reconhecimento de linguagens. E como a máquina de Turing é, essencialmente, um reconhecedor de linguagens, então essa equivalência computacional é válida.
+  \par Já, para computação de funções, seria necessário modificar como as funções são computadas, sendo que a função que a apaga da fita os espaços vazios também iria apagar da fita esse símbolo extra acrescentado.
+}
+
+\subsection*{Questão 5: (2 pontos)} Prove que se uma função total $\fint : \mathds{N} \to \mathds{N}$ é bijetora e Turing computável (isto é, pode ser computada por uma máquina de Turing), então $\fint^{-1}$ (isto é, a inversa de $\fint$) é total e Turing-computável.
+
+{
+\color{blue}
+  \par Suponha que $\fint : \mathds{N} \to \mathds{N}$ é uma função total, bijetora e Turing computável. Logo, como é total, então ela também é Turing decidível, pois, para toda entrada, existirá uma saída. Ou seja, $LOOP(M)$, tal que $M$ é a máquina de Turing que computa essa função, é a linguagem vazia.
+  \par Assim sendo, é possível definir $\fint^{-1} : \mathds{N} \to \mathds{N}$ por uma máquina de Turing que recebe um número natural e testa todas as entradas possíveis para $\fint$, iniciando em 0, verificando se a saída de $\fint$ é igual ao número natural dado como entrada. Se for, devolve a entrada dada pra $\fint$ nessa iteração. Senão, incrementa a entrada de $\fint$ e realiza o teste novamente. Dessa forma, $\fint^{-1}$ é Turing computável.
+  \par Já para verificar que $\fint^{-1}$ é total, irei provar que para qualquer função total bijetora $\delta: A \to B$, existe uma função inversa $\delta^{-1}: B \to A$ tal que $\delta^{-1}$ é total. Para isso, segue uma prova por contradição.
+  \begin{itemize}
+    \item Suponha que $\delta^{-1}$ seja a inversa de $\delta$ e não é total. Logo, $\exists b \in B, \forall a \in A | \delta^{-1}(b) \neq a$. Agora, como $\delta$ é bijetora, então $\exists c \in A | \delta(c) = b$. Assim sendo, como $\forall a \in A, \delta^{-1}(\delta(a))=a$ - visto que $\delta^{-1}$ é a inversa de $\delta$ -, então $\delta^{-1}(\delta(c))=c=\delta^{-1}(b)$. Contradição, pois $\forall a \in A | \delta^{-1}(b) \neq a$. Logo, $\delta^{-1}$ é total.
+  \end{itemize}
+  Dessa forma, $\fint^{-1}$ também é total.
+}
+
+
+\end{document}
