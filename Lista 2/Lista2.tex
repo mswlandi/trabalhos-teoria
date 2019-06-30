@@ -166,7 +166,7 @@ decidível ou não justificando sua resposta.
   \par Assim sendo, é possível definir $\fint^{-1} : \mathds{N} \to \mathds{N}$ por uma máquina de Turing que recebe um número natural e testa todas as entradas possíveis para $\fint$, iniciando em 0, verificando se a saída de $\fint$ é igual ao número natural dado como entrada. Se for, devolve a entrada dada pra $\fint$ nessa iteração. Senão, incrementa a entrada de $\fint$ e realiza o teste novamente. Dessa forma, $\fint^{-1}$ é Turing computável.
   \par Já para verificar que $\fint^{-1}$ é total, irei provar que para qualquer função total bijetora $\delta: A \to B$, existe uma função inversa $\delta^{-1}: B \to A$ tal que $\delta^{-1}$ é total. Para isso, segue uma prova por contradição.
   \begin{itemize}
-    \item Suponha que $\delta^{-1}$ não é total. Logo, $\exists b \in B, \forall a \in A | \delta^{-1}(b) \neq a$. Agora, como $\delta$ é bijetora, então $\exists c \in A | \delta(c) = b$. Assim sendo, como $\forall a \in A, \delta^{-1}(\delta(a))=a$ - visto que $\delta^{-1}$ é a inversa de $\delta$ -, então $\delta^{-1}(\delta(c))=c=\delta^{-1}(b)$. Contradição, pois $\forall a \in A | \delta^{-1}(b) \neq a$. Logo, $\delta^{-1}$ é total.
+    \item Suponha que $\delta^{-1}$ não seja total. Logo, $\exists b \in B, \forall a \in A | \delta^{-1}(b) \neq a$. Agora, como $\delta$ é bijetora, então $\exists c \in A | \delta(c) = b$. Assim sendo, como $\forall a \in A, \delta^{-1}(\delta(a))=a$ - visto que $\delta^{-1}$ é a inversa de $\delta$ -, então $\delta^{-1}(\delta(c))=c=\delta^{-1}(b)$. Contradição, pois $\forall a \in A | \delta^{-1}(b) \neq a$. Logo, $\delta^{-1}$ é total.
   \end{itemize}
   Dessa forma, $\fint^{-1}$ também é total.
 }
