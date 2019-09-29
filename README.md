@@ -1,2 +1,2 @@
 # Trabalhos de Teoria
-Aí gurizada, esse é o repo com os nossos trabalhos de teoria.
+Repositório com todos os trabalhos realizados na cadeira de Teoria da Computação (UFRGS 2019/1)
